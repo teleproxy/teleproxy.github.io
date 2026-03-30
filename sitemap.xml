@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://teleproxy.github.io/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/changelog/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/changelog/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/comparison/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/comparison/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/testing/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/testing/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/testing/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/testing/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/testing/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/deployment/ipv6/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/ipv6/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/deployment/systemd/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/systemd/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/docker/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/docker/configuration/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/configuration/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/docker/monitoring/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/monitoring/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/features/access-control/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/access-control/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/features/direct-mode/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/direct-mode/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/features/fake-tls/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/fake-tls/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/features/monitoring/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/monitoring/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/features/secrets/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/secrets/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/getting-started/installation/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/getting-started/installation/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/getting-started/quickstart/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/getting-started/quickstart/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/changelog/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/changelog/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/comparison/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/comparison/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/testing/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/testing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/testing/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/testing/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/testing/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/deployment/ipv6/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/ipv6/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/deployment/systemd/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/systemd/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/docker/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/docker/configuration/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/configuration/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/docker/monitoring/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/monitoring/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/features/access-control/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/access-control/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/features/direct-mode/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/direct-mode/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/features/fake-tls/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/fake-tls/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/features/monitoring/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/monitoring/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/features/secrets/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/secrets/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/getting-started/installation/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/getting-started/installation/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/getting-started/quickstart/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/getting-started/quickstart/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/changelog/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/changelog/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/comparison/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/comparison/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/testing/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/testing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/testing/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/testing/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/testing/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/deployment/ipv6/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/ipv6/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/deployment/systemd/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/systemd/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/docker/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/docker/configuration/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/configuration/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/docker/monitoring/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/monitoring/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/features/access-control/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/access-control/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/features/direct-mode/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/direct-mode/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/features/fake-tls/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/fake-tls/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/features/monitoring/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/monitoring/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/features/secrets/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/secrets/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/getting-started/installation/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/getting-started/installation/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/fa/getting-started/quickstart/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/getting-started/quickstart/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/changelog/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/changelog/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/comparison/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/comparison/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/comparison/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/testing/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/testing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/testing/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/testing/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/testing/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/deployment/ipv6/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/ipv6/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/ipv6/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/deployment/systemd/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/systemd/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/systemd/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/docker/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/docker/configuration/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/configuration/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/docker/monitoring/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/docker/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/docker/monitoring/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/features/access-control/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/access-control/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/access-control/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/features/direct-mode/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/direct-mode/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/direct-mode/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/features/fake-tls/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/fake-tls/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/fake-tls/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/features/monitoring/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/monitoring/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/monitoring/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/features/secrets/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/secrets/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/secrets/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/getting-started/installation/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/getting-started/installation/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/getting-started/installation/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/getting-started/quickstart/</loc>
+        <lastmod>2026-03-30</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/getting-started/quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/getting-started/quickstart/"/>
+    </url>
+</urlset>
