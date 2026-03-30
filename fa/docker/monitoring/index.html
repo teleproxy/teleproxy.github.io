@@ -1325,7 +1325,7 @@
 <h2 id="prometheus-metrics">Prometheus Metrics<a class="headerlink" href="#prometheus-metrics" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>http://localhost:8888/metrics
 </code></pre></div>
-<p>Returns metrics in Prometheus exposition format. Available on the <code>--http-stats</code> port, restricted to private networks (127.0.0.0/8, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).</p>
+<p>Returns metrics in Prometheus exposition format. Available on the <code>--http-stats</code> port, restricted to private networks (127.0.0.0/8, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16). Set <code>STATS_ALLOW_NET</code> to extend access to additional CIDR ranges (e.g. Tailscale, WireGuard).</p>
 <p>Includes per-secret connection metrics when secret labels are configured. See <a href="../../features/secrets/">Secrets &amp; Limits</a> for label configuration.</p>
 <h2 id="health-check">Health Check<a class="headerlink" href="#health-check" title="Permanent link">&para;</a></h2>
 <p>Docker containers include built-in health monitoring via the stats endpoint. Check container health with:</p>

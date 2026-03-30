@@ -1029,6 +1029,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="HTTP Stats Endpoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-network-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Network Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1273,6 +1290,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="HTTP Stats Endpoint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-network-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom Network Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1322,14 +1356,19 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>http://localhost:8888/stats
 </code></pre></div>
 <p>Requires <code>--http-stats</code> flag. Accessible from private networks only (loopback, <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>).</p>
+<h3 id="custom-network-access">Custom Network Access<a class="headerlink" href="#custom-network-access" title="Permanent link">&para;</a></h3>
+<p>To allow access from overlay/VPN networks (Tailscale, WireGuard, Netbird), use <code>--stats-allow-net</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>--stats-allow-net<span class="w"> </span><span class="m">100</span>.64.0.0/10<span class="w"> </span>--stats-allow-net<span class="w"> </span>fd00::/8
+</code></pre></div>
+<p>Repeatable — specify multiple times for multiple ranges. Both IPv4 and IPv6 CIDR notation supported.</p>
 <h2 id="prometheus-metrics">Prometheus Metrics<a class="headerlink" href="#prometheus-metrics" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>http://localhost:8888/metrics
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>http://localhost:8888/metrics
 </code></pre></div>
 <p>Returns Prometheus exposition format on the same stats port. Includes per-secret metrics when labels are configured.</p>
 <p>Available metrics include connection counts, per-secret connections, rejection counts, and IP ACL rejections.</p>
 <h2 id="health-checks">Health Checks<a class="headerlink" href="#health-checks" title="Permanent link">&para;</a></h2>
 <p>Docker containers include built-in health monitoring via the stats endpoint. Check with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># STATUS column shows health</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># STATUS column shows health</span>
 </code></pre></div>
 
 
