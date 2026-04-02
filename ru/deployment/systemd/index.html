@@ -1113,6 +1113,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1124,10 +1135,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ipv6-example" class="md-nav__link">
+  <a href="#reloading" class="md-nav__link">
     <span class="md-ellipsis">
       
-        IPv6 Example
+        Reloading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-cli-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Legacy (CLI-only)
       
     </span>
   </a>
@@ -1270,6 +1292,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#config-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Config File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setup" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1281,10 +1314,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ipv6-example" class="md-nav__link">
+  <a href="#reloading" class="md-nav__link">
     <span class="md-ellipsis">
       
-        IPv6 Example
+        Reloading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#legacy-cli-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Legacy (CLI-only)
       
     </span>
   </a>
@@ -1312,40 +1356,57 @@
 
 
 <h1 id="systemd">Systemd<a class="headerlink" href="#systemd" title="Permanent link">&para;</a></h1>
+<p>The recommended way to set up systemd is via the <a href="../../getting-started/installation/#one-liner-install-recommended">install script</a>, which creates the service, config file, and user automatically.</p>
+<p>The sections below are for manual setup or reference.</p>
 <h2 id="service-file">Service File<a class="headerlink" href="#service-file" title="Permanent link">&para;</a></h2>
 <p>Create <code>/etc/systemd/system/teleproxy.service</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[Unit]</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">Description</span><span class="o">=</span><span class="s">Teleproxy</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">[Service]</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/opt/teleproxy</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="na">ExecStart</span><span class="o">=</span><span class="s">/opt/teleproxy/teleproxy -u nobody -p 8888 -H 443 -S &lt;secret&gt; --http-stats -P &lt;proxy tag&gt; --aes-pwd proxy-secret proxy-multi.conf -M 1</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="na">Restart</span><span class="o">=</span><span class="s">on-failure</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="k">[Install]</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">Description</span><span class="o">=</span><span class="s">Teleproxy MTProto Proxy</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">After</span><span class="o">=</span><span class="s">network-online.target</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">Wants</span><span class="o">=</span><span class="s">network-online.target</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">[Service]</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="na">User</span><span class="o">=</span><span class="s">teleproxy</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/teleproxy --config /etc/teleproxy/config.toml -p 8888</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -HUP $MAINPID</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="na">Restart</span><span class="o">=</span><span class="s">on-failure</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="na">RestartSec</span><span class="o">=</span><span class="s">5</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="na">LimitNOFILE</span><span class="o">=</span><span class="s">65536</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="na">AmbientCapabilities</span><span class="o">=</span><span class="s">CAP_NET_BIND_SERVICE</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="na">NoNewPrivileges</span><span class="o">=</span><span class="s">true</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="na">ProtectSystem</span><span class="o">=</span><span class="s">strict</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="na">ProtectHome</span><span class="o">=</span><span class="s">true</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="na">ReadWritePaths</span><span class="o">=</span><span class="s">/etc/teleproxy</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="k">[Install]</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
 </code></pre></div>
+<h2 id="config-file">Config File<a class="headerlink" href="#config-file" title="Permanent link">&para;</a></h2>
+<p>Create <code>/etc/teleproxy/config.toml</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">443</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">http_stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">direct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">workers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">[[secret]]</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;your-32-hex-digit-secret-here&quot;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
+</code></pre></div>
+<p>Generate a secret with <code>teleproxy generate-secret</code>.</p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>systemctl<span class="w"> </span>daemon-reload
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>systemctl<span class="w"> </span>restart<span class="w"> </span>teleproxy.service
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>systemctl<span class="w"> </span>status<span class="w"> </span>teleproxy.service
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>teleproxy.service
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>systemctl<span class="w"> </span>daemon-reload
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>teleproxy
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>systemctl<span class="w"> </span>status<span class="w"> </span>teleproxy
 </code></pre></div>
-<h2 id="ipv6-example">IPv6 Example<a class="headerlink" href="#ipv6-example" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">[Unit]</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">Description</span><span class="o">=</span><span class="s">Teleproxy (IPv6)</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">[Service]</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="na">WorkingDirectory</span><span class="o">=</span><span class="s">/opt/teleproxy</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="na">ExecStart</span><span class="o">=</span><span class="s">/opt/teleproxy/teleproxy -6 -u nobody -p 8888 -H 443 -S &lt;secret&gt; --http-stats -P &lt;proxy tag&gt; --aes-pwd proxy-secret proxy-multi.conf -M 1</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="na">Restart</span><span class="o">=</span><span class="s">on-failure</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">[Install]</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+<h2 id="reloading">Reloading<a class="headerlink" href="#reloading" title="Permanent link">&para;</a></h2>
+<p>Edit the config file and reload without dropping connections:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>teleproxy
+</code></pre></div>
+<p>This sends SIGHUP, which reloads secrets and IP ACLs from the config file.</p>
+<h2 id="legacy-cli-only">Legacy (CLI-only)<a class="headerlink" href="#legacy-cli-only" title="Permanent link">&para;</a></h2>
+<p>If not using a config file, pass flags directly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="na">ExecStart</span><span class="o">=</span><span class="s">/usr/local/bin/teleproxy -S &lt;secret&gt; -H 443 -p 8888 --http-stats --direct</span>
 </code></pre></div>
 
 
