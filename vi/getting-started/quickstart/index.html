@@ -1411,7 +1411,7 @@
 </code></pre></div>
 <h2 id="3-generate-a-client-secret">3. Generate a client secret<a class="headerlink" href="#3-generate-a-client-secret" title="Permanent link">&para;</a></h2>
 <p>Clients will use this secret to connect through your proxy:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>head<span class="w"> </span>-c<span class="w"> </span><span class="m">16</span><span class="w"> </span>/dev/urandom<span class="w"> </span><span class="p">|</span><span class="w"> </span>xxd<span class="w"> </span>-ps
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./teleproxy<span class="w"> </span>generate-secret
 </code></pre></div>
 <p>Save the output — you'll need it for the next step and for the connection link.</p>
 <h2 id="4-run-teleproxy">4. Run Teleproxy<a class="headerlink" href="#4-run-teleproxy" title="Permanent link">&para;</a></h2>
