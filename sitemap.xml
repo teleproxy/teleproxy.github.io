@@ -118,6 +118,15 @@
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/fake-tls/"/>
     </url>
     <url>
+        <loc>https://teleproxy.github.io/features/link/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/link/"/>
+    </url>
+    <url>
         <loc>https://teleproxy.github.io/features/monitoring/</loc>
         <lastmod>2026-04-03</lastmod>
         <changefreq>daily</changefreq>
@@ -269,6 +278,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/fake-tls/"/>
         <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/fake-tls/"/>
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/fake-tls/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/features/link/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/link/"/>
     </url>
     <url>
         <loc>https://teleproxy.github.io/ru/features/monitoring/</loc>
@@ -424,6 +442,15 @@
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/fake-tls/"/>
     </url>
     <url>
+        <loc>https://teleproxy.github.io/fa/features/link/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/link/"/>
+    </url>
+    <url>
         <loc>https://teleproxy.github.io/fa/features/monitoring/</loc>
         <lastmod>2026-04-03</lastmod>
         <changefreq>daily</changefreq>
@@ -575,6 +602,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/fake-tls/"/>
         <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/fake-tls/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/fake-tls/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/features/link/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/link/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/link/"/>
     </url>
     <url>
         <loc>https://teleproxy.github.io/vi/features/monitoring/</loc>
