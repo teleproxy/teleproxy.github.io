@@ -653,6 +653,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="One-Liner Install (Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Secrets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1334,6 +1351,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="One-Liner Install (Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Secrets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1397,26 +1431,43 @@
 <p>Customize with environment variables:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">PORT</span><span class="o">=</span><span class="m">8443</span><span class="w"> </span><span class="nv">EE_DOMAIN</span><span class="o">=</span>www.google.com<span class="w"> </span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
+<h3 id="multiple-secrets">Multiple Secrets<a class="headerlink" href="#multiple-secrets" title="Permanent link">&para;</a></h3>
+<p>Auto-generate several secrets at once:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">SECRET_COUNT</span><span class="o">=</span><span class="m">3</span><span class="w"> </span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+<p>Or pass your own as a comma-separated list:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">SECRET</span><span class="o">=</span>aabbccdd11223344aabbccdd11223344,eeff00112233445566778899aabbccdd<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+<p>Numbered secrets with labels and per-secret connection limits:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nv">SECRET_1</span><span class="o">=</span>aabbccdd11223344aabbccdd11223344<span class="w"> </span><span class="nv">SECRET_LABEL_1</span><span class="o">=</span>family<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">SECRET_2</span><span class="o">=</span>eeff00112233445566778899aabbccdd<span class="w"> </span><span class="nv">SECRET_LABEL_2</span><span class="o">=</span>work<span class="w"> </span><span class="nv">SECRET_LIMIT_2</span><span class="o">=</span><span class="m">500</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+<p>Each secret gets its own QR code and connection link at the end of installation. You can also add or remove secrets later by editing the config and reloading:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nano<span class="w"> </span>/etc/teleproxy/config.toml
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>teleproxy
+</code></pre></div>
 <p>After installation, manage with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>teleproxy<span class="w">       </span><span class="c1"># check status</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>teleproxy<span class="w">       </span><span class="c1"># reload config after editing</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>nano<span class="w"> </span>/etc/teleproxy/config.toml<span class="w">  </span><span class="c1"># edit config (secrets, ports, etc.)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>teleproxy<span class="w">       </span><span class="c1"># check status</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>teleproxy<span class="w">       </span><span class="c1"># reload config after editing</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>nano<span class="w"> </span>/etc/teleproxy/config.toml<span class="w">  </span><span class="c1"># edit config (secrets, ports, etc.)</span>
 </code></pre></div>
 <p>To uninstall:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s<span class="w"> </span>--<span class="w"> </span>--uninstall
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s<span class="w"> </span>--<span class="w"> </span>--uninstall
 </code></pre></div>
 <h2 id="static-binary-any-linux">Static Binary (Any Linux)<a class="headerlink" href="#static-binary-any-linux" title="Permanent link">&para;</a></h2>
 <p>Pre-built static binaries are published with every release — statically linked against musl libc, zero runtime dependencies. Download and run.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">amd64</label><label for="__tabbed_1_2">arm64</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>-Lo<span class="w"> </span>teleproxy<span class="w"> </span>https://github.com/teleproxy/teleproxy/releases/latest/download/teleproxy-linux-amd64
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>teleproxy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>-Lo<span class="w"> </span>teleproxy<span class="w"> </span>https://github.com/teleproxy/teleproxy/releases/latest/download/teleproxy-linux-amd64
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>teleproxy
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>-Lo<span class="w"> </span>teleproxy<span class="w"> </span>https://github.com/teleproxy/teleproxy/releases/latest/download/teleproxy-linux-arm64
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>teleproxy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span>-Lo<span class="w"> </span>teleproxy<span class="w"> </span>https://github.com/teleproxy/teleproxy/releases/latest/download/teleproxy-linux-arm64
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>teleproxy
 </code></pre></div>
 </div>
 </div>
@@ -1429,25 +1480,25 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Debian / Ubuntu</label><label for="__tabbed_2_2">CentOS / RHEL</label><label for="__tabbed_2_3">macOS (development)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>curl<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev<span class="w"> </span>zlib1g-dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>curl<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev<span class="w"> </span>zlib1g-dev
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>yum<span class="w"> </span>groupinstall<span class="w"> </span><span class="s2">&quot;Development Tools&quot;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>yum<span class="w"> </span>install<span class="w"> </span>openssl-devel<span class="w"> </span>zlib-devel
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>yum<span class="w"> </span>groupinstall<span class="w"> </span><span class="s2">&quot;Development Tools&quot;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>yum<span class="w"> </span>install<span class="w"> </span>openssl-devel<span class="w"> </span>zlib-devel
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>brew<span class="w"> </span>install<span class="w"> </span>epoll-shim<span class="w"> </span>openssl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>brew<span class="w"> </span>install<span class="w"> </span>epoll-shim<span class="w"> </span>openssl
 </code></pre></div>
 <p>macOS builds use <a href="https://github.com/jiixyj/epoll-shim">epoll-shim</a> to wrap kqueue behind the Linux epoll API, and Homebrew OpenSSL (keg-only). This is intended for local development — production deployments should use Linux.</p>
 </div>
 </div>
 </div>
 <p>Clone and build:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/teleproxy/teleproxy
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">cd</span><span class="w"> </span>teleproxy
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>make
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/teleproxy/teleproxy
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">cd</span><span class="w"> </span>teleproxy
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>make
 </code></pre></div>
 <p>The compiled binary will be at <code>objs/bin/teleproxy</code>.</p>
 <div class="admonition note">
