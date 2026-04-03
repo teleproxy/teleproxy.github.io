@@ -109,6 +109,15 @@
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/direct-mode/"/>
     </url>
     <url>
+        <loc>https://teleproxy.github.io/features/dpi-resistance/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/dpi-resistance/"/>
+    </url>
+    <url>
         <loc>https://teleproxy.github.io/features/fake-tls/</loc>
         <lastmod>2026-04-03</lastmod>
         <changefreq>daily</changefreq>
@@ -269,6 +278,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/direct-mode/"/>
         <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/direct-mode/"/>
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/direct-mode/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/features/dpi-resistance/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/dpi-resistance/"/>
     </url>
     <url>
         <loc>https://teleproxy.github.io/ru/features/fake-tls/</loc>
@@ -433,6 +451,15 @@
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/direct-mode/"/>
     </url>
     <url>
+        <loc>https://teleproxy.github.io/fa/features/dpi-resistance/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/dpi-resistance/"/>
+    </url>
+    <url>
         <loc>https://teleproxy.github.io/fa/features/fake-tls/</loc>
         <lastmod>2026-04-03</lastmod>
         <changefreq>daily</changefreq>
@@ -593,6 +620,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/direct-mode/"/>
         <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/direct-mode/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/direct-mode/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/features/dpi-resistance/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/dpi-resistance/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/dpi-resistance/"/>
     </url>
     <url>
         <loc>https://teleproxy.github.io/vi/features/fake-tls/</loc>

@@ -349,7 +349,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../features/fake-tls/" class="md-tabs__link">
+        <a href="../features/dpi-resistance/" class="md-tabs__link">
           
   
   
@@ -836,6 +836,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../features/dpi-resistance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chống DPI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../features/fake-tls/" class="md-nav__link">
         
   
@@ -1241,6 +1269,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#460" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#450" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1352,6 +1391,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#460" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#450" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1449,6 +1499,20 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="460">4.6.0<a class="headerlink" href="#460" title="Permanent link">&para;</a></h2>
+<p>DPI resistance and operational improvements.</p>
+<ul>
+<li><strong>ServerHello size variation</strong> widened from ±1 to ±32 bytes, mimicking the natural variation in certificate chain and session ticket sizes seen from real TLS servers</li>
+<li><strong>ServerHello fragmentation</strong>: ServerHello and CCS+AppData are now sent as separate TCP segments, defeating DPI that pattern-matches the full handshake response in a single packet</li>
+<li>Docker healthcheck respects custom <code>STATS_PORT</code> — previously hardcoded to 8888, now uses <code>${STATS_PORT:-8888}</code> (<a href="https://github.com/teleproxy/teleproxy/issues/38">#38</a>)</li>
+<li><code>install.sh</code> supports multiple secrets via comma-separated <code>SECRET</code> or numbered <code>SECRET_N</code> variables</li>
+<li><code>/link</code> endpoint serves connection links as HTML pages with scannable QR codes</li>
+</ul>
+<p>New documentation: <a href="../features/dpi-resistance/">DPI Resistance</a> — covers server-side mitigations, recommended setup, and client-side bypass tools.</p>
+<div class="admonition note">
+<p class="admonition-title">Client-side detection</p>
+<p>The primary detection vector for MTProxy fake-TLS in Russia is the <strong>Telegram client's TLS fingerprint</strong>, which cannot be fixed server-side. Telegram Desktop <a href="https://github.com/telegramdesktop/tdesktop/pull/30513">fixed several fingerprint artifacts</a>; keep clients updated. For affected networks, client-side bypass tools like <a href="https://github.com/bol-van/zapret">zapret</a> and <a href="https://github.com/ValdikSS/GoodbyeDPI">GoodbyeDPI</a> can help.</p>
+</div>
 <h2 id="450">4.5.0<a class="headerlink" href="#450" title="Permanent link">&para;</a></h2>
 <p>QR codes for connection links.</p>
 <ul>
