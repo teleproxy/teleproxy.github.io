@@ -10,23 +10,23 @@
       
       
       
-        <link rel="canonical" href="https://teleproxy.github.io/getting-started/quickstart/">
+        <link rel="canonical" href="https://teleproxy.github.io/features/diagnostics/">
       
       
-        <link rel="prev" href="../installation/">
+        <link rel="prev" href="../monitoring/">
       
       
-        <link rel="next" href="../../docker/">
+        <link rel="next" href="../../deployment/systemd/">
       
       
         
           <link rel="alternate" href="./" hreflang="en">
         
-          <link rel="alternate" href="../../ru/getting-started/quickstart/" hreflang="ru">
+          <link rel="alternate" href="../../ru/features/diagnostics/" hreflang="ru">
         
-          <link rel="alternate" href="../../fa/getting-started/quickstart/" hreflang="fa">
+          <link rel="alternate" href="../../fa/features/diagnostics/" hreflang="fa">
         
-          <link rel="alternate" href="../../vi/getting-started/quickstart/" hreflang="vi">
+          <link rel="alternate" href="../../vi/features/diagnostics/" hreflang="vi">
         
       
       
@@ -35,7 +35,7 @@
     
     
       
-        <title>Quick Start - Teleproxy</title>
+        <title>Diagnostics - Teleproxy</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quick-start" class="md-skip">
+        <a href="#diagnostics" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Quick Start
+              Diagnostics
             
           </span>
         </div>
@@ -173,19 +173,19 @@
           </li>
         
           <li class="md-select__item">
-            <a href="../../ru/getting-started/quickstart/" hreflang="ru" class="md-select__link">
+            <a href="../../ru/features/diagnostics/" hreflang="ru" class="md-select__link">
               Русский
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../fa/getting-started/quickstart/" hreflang="fa" class="md-select__link">
+            <a href="../../fa/features/diagnostics/" hreflang="fa" class="md-select__link">
               فارسی
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../vi/getting-started/quickstart/" hreflang="vi" class="md-select__link">
+            <a href="../../vi/features/diagnostics/" hreflang="vi" class="md-select__link">
               Tiếng Việt
             </a>
           </li>
@@ -307,13 +307,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../installation/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
           
   
   
@@ -349,11 +347,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../features/fake-tls/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../fake-tls/" class="md-tabs__link">
           
   
   
@@ -525,31 +525,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -567,7 +562,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -585,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -610,37 +605,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Start
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -656,103 +624,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-download-the-proxy-secret" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Download the proxy secret
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-download-the-dc-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Download the DC configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-generate-a-client-secret" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Generate a client secret
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-run-teleproxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Run Teleproxy
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-share-the-connection-link" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Share the connection link
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-register-with-telegram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Register with Telegram
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#or-just-use-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Or just use Docker
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -912,26 +783,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -949,7 +825,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -967,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/fake-tls/" class="md-nav__link">
+      <a href="../fake-tls/" class="md-nav__link">
         
   
   
@@ -995,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/direct-mode/" class="md-nav__link">
+      <a href="../direct-mode/" class="md-nav__link">
         
   
   
@@ -1023,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/access-control/" class="md-nav__link">
+      <a href="../access-control/" class="md-nav__link">
         
   
   
@@ -1051,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/secrets/" class="md-nav__link">
+      <a href="../secrets/" class="md-nav__link">
         
   
   
@@ -1079,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/monitoring/" class="md-nav__link">
+      <a href="../monitoring/" class="md-nav__link">
         
   
   
@@ -1104,10 +980,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../features/diagnostics/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagnostics
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1123,6 +1026,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What It Checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit Codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sni-mismatch-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNI Mismatch Warning
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1331,10 +1309,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-download-the-proxy-secret" class="md-nav__link">
+  <a href="#what-it-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Download the proxy secret
+        What It Checks
       
     </span>
   </a>
@@ -1342,10 +1320,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-download-the-dc-configuration" class="md-nav__link">
+  <a href="#example-output" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Download the DC configuration
+        Example Output
       
     </span>
   </a>
@@ -1353,10 +1331,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-generate-a-client-secret" class="md-nav__link">
+  <a href="#exit-codes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Generate a client secret
+        Exit Codes
       
     </span>
   </a>
@@ -1364,10 +1342,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-run-teleproxy" class="md-nav__link">
+  <a href="#options" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Run Teleproxy
+        Options
       
     </span>
   </a>
@@ -1375,32 +1353,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-share-the-connection-link" class="md-nav__link">
+  <a href="#sni-mismatch-warning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Share the connection link
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-register-with-telegram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Register with Telegram
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#or-just-use-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Or just use Docker
+        SNI Mismatch Warning
       
     </span>
   </a>
@@ -1427,96 +1383,100 @@
   
 
 
-<h1 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h1>
-<p>Get Teleproxy running in under 2 minutes.</p>
-<h2 id="1-download-the-proxy-secret">1. Download the proxy secret<a class="headerlink" href="#1-download-the-proxy-secret" title="Permanent link">&para;</a></h2>
-<p>This key is used for encrypted communication with Telegram servers:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://core.telegram.org/getProxySecret<span class="w"> </span>-o<span class="w"> </span>proxy-secret
+<h1 id="diagnostics">Diagnostics<a class="headerlink" href="#diagnostics" title="Permanent link">&para;</a></h1>
+<p>The <code>check</code> subcommand validates your configuration and tests connectivity before accepting clients. Useful for troubleshooting "my proxy doesn't work" without guessing.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>teleproxy<span class="w"> </span>check<span class="w"> </span>--config<span class="w"> </span>/etc/teleproxy/config.toml
 </code></pre></div>
-<h2 id="2-download-the-dc-configuration">2. Download the DC configuration<a class="headerlink" href="#2-download-the-dc-configuration" title="Permanent link">&para;</a></h2>
-<p>This file maps Telegram datacenter addresses. Update it daily via cron.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://core.telegram.org/getProxyConfig<span class="w"> </span>-o<span class="w"> </span>proxy-multi.conf
+<p>Or with CLI flags:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>teleproxy<span class="w"> </span>check<span class="w"> </span>--direct<span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>-D<span class="w"> </span>ya.ru
 </code></pre></div>
-<h2 id="3-generate-a-client-secret">3. Generate a client secret<a class="headerlink" href="#3-generate-a-client-secret" title="Permanent link">&para;</a></h2>
-<p>Clients will use this secret to connect through your proxy:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./teleproxy<span class="w"> </span>generate-secret
-</code></pre></div>
-<p>Save the output — you'll need it for the next step and for the connection link.</p>
-<h2 id="4-run-teleproxy">4. Run Teleproxy<a class="headerlink" href="#4-run-teleproxy" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./teleproxy<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>-u<span class="w"> </span>nobody<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8888</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span>--http-stats<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span>--aes-pwd<span class="w"> </span>proxy-secret<span class="w"> </span>proxy-multi.conf<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span>-M<span class="w"> </span><span class="m">1</span>
-</code></pre></div>
+<h2 id="what-it-checks">What It Checks<a class="headerlink" href="#what-it-checks" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Description</th>
+<th>Check</th>
+<th>What it does</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>-u nobody</code></td>
-<td>Drop root privileges after binding ports</td>
+<td><strong>Configuration</strong></td>
+<td>Parses and validates config (TOML or CLI flags)</td>
 </tr>
 <tr>
-<td><code>-H 443</code></td>
-<td>Client-facing port (what users connect to)</td>
+<td><strong>DC connectivity</strong></td>
+<td>TCP connects to all 5 Telegram datacenters</td>
 </tr>
 <tr>
-<td><code>-p 8888</code></td>
-<td>HTTP stats port — bind to localhost or a private network only</td>
+<td><strong>Clock sync</strong></td>
+<td>Queries NTP to verify clock is within the 120s anti-replay window</td>
 </tr>
 <tr>
-<td><code>-S &lt;secret&gt;</code></td>
-<td>Client secret. Repeat for multiple secrets: <code>-S &lt;s1&gt; -S &lt;s2&gt;</code></td>
+<td><strong>TLS domain probe</strong></td>
+<td>Resolves the fake-TLS domain, connects, and verifies TLS 1.3</td>
 </tr>
 <tr>
-<td><code>--http-stats</code></td>
-<td>Enable the built-in HTTP statistics page</td>
-</tr>
-<tr>
-<td><code>--aes-pwd proxy-secret</code></td>
-<td>Path to the proxy secret file</td>
-</tr>
-<tr>
-<td><code>proxy-multi.conf</code></td>
-<td>Path to the DC configuration file</td>
-</tr>
-<tr>
-<td><code>-M 1</code></td>
-<td>Number of worker processes</td>
+<td><strong>SNI/DNS match</strong></td>
+<td>Warns if the domain resolves to a different IP than the proxy</td>
 </tr>
 </tbody>
 </table>
-<h2 id="5-share-the-connection-link">5. Share the connection link<a class="headerlink" href="#5-share-the-connection-link" title="Permanent link">&para;</a></h2>
-<p>Give users a link they can tap to configure Telegram automatically:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>tg://proxy?server=YOUR_SERVER_IP&amp;port=443&amp;secret=SECRET
+<p>TLS and SNI checks only run when <code>-D</code> / <code>domain</code> is configured.</p>
+<h2 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>teleproxy check
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  Configuration .............. OK (mode: direct, 2 secrets, 1 domain)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  DC 1 (149.154.175.50) ..... OK (45ms)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  DC 2 (149.154.167.51) ..... OK (52ms)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  DC 3 (149.154.175.100) .... OK (41ms)
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  DC 4 (149.154.167.91) ..... OK (38ms)
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  DC 5 (91.108.56.100) ...... OK (55ms)
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  Clock sync ................. OK (drift 0.3s, limit 120s)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  TLS ya.ru .................. OK (5.255.255.242, TLS 1.3)
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  SNI ya.ru .................. WARN
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    ya.ru resolves to 5.255.255.242, proxy is 1.2.3.4
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>8 passed, 0 failed, 1 warning
 </code></pre></div>
-<p>Replace <code>YOUR_SERVER_IP</code> with your server's public IP and <code>SECRET</code> with the hex secret from step 3.</p>
-<h2 id="6-register-with-telegram">6. Register with Telegram<a class="headerlink" href="#6-register-with-telegram" title="Permanent link">&para;</a></h2>
-<p>Message <a href="https://t.me/MTProxybot">@MTProxybot</a> on Telegram to register your proxy and receive a proxy tag. Then add it to your launch command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>-P<span class="w"> </span>&lt;proxy-tag&gt;
+<h2 id="exit-codes">Exit Codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>All checks passed (warnings are OK)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>One or more checks failed</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bad arguments (invalid config, missing flags)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<p>All options from the main proxy are accepted for config purposes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>--config FILE          TOML configuration file
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>--direct               Direct mode
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>-S, --secret SECRET    32-char hex secret (repeatable)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>-D, --domain DOMAIN    TLS domain[:port] (repeatable)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>--dc-override DC:H:P   Override DC address (repeatable)
 </code></pre></div>
-<p>The proxy tag enables sponsored channels (required by Telegram for listed proxies) and makes your proxy discoverable.</p>
-<hr />
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For the simplest setup, use <a href="../../features/direct-mode/">Direct-to-DC mode</a> — no config files needed.</p>
-</div>
-<h2 id="or-just-use-docker">Or just use Docker<a class="headerlink" href="#or-just-use-docker" title="Permanent link">&para;</a></h2>
-<p>Skip all of the above with a single command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
-</code></pre></div>
-<p>The container auto-downloads config files, generates a random secret, and prints the <code>tg://</code> connection link to the logs. See <a href="../../docker/">Docker Quick Start</a> for details.</p>
+<p>The subcommand runs independently of the proxy — no ports are opened, no engine is started. Safe to run alongside a running instance.</p>
+<h2 id="sni-mismatch-warning">SNI Mismatch Warning<a class="headerlink" href="#sni-mismatch-warning" title="Permanent link">&para;</a></h2>
+<p>The SNI check detects whether the fake-TLS domain's DNS points to your proxy's IP. If it doesn't, censors can trivially detect the proxy by comparing the SNI hostname against the connection IP.</p>
+<p>To fix this, either:</p>
+<ul>
+<li>Point your own domain's DNS A record to the proxy's IP</li>
+<li>Accept the risk if your threat model doesn't include active SNI probing</li>
+</ul>
 
 
 

@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="vi" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -10,39 +10,39 @@
       
       
       
-        <link rel="canonical" href="https://teleproxy.github.io/getting-started/quickstart/">
+        <link rel="canonical" href="https://teleproxy.github.io/vi/features/diagnostics/">
       
       
-        <link rel="prev" href="../installation/">
+        <link rel="prev" href="../monitoring/">
       
       
-        <link rel="next" href="../../docker/">
+        <link rel="next" href="../../deployment/systemd/">
       
       
         
-          <link rel="alternate" href="./" hreflang="en">
+          <link rel="alternate" href="../../../features/diagnostics/" hreflang="en">
         
-          <link rel="alternate" href="../../ru/getting-started/quickstart/" hreflang="ru">
+          <link rel="alternate" href="../../../ru/features/diagnostics/" hreflang="ru">
         
-          <link rel="alternate" href="../../fa/getting-started/quickstart/" hreflang="fa">
+          <link rel="alternate" href="../../../fa/features/diagnostics/" hreflang="fa">
         
-          <link rel="alternate" href="../../vi/getting-started/quickstart/" hreflang="vi">
+          <link rel="alternate" href="./" hreflang="vi">
         
       
       
-      <link rel="icon" href="../../assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Quick Start - Teleproxy</title>
+        <title>Chẩn đoán - Teleproxy</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -55,9 +55,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/extra.css">
+      <link rel="stylesheet" href="../../../assets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -87,8 +87,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#quick-start" class="md-skip">
-          Skip to content
+        <a href="#diagnostics" class="md-skip">
+          Bỏ qua
         </a>
       
     </div>
@@ -100,10 +100,10 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Teleproxy" class="md-header__button md-logo" aria-label="Teleproxy" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Đầu trang">
+    <a href="../../" title="Teleproxy" class="md-header__button md-logo" aria-label="Teleproxy" data-md-component="logo">
       
-  <img src="../../assets/logo.svg" alt="logo">
+  <img src="../../../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Quick Start
+              Chẩn đoán
             
           </span>
         </div>
@@ -160,32 +160,32 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Select language">
+    <button class="md-header__button md-icon" aria-label="Chọn ngôn ngữ">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="en" class="md-select__link">
+            <a href="../../../features/diagnostics/" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../ru/getting-started/quickstart/" hreflang="ru" class="md-select__link">
+            <a href="../../../ru/features/diagnostics/" hreflang="ru" class="md-select__link">
               Русский
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../fa/getting-started/quickstart/" hreflang="fa" class="md-select__link">
+            <a href="../../../fa/features/diagnostics/" hreflang="fa" class="md-select__link">
               فارسی
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../vi/getting-started/quickstart/" hreflang="vi" class="md-select__link">
+            <a href="./" hreflang="vi" class="md-select__link">
               Tiếng Việt
             </a>
           </li>
@@ -206,16 +206,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Tìm kiếm" placeholder="Tìm kiếm" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Tìm kiếm">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Xoá" aria-label="Xoá" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -240,7 +240,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/teleproxy/teleproxy" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/teleproxy/teleproxy" title="Xem mã nguồn" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -271,13 +271,13 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../" class="md-tabs__link">
         
   
   
     
   
-  Home
+  Trang chủ
 
       </a>
     </li>
@@ -296,7 +296,7 @@
   
     
   
-  Comparison
+  So sánh
 
       </a>
     </li>
@@ -307,17 +307,15 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../installation/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
           
   
   
-  Getting Started
+  Bắt đầu
 
         </a>
       </li>
@@ -349,15 +347,17 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../features/fake-tls/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../fake-tls/" class="md-tabs__link">
           
   
   
-  Features
+  Tính năng
 
         </a>
       </li>
@@ -377,7 +377,7 @@
           
   
   
-  Deployment
+  Triển khai
 
         </a>
       </li>
@@ -397,7 +397,7 @@
   
     
   
-  Testing
+  Kiểm thử
 
       </a>
     </li>
@@ -416,7 +416,7 @@
   
     
   
-  Changelog
+  Nhật ký thay đổi
 
       </a>
     </li>
@@ -443,18 +443,18 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Thanh điều hướng" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Teleproxy" class="md-nav__button md-logo" aria-label="Teleproxy" data-md-component="logo">
+    <a href="../../" title="Teleproxy" class="md-nav__button md-logo" aria-label="Teleproxy" data-md-component="logo">
       
-  <img src="../../assets/logo.svg" alt="logo">
+  <img src="../../../assets/logo.svg" alt="logo">
 
     </a>
     Teleproxy
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/teleproxy/teleproxy" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/teleproxy/teleproxy" title="Xem mã nguồn" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -474,14 +474,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Home
+    Trang chủ
   
 
     
@@ -508,7 +508,7 @@
   <span class="md-ellipsis">
     
   
-    Comparison
+    So sánh
   
 
     
@@ -525,38 +525,33 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Getting Started
+    Bắt đầu
   
 
     
@@ -567,12 +562,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Getting Started
+    Bắt đầu
   
 
           </label>
@@ -585,14 +580,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Installation
+    Cài đặt
   
 
     
@@ -610,44 +605,17 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Start
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quick Start
+    Khởi động nhanh
   
 
     
@@ -656,103 +624,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-download-the-proxy-secret" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Download the proxy secret
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-download-the-dc-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Download the DC configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-generate-a-client-secret" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Generate a client secret
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-run-teleproxy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Run Teleproxy
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-share-the-connection-link" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Share the connection link
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-register-with-telegram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Register with Telegram
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#or-just-use-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Or just use Docker
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -831,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Quick Start
+    Khởi động nhanh
   
 
     
@@ -859,7 +730,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    Cấu hình
   
 
     
@@ -887,7 +758,7 @@
   <span class="md-ellipsis">
     
   
-    Monitoring
+    Giám sát
   
 
     
@@ -912,33 +783,38 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Features
+    Tính năng
   
 
     
@@ -949,12 +825,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Features
+    Tính năng
   
 
           </label>
@@ -967,14 +843,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/fake-tls/" class="md-nav__link">
+      <a href="../fake-tls/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Fake-TLS (EE Mode)
+    Fake-TLS (Chế độ EE)
   
 
     
@@ -995,14 +871,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/direct-mode/" class="md-nav__link">
+      <a href="../direct-mode/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Direct-to-DC Mode
+    Kết nối trực tiếp đến DC
   
 
     
@@ -1023,14 +899,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/access-control/" class="md-nav__link">
+      <a href="../access-control/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    IP Access Control
+    Kiểm soát truy cập IP
   
 
     
@@ -1051,14 +927,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/secrets/" class="md-nav__link">
+      <a href="../secrets/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Secrets & Limits
+    Bí mật & Giới hạn
   
 
     
@@ -1079,14 +955,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../features/monitoring/" class="md-nav__link">
+      <a href="../monitoring/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Monitoring
+    Giám sát
   
 
     
@@ -1104,17 +980,44 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../features/diagnostics/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chẩn đoán
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    Diagnostics
+    Chẩn đoán
   
 
     
@@ -1123,6 +1026,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Mục lục
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-it-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What It Checks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit Codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sni-mismatch-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SNI Mismatch Warning
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1165,7 +1143,7 @@
   <span class="md-ellipsis">
     
   
-    Deployment
+    Triển khai
   
 
     
@@ -1181,7 +1159,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Deployment
+    Triển khai
   
 
           </label>
@@ -1264,7 +1242,7 @@
   <span class="md-ellipsis">
     
   
-    Testing
+    Kiểm thử
   
 
     
@@ -1291,7 +1269,7 @@
   <span class="md-ellipsis">
     
   
-    Changelog
+    Nhật ký thay đổi
   
 
     
@@ -1317,7 +1295,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
   
   
   
@@ -1326,15 +1304,15 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      Mục lục
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-download-the-proxy-secret" class="md-nav__link">
+  <a href="#what-it-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Download the proxy secret
+        What It Checks
       
     </span>
   </a>
@@ -1342,10 +1320,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-download-the-dc-configuration" class="md-nav__link">
+  <a href="#example-output" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Download the DC configuration
+        Example Output
       
     </span>
   </a>
@@ -1353,10 +1331,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-generate-a-client-secret" class="md-nav__link">
+  <a href="#exit-codes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Generate a client secret
+        Exit Codes
       
     </span>
   </a>
@@ -1364,10 +1342,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-run-teleproxy" class="md-nav__link">
+  <a href="#options" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Run Teleproxy
+        Options
       
     </span>
   </a>
@@ -1375,32 +1353,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-share-the-connection-link" class="md-nav__link">
+  <a href="#sni-mismatch-warning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Share the connection link
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-register-with-telegram" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Register with Telegram
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#or-just-use-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Or just use Docker
+        SNI Mismatch Warning
       
     </span>
   </a>
@@ -1427,96 +1383,100 @@
   
 
 
-<h1 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h1>
-<p>Get Teleproxy running in under 2 minutes.</p>
-<h2 id="1-download-the-proxy-secret">1. Download the proxy secret<a class="headerlink" href="#1-download-the-proxy-secret" title="Permanent link">&para;</a></h2>
-<p>This key is used for encrypted communication with Telegram servers:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://core.telegram.org/getProxySecret<span class="w"> </span>-o<span class="w"> </span>proxy-secret
+<h1 id="diagnostics">Diagnostics<a class="headerlink" href="#diagnostics" title="Permanent link">&para;</a></h1>
+<p>The <code>check</code> subcommand validates your configuration and tests connectivity before accepting clients. Useful for troubleshooting "my proxy doesn't work" without guessing.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>teleproxy<span class="w"> </span>check<span class="w"> </span>--config<span class="w"> </span>/etc/teleproxy/config.toml
 </code></pre></div>
-<h2 id="2-download-the-dc-configuration">2. Download the DC configuration<a class="headerlink" href="#2-download-the-dc-configuration" title="Permanent link">&para;</a></h2>
-<p>This file maps Telegram datacenter addresses. Update it daily via cron.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://core.telegram.org/getProxyConfig<span class="w"> </span>-o<span class="w"> </span>proxy-multi.conf
+<p>Or with CLI flags:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>teleproxy<span class="w"> </span>check<span class="w"> </span>--direct<span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>-D<span class="w"> </span>ya.ru
 </code></pre></div>
-<h2 id="3-generate-a-client-secret">3. Generate a client secret<a class="headerlink" href="#3-generate-a-client-secret" title="Permanent link">&para;</a></h2>
-<p>Clients will use this secret to connect through your proxy:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./teleproxy<span class="w"> </span>generate-secret
-</code></pre></div>
-<p>Save the output — you'll need it for the next step and for the connection link.</p>
-<h2 id="4-run-teleproxy">4. Run Teleproxy<a class="headerlink" href="#4-run-teleproxy" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./teleproxy<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>-u<span class="w"> </span>nobody<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8888</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span>--http-stats<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span>--aes-pwd<span class="w"> </span>proxy-secret<span class="w"> </span>proxy-multi.conf<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span>-M<span class="w"> </span><span class="m">1</span>
-</code></pre></div>
+<h2 id="what-it-checks">What It Checks<a class="headerlink" href="#what-it-checks" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Description</th>
+<th>Check</th>
+<th>What it does</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>-u nobody</code></td>
-<td>Drop root privileges after binding ports</td>
+<td><strong>Configuration</strong></td>
+<td>Parses and validates config (TOML or CLI flags)</td>
 </tr>
 <tr>
-<td><code>-H 443</code></td>
-<td>Client-facing port (what users connect to)</td>
+<td><strong>DC connectivity</strong></td>
+<td>TCP connects to all 5 Telegram datacenters</td>
 </tr>
 <tr>
-<td><code>-p 8888</code></td>
-<td>HTTP stats port — bind to localhost or a private network only</td>
+<td><strong>Clock sync</strong></td>
+<td>Queries NTP to verify clock is within the 120s anti-replay window</td>
 </tr>
 <tr>
-<td><code>-S &lt;secret&gt;</code></td>
-<td>Client secret. Repeat for multiple secrets: <code>-S &lt;s1&gt; -S &lt;s2&gt;</code></td>
+<td><strong>TLS domain probe</strong></td>
+<td>Resolves the fake-TLS domain, connects, and verifies TLS 1.3</td>
 </tr>
 <tr>
-<td><code>--http-stats</code></td>
-<td>Enable the built-in HTTP statistics page</td>
-</tr>
-<tr>
-<td><code>--aes-pwd proxy-secret</code></td>
-<td>Path to the proxy secret file</td>
-</tr>
-<tr>
-<td><code>proxy-multi.conf</code></td>
-<td>Path to the DC configuration file</td>
-</tr>
-<tr>
-<td><code>-M 1</code></td>
-<td>Number of worker processes</td>
+<td><strong>SNI/DNS match</strong></td>
+<td>Warns if the domain resolves to a different IP than the proxy</td>
 </tr>
 </tbody>
 </table>
-<h2 id="5-share-the-connection-link">5. Share the connection link<a class="headerlink" href="#5-share-the-connection-link" title="Permanent link">&para;</a></h2>
-<p>Give users a link they can tap to configure Telegram automatically:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>tg://proxy?server=YOUR_SERVER_IP&amp;port=443&amp;secret=SECRET
+<p>TLS and SNI checks only run when <code>-D</code> / <code>domain</code> is configured.</p>
+<h2 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>teleproxy check
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  Configuration .............. OK (mode: direct, 2 secrets, 1 domain)
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  DC 1 (149.154.175.50) ..... OK (45ms)
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  DC 2 (149.154.167.51) ..... OK (52ms)
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  DC 3 (149.154.175.100) .... OK (41ms)
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  DC 4 (149.154.167.91) ..... OK (38ms)
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  DC 5 (91.108.56.100) ...... OK (55ms)
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  Clock sync ................. OK (drift 0.3s, limit 120s)
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  TLS ya.ru .................. OK (5.255.255.242, TLS 1.3)
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  SNI ya.ru .................. WARN
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    ya.ru resolves to 5.255.255.242, proxy is 1.2.3.4
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>8 passed, 0 failed, 1 warning
 </code></pre></div>
-<p>Replace <code>YOUR_SERVER_IP</code> with your server's public IP and <code>SECRET</code> with the hex secret from step 3.</p>
-<h2 id="6-register-with-telegram">6. Register with Telegram<a class="headerlink" href="#6-register-with-telegram" title="Permanent link">&para;</a></h2>
-<p>Message <a href="https://t.me/MTProxybot">@MTProxybot</a> on Telegram to register your proxy and receive a proxy tag. Then add it to your launch command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>-P<span class="w"> </span>&lt;proxy-tag&gt;
+<h2 id="exit-codes">Exit Codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>All checks passed (warnings are OK)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>One or more checks failed</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Bad arguments (invalid config, missing flags)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<p>All options from the main proxy are accepted for config purposes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>--config FILE          TOML configuration file
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>--direct               Direct mode
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>-S, --secret SECRET    32-char hex secret (repeatable)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>-D, --domain DOMAIN    TLS domain[:port] (repeatable)
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>--dc-override DC:H:P   Override DC address (repeatable)
 </code></pre></div>
-<p>The proxy tag enables sponsored channels (required by Telegram for listed proxies) and makes your proxy discoverable.</p>
-<hr />
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>For the simplest setup, use <a href="../../features/direct-mode/">Direct-to-DC mode</a> — no config files needed.</p>
-</div>
-<h2 id="or-just-use-docker">Or just use Docker<a class="headerlink" href="#or-just-use-docker" title="Permanent link">&para;</a></h2>
-<p>Skip all of the above with a single command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
-</code></pre></div>
-<p>The container auto-downloads config files, generates a random secret, and prints the <code>tg://</code> connection link to the logs. See <a href="../../docker/">Docker Quick Start</a> for details.</p>
+<p>The subcommand runs independently of the proxy — no ports are opened, no engine is started. Safe to run alongside a running instance.</p>
+<h2 id="sni-mismatch-warning">SNI Mismatch Warning<a class="headerlink" href="#sni-mismatch-warning" title="Permanent link">&para;</a></h2>
+<p>The SNI check detects whether the fake-TLS domain's DNS points to your proxy's IP. If it doesn't, censors can trivially detect the proxy by comparing the SNI hostname against the connection IP.</p>
+<p>To fix this, either:</p>
+<ul>
+<li>Point your own domain's DNS A record to the proxy's IP</li>
+<li>Accept the risk if your threat model doesn't include active SNI probing</li>
+</ul>
 
 
 
@@ -1542,7 +1502,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Back to top
+  Trở lại mục lục
 </button>
         
       </main>
@@ -1564,10 +1524,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
