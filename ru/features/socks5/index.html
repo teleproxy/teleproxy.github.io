@@ -10,23 +10,23 @@
       
       
       
-        <link rel="canonical" href="https://teleproxy.github.io/ru/features/direct-mode/">
+        <link rel="canonical" href="https://teleproxy.github.io/ru/features/socks5/">
       
       
-        <link rel="prev" href="../fake-tls/">
+        <link rel="prev" href="../monitoring/">
       
       
-        <link rel="next" href="../access-control/">
+        <link rel="next" href="../link/">
       
       
         
-          <link rel="alternate" href="../../../features/direct-mode/" hreflang="en">
+          <link rel="alternate" href="../../../features/socks5/" hreflang="en">
         
           <link rel="alternate" href="./" hreflang="ru">
         
-          <link rel="alternate" href="../../../fa/features/direct-mode/" hreflang="fa">
+          <link rel="alternate" href="../../../fa/features/socks5/" hreflang="fa">
         
-          <link rel="alternate" href="../../../vi/features/direct-mode/" hreflang="vi">
+          <link rel="alternate" href="../../../vi/features/socks5/" hreflang="vi">
         
       
       
@@ -35,7 +35,7 @@
     
     
       
-        <title>Прямое подключение к DC - Teleproxy</title>
+        <title>SOCKS5 Upstream Proxy - Teleproxy</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dc" class="md-skip">
+        <a href="#socks5-upstream-proxy" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Прямое подключение к DC
+              SOCKS5 Upstream Proxy
             
           </span>
         </div>
@@ -167,7 +167,7 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="../../../features/direct-mode/" hreflang="en" class="md-select__link">
+            <a href="../../../features/socks5/" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
@@ -179,13 +179,13 @@
           </li>
         
           <li class="md-select__item">
-            <a href="../../../fa/features/direct-mode/" hreflang="fa" class="md-select__link">
+            <a href="../../../fa/features/socks5/" hreflang="fa" class="md-select__link">
               فارسی
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../../vi/features/direct-mode/" hreflang="vi" class="md-select__link">
+            <a href="../../../vi/features/socks5/" hreflang="vi" class="md-select__link">
               Tiếng Việt
             </a>
           </li>
@@ -896,19 +896,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../direct-mode/" class="md-nav__link">
         
   
   
@@ -924,7 +915,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -1018,10 +1008,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../socks5/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOCKS5 Upstream Proxy
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1037,6 +1054,120 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toml-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TOML config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI flag
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1294,6 +1425,108 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toml-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TOML config
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI flag
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1312,29 +1545,78 @@
   
 
 
-<h1 id="dc">Прямое подключение к DC<a class="headerlink" href="#dc" title="Permanent link">&para;</a></h1>
-<p>По умолчанию Teleproxy маршрутизирует трафик через промежуточные relay-серверы Telegram (middle-end, ME). Прямой режим обходит их:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>По умолчанию:  Клиент -&gt; Teleproxy -&gt; ME relay -&gt; Telegram DC
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Прямой режим:  Клиент -&gt; Teleproxy -&gt; Telegram DC
+<h1 id="socks5-upstream-proxy">SOCKS5 Upstream Proxy<a class="headerlink" href="#socks5-upstream-proxy" title="Permanent link">&para;</a></h1>
+<p>Route all outbound connections to Telegram DCs through a SOCKS5 proxy:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Client -&gt; Teleproxy -&gt; SOCKS5 proxy -&gt; Telegram DC
 </code></pre></div>
-<p>Включение через <code>--direct</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./teleproxy<span class="w"> </span>-u<span class="w"> </span>nobody<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span><span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;секрет&gt;<span class="w"> </span>--http-stats<span class="w"> </span>--direct
+<p>This is useful when the server's IP is blocked by Telegram or when you want to hide the server's origin from Telegram's network.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<h3 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">SOCKS5_PROXY</span><span class="o">=</span>socks5://proxy.example.com:1080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">DIRECT_MODE</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
 </code></pre></div>
-<p>В прямом режиме:</p>
+<p>With authentication:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>-e<span class="w"> </span><span class="nv">SOCKS5_PROXY</span><span class="o">=</span>socks5://user:pass@proxy.example.com:1080
+</code></pre></div>
+<h3 id="toml-config">TOML config<a class="headerlink" href="#toml-config" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">socks5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;socks5://proxy.example.com:1080&quot;</span>
+</code></pre></div>
+<h3 id="cli-flag">CLI flag<a class="headerlink" href="#cli-flag" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./teleproxy<span class="w"> </span>--direct<span class="w"> </span>--socks5<span class="w"> </span>socks5://user:pass@proxy.example.com:1080<span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>...
+</code></pre></div>
+<h2 id="url-format">URL format<a class="headerlink" href="#url-format" title="Permanent link">&para;</a></h2>
+<p>Two schemes are supported:</p>
+<table>
+<thead>
+<tr>
+<th>Scheme</th>
+<th>DNS resolution</th>
+<th>Use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>socks5://</code></td>
+<td>Local (teleproxy resolves DC addresses)</td>
+<td>Default — works with most SOCKS5 proxies</td>
+</tr>
+<tr>
+<td><code>socks5h://</code></td>
+<td>Remote (SOCKS5 proxy resolves hostnames)</td>
+<td>Privacy-sensitive setups where DNS should not leak</td>
+</tr>
+</tbody>
+</table>
+<p>Full format: <code>socks5[h]://[user:pass@]host:port</code></p>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Файлы <code>proxy-multi.conf</code> и <code>proxy-secret</code> не нужны</li>
-<li>Аргумент конфигурационного файла не требуется</li>
-<li>Подключение идёт напрямую к известным адресам дата-центров Telegram</li>
-<li><strong>Несовместим с <code>-P</code> (тег прокси)</strong> — спонсорские каналы требуют ME relay</li>
+<li><strong>Anonymous</strong>: <code>socks5://host:port</code> — no credentials, proxy must allow unauthenticated access</li>
+<li><strong>Username/Password</strong>: <code>socks5://user:pass@host:port</code> — RFC 1929 authentication</li>
 </ul>
-<p>Docker:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">DIRECT_MODE</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
+<h2 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h2>
+<p>SOCKS5 connection stats are exposed on the stats endpoints:</p>
+<p><code>/stats</code> (tab-separated):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>socks5_enabled  1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>socks5_connects_attempted   42
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>socks5_connects_succeeded   40
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>socks5_connects_failed  2
 </code></pre></div>
+<p><code>/metrics</code> (Prometheus):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>teleproxy_socks5_connects_attempted_total 42
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>teleproxy_socks5_connects_succeeded_total 40
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>teleproxy_socks5_connects_failed_total 2
+</code></pre></div>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Works with both direct mode and ME relay mode</li>
+<li>Not reloadable via SIGHUP — requires a restart to change the SOCKS5 proxy</li>
+<li>IPv6 target addresses are supported if the SOCKS5 proxy supports them</li>
+</ul>
 
 
 

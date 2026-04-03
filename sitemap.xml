@@ -154,6 +154,15 @@
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/secrets/"/>
     </url>
     <url>
+        <loc>https://teleproxy.github.io/features/socks5/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/socks5/"/>
+    </url>
+    <url>
         <loc>https://teleproxy.github.io/getting-started/installation/</loc>
         <lastmod>2026-04-03</lastmod>
         <changefreq>daily</changefreq>
@@ -323,6 +332,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/secrets/"/>
         <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/secrets/"/>
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/secrets/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/features/socks5/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/socks5/"/>
     </url>
     <url>
         <loc>https://teleproxy.github.io/ru/getting-started/installation/</loc>
@@ -496,6 +514,15 @@
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/secrets/"/>
     </url>
     <url>
+        <loc>https://teleproxy.github.io/fa/features/socks5/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/socks5/"/>
+    </url>
+    <url>
         <loc>https://teleproxy.github.io/fa/getting-started/installation/</loc>
         <lastmod>2026-04-03</lastmod>
         <changefreq>daily</changefreq>
@@ -665,6 +692,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/secrets/"/>
         <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/secrets/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/secrets/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/features/socks5/</loc>
+        <lastmod>2026-04-03</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/features/socks5/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/features/socks5/"/>
     </url>
     <url>
         <loc>https://teleproxy.github.io/vi/getting-started/installation/</loc>
