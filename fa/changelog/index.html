@@ -1241,6 +1241,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#450" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#440" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1341,6 +1352,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#450" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#440" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1427,6 +1449,15 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="450">4.5.0<a class="headerlink" href="#450" title="Permanent link">&para;</a></h2>
+<p>QR codes for connection links.</p>
+<ul>
+<li><code>teleproxy link</code> subcommand prints a proxy URL and renders a scannable QR code in the terminal using UTF-8 half-block characters</li>
+<li>Docker <code>start.sh</code> and <code>install.sh</code> now display QR codes automatically at startup — point a phone camera at the screen to connect</li>
+<li>Vendored nayuki/QR-Code-generator (MIT) for zero-dependency QR rendering on any platform</li>
+<li>E2E tests decode the rendered QR output with pyzbar and verify it matches the expected URL</li>
+<li>Documentation: new "Connection Links" page (en + ru)</li>
+</ul>
 <h2 id="440">4.4.0<a class="headerlink" href="#440" title="Permanent link">&para;</a></h2>
 <ul>
 <li><code>teleproxy check</code> diagnostic subcommand — validates configuration and tests connectivity before accepting clients. Checks DC reachability, NTP clock drift, fake-TLS domain probe, and SNI/DNS mismatch. Exit 0/1/2 for pass/fail/bad-args.</li>
