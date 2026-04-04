@@ -1573,6 +1573,21 @@
 <td>Лимиты подключений на секрет</td>
 </tr>
 <tr>
+<td><code>SECRET_QUOTA_1</code>...<code>SECRET_QUOTA_16</code></td>
+<td>—</td>
+<td>Квота трафика на секрет (в байтах, напр. <code>10737418240</code> для 10 ГБ)</td>
+</tr>
+<tr>
+<td><code>SECRET_MAX_IPS_1</code>...<code>SECRET_MAX_IPS_16</code></td>
+<td>—</td>
+<td>Лимит уникальных IP на секрет</td>
+</tr>
+<tr>
+<td><code>SECRET_EXPIRES_1</code>...<code>SECRET_EXPIRES_16</code></td>
+<td>—</td>
+<td>Срок действия секрета (TOML datetime или Unix timestamp)</td>
+</tr>
+<tr>
 <td><code>PORT</code></td>
 <td>443</td>
 <td>Порт для клиентских подключений</td>
