@@ -1101,6 +1101,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#grafana-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafana Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#health-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1529,6 +1540,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#grafana-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grafana Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#health-checks" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1574,6 +1596,14 @@
 </code></pre></div>
 <p>Returns Prometheus exposition format on the same stats port. Includes per-secret metrics when labels are configured.</p>
 <p>Available metrics include connection counts, per-secret connections, rejection counts, and IP ACL rejections.</p>
+<h2 id="grafana-dashboard">Grafana Dashboard<a class="headerlink" href="#grafana-dashboard" title="Permanent link">&para;</a></h2>
+<p>Import the <a href="https://github.com/teleproxy/teleproxy/blob/main/dashboards/teleproxy.json">bundled dashboard</a> into Grafana:</p>
+<ol>
+<li>Download <code>dashboards/teleproxy.json</code> from the repository</li>
+<li>In Grafana → Dashboards → Import → Upload JSON file</li>
+<li>Select your Prometheus datasource</li>
+</ol>
+<p>The dashboard covers connections, per-secret usage, rejection rates, DC connectivity, and resource utilization.</p>
 <h2 id="health-checks">Health Checks<a class="headerlink" href="#health-checks" title="Permanent link">&para;</a></h2>
 <p>Docker containers include built-in health monitoring via the stats endpoint. Check with:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># STATUS column shows health</span>
