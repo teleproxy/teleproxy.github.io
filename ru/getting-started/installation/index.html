@@ -664,7 +664,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#one-liner-install-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
         Установка одной командой (рекомендуется)
@@ -676,7 +676,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Несколько секретов
@@ -692,7 +692,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Обновление
@@ -725,7 +725,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         Сборка из исходников
@@ -1512,7 +1512,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#one-liner-install-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
         Установка одной командой (рекомендуется)
@@ -1524,7 +1524,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Несколько секретов
@@ -1540,7 +1540,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Обновление
@@ -1573,7 +1573,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         Сборка из исходников
@@ -1604,14 +1604,14 @@
 
 
 <h1 id="_1">Установка<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">Установка одной командой (рекомендуется)<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="one-liner-install-recommended">Установка одной командой (рекомендуется)<a class="headerlink" href="#one-liner-install-recommended" title="Permanent link">&para;</a></h2>
 <p>Скрипт скачает бинарник, создаст systemd-сервис, сгенерирует секрет и выведет ссылку для подключения:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
 <p>Настройка через переменные окружения:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">PORT</span><span class="o">=</span><span class="m">8443</span><span class="w"> </span><span class="nv">EE_DOMAIN</span><span class="o">=</span>www.google.com<span class="w"> </span>sh
 </code></pre></div>
-<h3 id="_3">Несколько секретов<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_2">Несколько секретов<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>Автоматически сгенерировать несколько секретов:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">SECRET_COUNT</span><span class="o">=</span><span class="m">3</span><span class="w"> </span>sh
 </code></pre></div>
@@ -1637,7 +1637,7 @@
 <p>Удаление:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s<span class="w"> </span>--<span class="w"> </span>--uninstall
 </code></pre></div>
-<h2 id="_4">Обновление<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_3">Обновление<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>Для обновления до последней версии просто запустите скрипт установки повторно:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
@@ -1664,7 +1664,7 @@
 <p>Контрольные суммы SHA256 публикуются вместе с каждым релизом.</p>
 <h2 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
 <p>Подробности в разделе <a href="../../docker/">Docker Quick Start</a> — самый простой способ запустить Teleproxy одной командой с автоматической генерацией секретов.</p>
-<h2 id="_5">Сборка из исходников<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_4">Сборка из исходников<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Установите зависимости для сборки:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Debian / Ubuntu</label><label for="__tabbed_2_2">CentOS / RHEL</label><label for="__tabbed_2_3">macOS (разработка)</label></div>
 <div class="tabbed-content">
