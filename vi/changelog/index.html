@@ -1344,6 +1344,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#470" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#460" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1493,6 +1504,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#470" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#460" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1601,6 +1623,18 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="470">4.7.0<a class="headerlink" href="#470" title="Permanent link">&para;</a></h2>
+<p>Per-secret quotas, unique-IP limits, and expiration (<a href="https://github.com/teleproxy/teleproxy/issues/26">#26</a>).</p>
+<ul>
+<li><strong>Data quota</strong> — cap total bytes transferred per secret; active connections are closed and new ones rejected when exhausted. Configurable in bytes or human-readable sizes (<code>quota = "10G"</code>)</li>
+<li><strong>Unique IP limit</strong> — cap how many distinct client IPs can use a secret simultaneously (<code>max_ips = 5</code>). Additional connections from an already-connected IP are always allowed</li>
+<li><strong>Secret expiration</strong> — auto-disable a secret after a timestamp (<code>expires = 2025-12-31T23:59:59Z</code>). Existing connections continue; only new ones are rejected</li>
+<li>Per-reason rejection counters in Prometheus and plain-text stats (<code>rejected_quota</code>, <code>rejected_ips</code>, <code>rejected_expired</code>)</li>
+<li>Docker env vars: <code>SECRET_QUOTA_N</code>, <code>SECRET_MAX_IPS_N</code>, <code>SECRET_EXPIRES_N</code></li>
+<li>SOCKS5 upstream proxy support (<a href="https://github.com/teleproxy/teleproxy/issues/22">#22</a>)</li>
+<li>One-click cloud deploy page</li>
+<li>Documentation: install/upgrade instructions, SOCKS5 docs, Observatory link</li>
+</ul>
 <h2 id="460">4.6.0<a class="headerlink" href="#460" title="Permanent link">&para;</a></h2>
 <p>DPI resistance and operational improvements.</p>
 <ul>
