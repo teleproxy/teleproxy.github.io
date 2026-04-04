@@ -453,7 +453,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1379,7 +1381,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1403,6 +1407,8 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
 
 
   
@@ -1411,6 +1417,7 @@
 
 <h1 id="so-sanh">So sánh<a class="headerlink" href="#so-sanh" title="Permanent link">&para;</a></h1>
 <p>Teleproxy là một fork của <a href="https://github.com/TelegramMessenger/MTProxy">TelegramMessenger/MTProxy</a> gốc, dự án đã ngừng phát triển từ năm 2021. Trang này so sánh Teleproxy với bản gốc và các phương án thay thế chính từ bên thứ ba: <a href="https://github.com/9seconds/mtg">mtg</a> (Go) và <a href="https://github.com/telemt/telemt">telemt</a> (Rust).</p>
+<div class="comparison-table">
 <table>
 <thead>
 <tr>
@@ -1718,6 +1725,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Teleproxy là triển khai MTProto proxy duy nhất có kiểm thử đầu-cuối (E2E) tự động trên hạ tầng Telegram thực. Bộ kiểm thử E2E kết nối client Telethon qua proxy trên cả hai transport obfuscated và fake-TLS, xác minh xác thực và truyền file trên datacenter thử nghiệm của Telegram.</p>
 
 
@@ -1726,8 +1734,13 @@
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -1770,6 +1783,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/comparison.js"></script>
       
     
   </body>

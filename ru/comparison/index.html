@@ -453,7 +453,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1379,7 +1381,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1403,6 +1407,8 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
 
 
   
@@ -1411,6 +1417,7 @@
 
 <h1 id="_1">Сравнение<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>Teleproxy -- форк оригинального <a href="https://github.com/TelegramMessenger/MTProxy">TelegramMessenger/MTProxy</a>, разработка которого прекращена с 2021 года. На этой странице Teleproxy сравнивается с оригиналом и основными сторонними альтернативами: <a href="https://github.com/9seconds/mtg">mtg</a> (Go) и <a href="https://github.com/telemt/telemt">telemt</a> (Rust).</p>
+<div class="comparison-table">
 <table>
 <thead>
 <tr>
@@ -1718,6 +1725,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Teleproxy -- единственная реализация MTProto-прокси с автоматическим сквозным (E2E) тестированием на реальной инфраструктуре Telegram. Набор E2E-тестов подключает клиент Telethon через прокси на обоих транспортах -- obfuscated и fake-TLS -- и проверяет аутентификацию и передачу файлов на тестовом дата-центре Telegram.</p>
 
 
@@ -1726,8 +1734,13 @@
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -1770,6 +1783,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../assets/comparison.js"></script>
       
     
   </body>
