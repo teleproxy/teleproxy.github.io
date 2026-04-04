@@ -1469,13 +1469,13 @@
 <td style="text-align: center;">ضعیف</td>
 <td style="text-align: center;">بله</td>
 <td style="text-align: center;">بله</td>
-<td style="text-align: center;">جزئی</td>
+<td style="text-align: center;">بله</td>
 </tr>
 <tr>
 <td>HMAC با زمان ثابت</td>
 <td style="text-align: center;">خیر</td>
 <td style="text-align: center;">بله</td>
-<td style="text-align: center;">—</td>
+<td style="text-align: center;">بله</td>
 <td style="text-align: center;">بله</td>
 </tr>
 <tr>
@@ -1489,7 +1489,7 @@
 <td>بک‌اند TLS سفارشی (TCP splitting)</td>
 <td style="text-align: center;">بله</td>
 <td style="text-align: center;">بله</td>
-<td style="text-align: center;">خیر</td>
+<td style="text-align: center;">بله</td>
 <td style="text-align: center;">بله</td>
 </tr>
 <tr>
@@ -1504,7 +1504,7 @@
 <td style="text-align: center;">خیر</td>
 <td style="text-align: center;">بله</td>
 <td style="text-align: center;">بله</td>
-<td style="text-align: center;">خیر</td>
+<td style="text-align: center;">جزئی</td>
 </tr>
 <tr>
 <td>تکه‌تکه‌سازی ServerHello</td>
@@ -1519,6 +1519,13 @@
 <td style="text-align: center;">بله</td>
 <td style="text-align: center;">بله</td>
 <td style="text-align: center;">بله</td>
+</tr>
+<tr>
+<td>DNS over HTTPS/TLS</td>
+<td style="text-align: center;">خیر</td>
+<td style="text-align: center;">خیر</td>
+<td style="text-align: center;">بله</td>
+<td style="text-align: center;">خیر</td>
 </tr>
 <tr>
 <td><strong><em>کنترل دسترسی</em></strong></td>
@@ -1537,14 +1544,28 @@
 <tr>
 <td>محدودیت IP یکتا هر کاربر</td>
 <td style="text-align: center;">خیر</td>
+<td style="text-align: center;">بله</td>
 <td style="text-align: center;">خیر</td>
+<td style="text-align: center;">بله</td>
+</tr>
+<tr>
+<td>سهمیه ترافیک هر secret</td>
+<td style="text-align: center;">خیر</td>
+<td style="text-align: center;">بله</td>
+<td style="text-align: center;">خیر</td>
+<td style="text-align: center;">بله</td>
+</tr>
+<tr>
+<td>انقضای secret</td>
+<td style="text-align: center;">خیر</td>
+<td style="text-align: center;">بله</td>
 <td style="text-align: center;">خیر</td>
 <td style="text-align: center;">بله</td>
 </tr>
 <tr>
 <td>Proxy Protocol v1/v2</td>
 <td style="text-align: center;">خیر</td>
-<td style="text-align: center;">خیر</td>
+<td style="text-align: center;">بله</td>
 <td style="text-align: center;">بله</td>
 <td style="text-align: center;">بله</td>
 </tr>
@@ -1601,7 +1622,7 @@
 <td>یکپارچگی با systemd</td>
 <td style="text-align: center;">جزئی</td>
 <td style="text-align: center;">بله</td>
-<td style="text-align: center;">—</td>
+<td style="text-align: center;">خیر</td>
 <td style="text-align: center;">بله</td>
 </tr>
 <tr>
@@ -1622,7 +1643,7 @@
 <td>اندپوینت آمار HTTP</td>
 <td style="text-align: center;">بله</td>
 <td style="text-align: center;">بله</td>
-<td style="text-align: center;">—</td>
+<td style="text-align: center;">خیر</td>
 <td style="text-align: center;">بله</td>
 </tr>
 <tr>

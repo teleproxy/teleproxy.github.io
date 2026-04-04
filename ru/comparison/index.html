@@ -1469,13 +1469,13 @@
 <td style="text-align: center;">Слабая</td>
 <td style="text-align: center;">Да</td>
 <td style="text-align: center;">Да</td>
-<td style="text-align: center;">Частичная</td>
+<td style="text-align: center;">Да</td>
 </tr>
 <tr>
 <td>HMAC с постоянным временем</td>
 <td style="text-align: center;">Нет</td>
 <td style="text-align: center;">Да</td>
-<td style="text-align: center;">—</td>
+<td style="text-align: center;">Да</td>
 <td style="text-align: center;">Да</td>
 </tr>
 <tr>
@@ -1489,7 +1489,7 @@
 <td>Собственный TLS-бэкенд (TCP splitting)</td>
 <td style="text-align: center;">Да</td>
 <td style="text-align: center;">Да</td>
-<td style="text-align: center;">Нет</td>
+<td style="text-align: center;">Да</td>
 <td style="text-align: center;">Да</td>
 </tr>
 <tr>
@@ -1504,7 +1504,7 @@
 <td style="text-align: center;">Нет</td>
 <td style="text-align: center;">Да</td>
 <td style="text-align: center;">Да</td>
-<td style="text-align: center;">Нет</td>
+<td style="text-align: center;">Частичная</td>
 </tr>
 <tr>
 <td>Фрагментация ServerHello</td>
@@ -1519,6 +1519,13 @@
 <td style="text-align: center;">Да</td>
 <td style="text-align: center;">Да</td>
 <td style="text-align: center;">Да</td>
+</tr>
+<tr>
+<td>DNS over HTTPS/TLS</td>
+<td style="text-align: center;">Нет</td>
+<td style="text-align: center;">Нет</td>
+<td style="text-align: center;">Да</td>
+<td style="text-align: center;">Нет</td>
 </tr>
 <tr>
 <td><strong><em>Контроль доступа</em></strong></td>
@@ -1537,14 +1544,28 @@
 <tr>
 <td>Лимит уникальных IP на пользователя</td>
 <td style="text-align: center;">Нет</td>
+<td style="text-align: center;">Да</td>
 <td style="text-align: center;">Нет</td>
+<td style="text-align: center;">Да</td>
+</tr>
+<tr>
+<td>Квота трафика на секрет</td>
+<td style="text-align: center;">Нет</td>
+<td style="text-align: center;">Да</td>
+<td style="text-align: center;">Нет</td>
+<td style="text-align: center;">Да</td>
+</tr>
+<tr>
+<td>Срок действия секрета</td>
+<td style="text-align: center;">Нет</td>
+<td style="text-align: center;">Да</td>
 <td style="text-align: center;">Нет</td>
 <td style="text-align: center;">Да</td>
 </tr>
 <tr>
 <td>Proxy Protocol v1/v2</td>
 <td style="text-align: center;">Нет</td>
-<td style="text-align: center;">Нет</td>
+<td style="text-align: center;">Да</td>
 <td style="text-align: center;">Да</td>
 <td style="text-align: center;">Да</td>
 </tr>
@@ -1601,7 +1622,7 @@
 <td>Интеграция с systemd</td>
 <td style="text-align: center;">Частичная</td>
 <td style="text-align: center;">Да</td>
-<td style="text-align: center;">—</td>
+<td style="text-align: center;">Нет</td>
 <td style="text-align: center;">Да</td>
 </tr>
 <tr>
@@ -1622,7 +1643,7 @@
 <td>HTTP-эндпоинт статистики</td>
 <td style="text-align: center;">Да</td>
 <td style="text-align: center;">Да</td>
-<td style="text-align: center;">—</td>
+<td style="text-align: center;">Нет</td>
 <td style="text-align: center;">Да</td>
 </tr>
 <tr>

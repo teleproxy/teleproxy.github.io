@@ -1469,13 +1469,13 @@
 <td style="text-align: center;">Weak</td>
 <td style="text-align: center;">Yes</td>
 <td style="text-align: center;">Yes</td>
-<td style="text-align: center;">Partial</td>
+<td style="text-align: center;">Yes</td>
 </tr>
 <tr>
 <td>Constant-time HMAC</td>
 <td style="text-align: center;">No</td>
 <td style="text-align: center;">Yes</td>
-<td style="text-align: center;">—</td>
+<td style="text-align: center;">Yes</td>
 <td style="text-align: center;">Yes</td>
 </tr>
 <tr>
@@ -1489,7 +1489,7 @@
 <td>Custom TLS backend (TCP splitting)</td>
 <td style="text-align: center;">Yes</td>
 <td style="text-align: center;">Yes</td>
-<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
 <td style="text-align: center;">Yes</td>
 </tr>
 <tr>
@@ -1504,7 +1504,7 @@
 <td style="text-align: center;">No</td>
 <td style="text-align: center;">Yes</td>
 <td style="text-align: center;">Yes</td>
-<td style="text-align: center;">No</td>
+<td style="text-align: center;">Partial</td>
 </tr>
 <tr>
 <td>ServerHello fragmentation</td>
@@ -1519,6 +1519,13 @@
 <td style="text-align: center;">Yes</td>
 <td style="text-align: center;">Yes</td>
 <td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td>DNS over HTTPS/TLS</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
 </tr>
 <tr>
 <td><strong><em>Access control</em></strong></td>
@@ -1536,6 +1543,20 @@
 </tr>
 <tr>
 <td>Per-user unique IP limits</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td>Per-secret byte quotas</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr>
+<td>Secret expiration</td>
 <td style="text-align: center;">No</td>
 <td style="text-align: center;">Yes</td>
 <td style="text-align: center;">No</td>
@@ -1601,7 +1622,7 @@
 <td>Systemd integration</td>
 <td style="text-align: center;">Partial</td>
 <td style="text-align: center;">Yes</td>
-<td style="text-align: center;">—</td>
+<td style="text-align: center;">No</td>
 <td style="text-align: center;">Yes</td>
 </tr>
 <tr>
@@ -1622,7 +1643,7 @@
 <td>HTTP stats endpoint</td>
 <td style="text-align: center;">Yes</td>
 <td style="text-align: center;">Yes</td>
-<td style="text-align: center;">—</td>
+<td style="text-align: center;">No</td>
 <td style="text-align: center;">Yes</td>
 </tr>
 <tr>
