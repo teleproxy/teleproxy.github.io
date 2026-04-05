@@ -1098,6 +1098,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Prometheus Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dc-latency-probes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DC Latency Probes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1537,6 +1554,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Prometheus Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dc-latency-probes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DC Latency Probes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1596,6 +1630,40 @@
 </code></pre></div>
 <p>Returns Prometheus exposition format on the same stats port. Includes per-secret metrics when labels are configured.</p>
 <p>Available metrics include connection counts, per-secret connections, rejection counts, and IP ACL rejections.</p>
+<h3 id="dc-latency-probes">DC Latency Probes<a class="headerlink" href="#dc-latency-probes" title="Permanent link">&para;</a></h3>
+<p>When enabled, teleproxy periodically probes all 5 Telegram DCs with a TCP handshake and exposes the results as a Prometheus histogram:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Enable with 30-second probe interval</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>--dc-probe-interval<span class="w"> </span><span class="m">30</span>
+</code></pre></div>
+<p>Metrics exposed:</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>teleproxy_dc_latency_seconds</code></td>
+<td>histogram</td>
+<td>TCP handshake RTT per DC (labels: <code>dc="1"</code>..<code>dc="5"</code>)</td>
+</tr>
+<tr>
+<td><code>teleproxy_dc_probe_failures_total</code></td>
+<td>counter</td>
+<td>Failed probe attempts per DC</td>
+</tr>
+<tr>
+<td><code>teleproxy_dc_latency_last_seconds</code></td>
+<td>gauge</td>
+<td>Most recent probe latency per DC</td>
+</tr>
+</tbody>
+</table>
+<p>The text <code>/stats</code> endpoint includes matching fields: <code>dc_probe_interval</code>, <code>dcN_probe_latency_last</code>, <code>dcN_probe_latency_avg</code>, <code>dcN_probe_count</code>, <code>dcN_probe_failures</code>.</p>
+<p>Disabled by default. Set <code>dc_probe_interval</code> in the TOML config or use the <code>DC_PROBE_INTERVAL</code> environment variable in Docker.</p>
 <h2 id="grafana-dashboard">Grafana Dashboard<a class="headerlink" href="#grafana-dashboard" title="Permanent link">&para;</a></h2>
 <p>Import the <a href="https://github.com/teleproxy/teleproxy/blob/main/dashboards/teleproxy.json">bundled dashboard</a> into Grafana:</p>
 <ol>
@@ -1606,7 +1674,7 @@
 <p>The dashboard covers connections, per-secret usage, rejection rates, DC connectivity, and resource utilization.</p>
 <h2 id="health-checks">Health Checks<a class="headerlink" href="#health-checks" title="Permanent link">&para;</a></h2>
 <p>Docker containers include built-in health monitoring via the stats endpoint. Check with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># STATUS column shows health</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># STATUS column shows health</span>
 </code></pre></div>
 
 
