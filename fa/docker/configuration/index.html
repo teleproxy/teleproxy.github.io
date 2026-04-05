@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring">
+        <meta name="description" content="مرجع کامل متغیرهای محیطی Docker برای Teleproxy: رمزها، دامنه TLS، کنترل دسترسی، مانیتورینگ و محدودیت‌ها.">
       
       
       
@@ -63,10 +63,44 @@
 
     
     
+  
+  <meta property="og:title" content="پیکربندی - Teleproxy" />
+  <meta property="og:description" content="مرجع کامل متغیرهای محیطی Docker برای Teleproxy: رمزها، دامنه TLS، کنترل دسترسی، مانیتورینگ و محدودیت‌ها." />
+  <meta property="og:url" content="https://teleproxy.github.io/fa/docker/configuration/" />
+  
+  <meta name="description" content="مرجع کامل متغیرهای محیطی Docker برای Teleproxy: رمزها، دامنه TLS، کنترل دسترسی، مانیتورینگ و محدودیت‌ها." />
+  
+  <meta name="twitter:title" content="پیکربندی - Teleproxy" />
+  <meta name="twitter:description" content="مرجع کامل متغیرهای محیطی Docker برای Teleproxy: رمزها، دامنه TLS، کنترل دسترسی، مانیتورینگ و محدودیت‌ها." />
+  
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Teleproxy",
+    "description": "High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring",
+    "url": "https://teleproxy.github.io/",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/GPL-2.0",
+    "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
+    "softwareVersion": "4.9.0",
+    "author": {
+      "@type": "Person",
+      "name": "R. Kline"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   </head>
   
@@ -87,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-configuration" class="md-skip">
+        <a href="#docker" class="md-skip">
           پرش به محتویات
         </a>
       
@@ -95,6 +129,10 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
     
     
       
@@ -807,10 +845,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment Variables
+        متغیرهای محیطی
       
     </span>
   </a>
@@ -829,10 +867,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#volume-mounting" class="md-nav__link">
+  <a href="#volume" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Volume Mounting
+        اتصال حجم (Volume)
       
     </span>
   </a>
@@ -840,10 +878,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-config-refresh" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic Config Refresh
+        به‌روزرسانی خودکار پیکربندی
       
     </span>
   </a>
@@ -851,10 +889,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#health-check" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Health Check
+        بررسی سلامت
       
     </span>
   </a>
@@ -1495,10 +1533,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#environment-variables" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Environment Variables
+        متغیرهای محیطی
       
     </span>
   </a>
@@ -1517,10 +1555,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#volume-mounting" class="md-nav__link">
+  <a href="#volume" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Volume Mounting
+        اتصال حجم (Volume)
       
     </span>
   </a>
@@ -1528,10 +1566,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-config-refresh" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic Config Refresh
+        به‌روزرسانی خودکار پیکربندی
       
     </span>
   </a>
@@ -1539,10 +1577,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#health-check" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Health Check
+        بررسی سلامت
       
     </span>
   </a>
@@ -1569,132 +1607,132 @@
   
 
 
-<h1 id="docker-configuration">Docker Configuration<a class="headerlink" href="#docker-configuration" title="Permanent link">&para;</a></h1>
-<h2 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
+<h1 id="docker">پیکربندی Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h1>
+<h2 id="_1">متغیرهای محیطی<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Variable</th>
-<th>Default</th>
-<th>Description</th>
+<th>متغیر</th>
+<th>پیش‌فرض</th>
+<th>توضیح</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>SECRET</code></td>
-<td>auto-generated</td>
-<td>Proxy secret(s) — 32 hex chars each. Single, comma-separated, or with labels</td>
+<td>تولید خودکار</td>
+<td>secret پروکسی - هر کدام ۳۲ کاراکتر هگزادسیمال. تکی، جدا شده با کاما، یا با برچسب</td>
 </tr>
 <tr>
 <td><code>SECRET_1</code>...<code>SECRET_16</code></td>
-<td>—</td>
-<td>Numbered secrets (combined with <code>SECRET</code> if both set)</td>
+<td>-</td>
+<td>secret‌های شماره‌دار (در صورت تنظیم هر دو، با <code>SECRET</code> ترکیب می‌شوند)</td>
 </tr>
 <tr>
 <td><code>SECRET_LABEL_1</code>...<code>SECRET_LABEL_16</code></td>
-<td>—</td>
-<td>Labels for numbered secrets</td>
+<td>-</td>
+<td>برچسب برای secret‌های شماره‌دار</td>
 </tr>
 <tr>
 <td><code>SECRET_LIMIT_1</code>...<code>SECRET_LIMIT_16</code></td>
-<td>—</td>
-<td>Per-secret connection limits</td>
+<td>-</td>
+<td>محدودیت اتصال به ازای هر secret</td>
 </tr>
 <tr>
 <td><code>SECRET_QUOTA_1</code>...<code>SECRET_QUOTA_16</code></td>
-<td>—</td>
-<td>Per-secret byte quota (e.g. <code>10737418240</code> for 10 GB)</td>
+<td>-</td>
+<td>سهمیه ترافیک به ازای هر secret (به بایت، مثلا <code>10737418240</code> برای ۱۰ گیگابایت)</td>
 </tr>
 <tr>
 <td><code>SECRET_MAX_IPS_1</code>...<code>SECRET_MAX_IPS_16</code></td>
-<td>—</td>
-<td>Per-secret unique IP limits</td>
+<td>-</td>
+<td>محدودیت IP یکتا به ازای هر secret</td>
 </tr>
 <tr>
 <td><code>SECRET_EXPIRES_1</code>...<code>SECRET_EXPIRES_16</code></td>
-<td>—</td>
-<td>Per-secret expiration (TOML datetime or Unix timestamp)</td>
+<td>-</td>
+<td>تاریخ انقضای secret (فرمت TOML datetime یا Unix timestamp)</td>
 </tr>
 <tr>
 <td><code>PORT</code></td>
 <td>443</td>
-<td>Client connection port</td>
+<td>پورت اتصال کلاینت‌ها</td>
 </tr>
 <tr>
 <td><code>STATS_PORT</code></td>
 <td>8888</td>
-<td>Statistics endpoint port</td>
+<td>پورت اندپوینت آمار</td>
 </tr>
 <tr>
 <td><code>WORKERS</code></td>
 <td>1</td>
-<td>Worker processes</td>
+<td>تعداد فرآیندهای کاری</td>
 </tr>
 <tr>
 <td><code>PROXY_TAG</code></td>
-<td>—</td>
-<td>Tag from @MTProxybot (channel promotion)</td>
+<td>-</td>
+<td>تگ از @MTProxybot (تبلیغ کانال)</td>
 </tr>
 <tr>
 <td><code>DIRECT_MODE</code></td>
 <td>false</td>
-<td>Connect directly to Telegram DCs</td>
+<td>اتصال مستقیم به DC‌های تلگرام</td>
 </tr>
 <tr>
 <td><code>RANDOM_PADDING</code></td>
 <td>false</td>
-<td>Enable random padding only (DD mode)</td>
+<td>فعال‌سازی فقط random padding (حالت DD)</td>
 </tr>
 <tr>
 <td><code>EXTERNAL_IP</code></td>
-<td>auto-detected</td>
-<td>Public IP for NAT environments</td>
+<td>تشخیص خودکار</td>
+<td>IP عمومی برای محیط‌های NAT</td>
 </tr>
 <tr>
 <td><code>EE_DOMAIN</code></td>
-<td>—</td>
-<td>Domain for Fake-TLS. Accepts <code>host:port</code> for custom TLS backends</td>
+<td>-</td>
+<td>دامنه برای Fake-TLS. پشتیبانی از <code>host:port</code> برای بک‌اندهای TLS سفارشی</td>
 </tr>
 <tr>
 <td><code>IP_BLOCKLIST</code></td>
-<td>—</td>
-<td>Path to CIDR blocklist file</td>
+<td>-</td>
+<td>مسیر فایل لیست سیاه CIDR</td>
 </tr>
 <tr>
 <td><code>IP_ALLOWLIST</code></td>
-<td>—</td>
-<td>Path to CIDR allowlist file</td>
+<td>-</td>
+<td>مسیر فایل لیست سفید CIDR</td>
 </tr>
 <tr>
 <td><code>STATS_ALLOW_NET</code></td>
-<td>—</td>
-<td>Comma-separated CIDR ranges to allow stats access from (e.g. <code>100.64.0.0/10,fd00::/8</code>)</td>
+<td>-</td>
+<td>محدوده‌های CIDR جدا شده با کاما برای دسترسی به آمار (مثلا <code>100.64.0.0/10,fd00::/8</code>)</td>
 </tr>
 <tr>
 <td><code>SOCKS5_PROXY</code></td>
-<td>—</td>
-<td>Route upstream DC connections through a SOCKS5 proxy (<code>socks5://[user:pass@]host:port</code>)</td>
+<td>-</td>
+<td>مسیریابی اتصالات بالادست به DC از طریق پروکسی SOCKS5 (<code>socks5://[user:pass@]host:port</code>)</td>
 </tr>
 <tr>
 <td><code>PROXY_PROTOCOL</code></td>
 <td>false</td>
-<td>Enable PROXY protocol v1/v2 on client listeners (for HAProxy/nginx/NLB)</td>
+<td>فعال‌سازی PROXY protocol نسخه ۱ و ۲ روی شنونده‌های کلاینت (برای HAProxy/nginx/NLB)</td>
 </tr>
 <tr>
 <td><code>DC_OVERRIDE</code></td>
-<td>—</td>
-<td>Comma-separated DC address overrides for direct mode (e.g. <code>2:1.2.3.4:443,2:5.6.7.8:443</code>)</td>
+<td>-</td>
+<td>بازنویسی آدرس‌های DC جدا شده با کاما برای حالت مستقیم (مثلا <code>2:1.2.3.4:443,2:5.6.7.8:443</code>)</td>
 </tr>
 <tr>
 <td><code>DC_PROBE_INTERVAL</code></td>
-<td>—</td>
-<td>Seconds between DC health probes (e.g. <code>30</code>). Disabled when absent or <code>0</code></td>
+<td>-</td>
+<td>فاصله زمانی بررسی سلامت DC به ثانیه (مثلا <code>30</code>). غیرفعال در صورت عدم تنظیم یا <code>0</code></td>
 </tr>
 </tbody>
 </table>
-<p>Maximum 16 secrets (binary limit).</p>
+<p>حداکثر ۱۶ secret (محدودیت باینری).</p>
 <h2 id="docker-compose">Docker Compose<a class="headerlink" href="#docker-compose" title="Permanent link">&para;</a></h2>
-<p>Simple setup:</p>
+<p>پیکربندی ساده:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">services</span><span class="p">:</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">teleproxy</span><span class="p">:</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/teleproxy/teleproxy:latest</span>
@@ -1703,12 +1741,12 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8888:8888&quot;</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 </code></pre></div>
-<p>With <code>.env</code> file:</p>
+<p>با فایل <code>.env</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">SECRET</span><span class="o">=</span>your_secret_here
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">PROXY_TAG</span><span class="o">=</span>your_proxy_tag_here
 </code></pre></div>
-<h2 id="volume-mounting">Volume Mounting<a class="headerlink" href="#volume-mounting" title="Permanent link">&para;</a></h2>
-<p>The container stores <code>proxy-multi.conf</code> in <code>/opt/teleproxy/data/</code>. Mount a volume to persist the configuration across restarts:</p>
+<h2 id="volume">اتصال حجم (Volume)<a class="headerlink" href="#volume" title="Permanent link">&para;</a></h2>
+<p>کانتینر فایل <code>proxy-multi.conf</code> را در مسیر <code>/opt/teleproxy/data/</code> ذخیره می‌کند. یک حجم متصل کنید تا پیکربندی بین راه‌اندازی‌های مجدد حفظ شود:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
@@ -1716,21 +1754,24 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
 </code></pre></div>
-<p><code>proxy-secret</code> is baked into the image at build time — no volume needed for it.</p>
-<p>If <code>core.telegram.org</code> is unreachable, the container uses the cached config from the volume.</p>
-<h2 id="automatic-config-refresh">Automatic Config Refresh<a class="headerlink" href="#automatic-config-refresh" title="Permanent link">&para;</a></h2>
-<p>A cron job refreshes the Telegram DC configuration every 6 hours. It downloads the latest config, validates it, compares it with the existing one, and hot-reloads the proxy via <code>SIGHUP</code> if the config changed. No configuration needed.</p>
-<h2 id="health-check">Health Check<a class="headerlink" href="#health-check" title="Permanent link">&para;</a></h2>
-<p>The Docker image includes a built-in health check that monitors the stats endpoint:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># Check the STATUS column for health</span>
+<p>فایل <code>proxy-secret</code> در زمان ساخت ایمیج درون آن تعبیه شده است و نیازی به حجم جداگانه ندارد.</p>
+<p>اگر <code>core.telegram.org</code> در دسترس نباشد، کانتینر از پیکربندی ذخیره‌شده در حجم استفاده می‌کند.</p>
+<h2 id="_2">به‌روزرسانی خودکار پیکربندی<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>یک وظیفه cron هر ۶ ساعت پیکربندی DC تلگرام را به‌روزرسانی می‌کند. این وظیفه آخرین پیکربندی را دانلود می‌کند، اعتبارسنجی می‌کند، با نسخه فعلی مقایسه می‌کند و در صورت تغییر، پروکسی را از طریق <code>SIGHUP</code> مجددا بارگذاری می‌کند. نیازی به پیکربندی نیست.</p>
+<h2 id="_3">بررسی سلامت<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>ایمیج Docker شامل بررسی سلامت داخلی است که اندپوینت آمار را نظارت می‌کند:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># ستون STATUS را بررسی کنید</span>
 </code></pre></div>
-<p>The health check runs every 30 seconds after a 60-second startup grace period.</p>
+<p>بررسی سلامت هر ۳۰ ثانیه پس از ۶۰ ثانیه مهلت اولیه راه‌اندازی اجرا می‌شود.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1758,7 +1799,7 @@
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Support this project</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
       </div>
     </div>
   </footer>
@@ -1772,7 +1813,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": "4.9.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>

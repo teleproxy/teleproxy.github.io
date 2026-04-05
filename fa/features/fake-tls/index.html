@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring">
+        <meta name="description" content="پیکربندی حالت EE در Teleproxy برای پوشاندن MTProto در handshake واقعی TLS 1.3. ترافیک پروکسی از HTTPS معمولی قابل تشخیص نیست.">
       
       
       
@@ -63,10 +63,44 @@
 
     
     
+  
+  <meta property="og:title" content="Fake-TLS (حالت EE) - Teleproxy" />
+  <meta property="og:description" content="پیکربندی حالت EE در Teleproxy برای پوشاندن MTProto در handshake واقعی TLS 1.3. ترافیک پروکسی از HTTPS معمولی قابل تشخیص نیست." />
+  <meta property="og:url" content="https://teleproxy.github.io/fa/features/fake-tls/" />
+  
+  <meta name="description" content="پیکربندی حالت EE در Teleproxy برای پوشاندن MTProto در handshake واقعی TLS 1.3. ترافیک پروکسی از HTTPS معمولی قابل تشخیص نیست." />
+  
+  <meta name="twitter:title" content="Fake-TLS (حالت EE) - Teleproxy" />
+  <meta name="twitter:description" content="پیکربندی حالت EE در Teleproxy برای پوشاندن MTProto در handshake واقعی TLS 1.3. ترافیک پروکسی از HTTPS معمولی قابل تشخیص نیست." />
+  
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Teleproxy",
+    "description": "High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring",
+    "url": "https://teleproxy.github.io/",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/GPL-2.0",
+    "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
+    "softwareVersion": "4.9.0",
+    "author": {
+      "@type": "Person",
+      "name": "R. Kline"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   </head>
   
@@ -87,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fake-tls-ee-mode" class="md-skip">
+        <a href="#fake-tls-ee" class="md-skip">
           پرش به محتویات
         </a>
       
@@ -95,6 +129,10 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
     
     
       
@@ -950,10 +988,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How It Works
+        نحوه کار
       
     </span>
   </a>
@@ -964,7 +1002,7 @@
   <a href="#custom-tls-backend-tcp-splitting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom TLS Backend (TCP Splitting)
+        بک‌اند TLS سفارشی (TCP Splitting)
       
     </span>
   </a>
@@ -972,10 +1010,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dynamic-record-sizing-drs" class="md-nav__link">
+  <a href="#drs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dynamic Record Sizing (DRS)
+        تغییر اندازه رکورد پویا (DRS)
       
     </span>
   </a>
@@ -983,10 +1021,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dd-mode-random-padding" class="md-nav__link">
+  <a href="#dd-padding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DD Mode (Random Padding)
+        حالت DD (padding تصادفی)
       
     </span>
   </a>
@@ -1484,10 +1522,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How It Works
+        نحوه کار
       
     </span>
   </a>
@@ -1498,7 +1536,7 @@
   <a href="#custom-tls-backend-tcp-splitting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom TLS Backend (TCP Splitting)
+        بک‌اند TLS سفارشی (TCP Splitting)
       
     </span>
   </a>
@@ -1506,10 +1544,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dynamic-record-sizing-drs" class="md-nav__link">
+  <a href="#drs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dynamic Record Sizing (DRS)
+        تغییر اندازه رکورد پویا (DRS)
       
     </span>
   </a>
@@ -1517,10 +1555,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dd-mode-random-padding" class="md-nav__link">
+  <a href="#dd-padding" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DD Mode (Random Padding)
+        حالت DD (padding تصادفی)
       
     </span>
   </a>
@@ -1547,36 +1585,36 @@
   
 
 
-<h1 id="fake-tls-ee-mode">Fake-TLS (EE Mode)<a class="headerlink" href="#fake-tls-ee-mode" title="Permanent link">&para;</a></h1>
-<p>Teleproxy supports EE mode which makes proxy traffic look like standard TLS 1.3, making it harder to detect and block.</p>
-<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
-<p>The client secret uses the format: <code>ee</code> + server_secret + domain_hex</p>
-<p>Server setup — add domain configuration (must support TLS 1.3):</p>
+<h1 id="fake-tls-ee">Fake-TLS (حالت EE)<a class="headerlink" href="#fake-tls-ee" title="Permanent link">&para;</a></h1>
+<p>Teleproxy از حالت EE پشتیبانی می‌کند که ترافیک پروکسی را شبیه TLS 1.3 استاندارد نشان می‌دهد و شناسایی و مسدود کردن آن را دشوارتر می‌سازد.</p>
+<h2 id="_1">نحوه کار<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>secret کلاینت از این الگو پیروی می‌کند: <code>ee</code> + secret_سرور + دامنه_هگز</p>
+<p>پیکربندی سرور - دامنه را اضافه کنید (باید از TLS 1.3 پشتیبانی کند):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./teleproxy<span class="w"> </span>-u<span class="w"> </span>nobody<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span><span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>-D<span class="w"> </span>www.google.com<span class="w"> </span>--http-stats<span class="w"> </span>--aes-pwd<span class="w"> </span>proxy-secret<span class="w"> </span>proxy-multi.conf<span class="w"> </span>-M<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
-<p>Generate the full client secret in one step:</p>
+<p>تولید secret کامل کلاینت در یک مرحله:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>teleproxy<span class="w"> </span>generate-secret<span class="w"> </span>www.google.com
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># stdout:  eecafe...7777772e676f6f676c652e636f6d</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># stderr:  Secret for -S:  cafe...</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1">#          Domain:         www.google.com</span>
 </code></pre></div>
-<p>Use the stdout value in <code>tg://proxy</code> links and the <code>Secret for -S</code> value with the <code>-S</code> flag.</p>
-<h2 id="custom-tls-backend-tcp-splitting">Custom TLS Backend (TCP Splitting)<a class="headerlink" href="#custom-tls-backend-tcp-splitting" title="Permanent link">&para;</a></h2>
-<p>Instead of mimicking a public website, run your own web server behind Teleproxy with a real TLS certificate. Non-proxy visitors see a fully functioning HTTPS website — the server is indistinguishable from a normal web server.</p>
-<p>How it works:</p>
+<p>مقدار stdout را در لینک‌های <code>tg://proxy</code> و مقدار <code>Secret for -S</code> را با فلگ <code>-S</code> استفاده کنید.</p>
+<h2 id="custom-tls-backend-tcp-splitting">بک‌اند TLS سفارشی (TCP Splitting)<a class="headerlink" href="#custom-tls-backend-tcp-splitting" title="Permanent link">&para;</a></h2>
+<p>به جای تقلید یک وب‌سایت عمومی، وب‌سرور خود را با گواهی TLS معتبر پشت Teleproxy اجرا کنید. بازدیدکنندگان غیرپروکسی یک وب‌سایت HTTPS کاملا عملیاتی می‌بینند و سرور از یک وب‌سرور معمولی غیرقابل تشخیص است.</p>
+<p>نحوه کار:</p>
 <ul>
-<li>Teleproxy listens on port 443</li>
-<li>nginx runs on a non-standard port (e.g. 8443) with a valid certificate</li>
-<li>Domain's DNS A record points to the Teleproxy server</li>
-<li>Valid proxy clients connect normally; all other traffic forwarded to nginx</li>
+<li>Teleproxy روی پورت 443 گوش می‌دهد</li>
+<li>nginx روی یک پورت غیراستاندارد (مثلا 8443) با گواهی معتبر اجرا می‌شود</li>
+<li>رکورد DNS A دامنه به سرور Teleproxy اشاره می‌کند</li>
+<li>کلاینت‌های معتبر پروکسی به‌صورت عادی متصل می‌شوند؛ تمام ترافیک دیگر به nginx هدایت می‌شود</li>
 </ul>
-<p><strong>Active probing resistance:</strong> Every connection that fails validation — wrong secret, expired timestamp, unknown SNI, replayed handshake, malformed ClientHello, or plain non-TLS traffic — is transparently forwarded to the backend. Anyone probing sees a real HTTPS website.</p>
-<p>Requirements:</p>
+<p><strong>مقاومت در برابر کاوش فعال:</strong> هر اتصالی که اعتبارسنجی را رد نکند - secret اشتباه، مهر زمانی منقضی‌شده، SNI ناشناخته، handshake تکرار شده، ClientHello ناقص، یا ترافیک غیر TLS - به‌صورت شفاف به بک‌اند هدایت می‌شود. هر کسی که سرور را کاوش کند، یک وب‌سایت HTTPS واقعی مشاهده می‌کند.</p>
+<p>الزامات:</p>
 <ul>
-<li>Backend must support TLS 1.3 (verified at startup)</li>
-<li><code>-D</code> value must be a hostname, not an IP (TLS SNI doesn't support IPs per RFC 6066)</li>
+<li>بک‌اند باید از TLS 1.3 پشتیبانی کند (در زمان راه‌اندازی بررسی می‌شود)</li>
+<li>مقدار <code>-D</code> باید نام هاست باشد، نه IP (TLS SNI طبق RFC 6066 از IP پشتیبانی نمی‌کند)</li>
 </ul>
-<p>Setup example with nginx:</p>
+<p>نمونه پیکربندی با nginx:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="n">127.0.0.1</span><span class="p">:</span><span class="mi">8443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">default_server</span><span class="p">;</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">mywebsite.com</span><span class="p">;</span>
@@ -1588,29 +1626,32 @@
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="p">=</span><span class="mi">404</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">}</span>
 </code></pre></div>
-<p>Add <code>/etc/hosts</code> entry if nginx only listens on loopback:</p>
+<p>اگر nginx فقط روی loopback گوش می‌دهد، رکوردی به <code>/etc/hosts</code> اضافه کنید:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>127.0.0.1 mywebsite.com
 </code></pre></div>
-<p>Run with domain and port:</p>
+<p>اجرا با دامنه و پورت:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./teleproxy<span class="w"> </span>-u<span class="w"> </span>nobody<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span><span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>-D<span class="w"> </span>mywebsite.com:8443<span class="w"> </span>--http-stats<span class="w"> </span>--aes-pwd<span class="w"> </span>proxy-secret<span class="w"> </span>proxy-multi.conf<span class="w"> </span>-M<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Use certbot with DNS-01 challenge for certificate renewal — HTTP-01 won't work since Teleproxy occupies port 443.</p>
+<p>برای تمدید گواهی از certbot با چالش DNS-01 استفاده کنید. چالش HTTP-01 کار نمی‌کند زیرا Teleproxy پورت 443 را اشغال کرده است.</p>
 </div>
-<h2 id="dynamic-record-sizing-drs">Dynamic Record Sizing (DRS)<a class="headerlink" href="#dynamic-record-sizing-drs" title="Permanent link">&para;</a></h2>
-<p>TLS connections automatically use graduated record sizes that mimic real HTTPS servers (Cloudflare, Go, Caddy): small MTU-sized records during TCP slow-start (~1450 bytes), ramping to ~4096 bytes, then max TLS payload (~16144 bytes). This defeats statistical traffic analysis that fingerprints proxy traffic by uniform record sizes.</p>
-<p>No configuration needed — DRS activates automatically for all TLS connections.</p>
-<h2 id="dd-mode-random-padding">DD Mode (Random Padding)<a class="headerlink" href="#dd-mode-random-padding" title="Permanent link">&para;</a></h2>
-<p>For ISPs that detect MTProto by packet sizes, random padding is added.</p>
-<p>Client setup: prefix <code>dd</code> to secret (<code>cafe...babe</code> becomes <code>ddcafe...babe</code>).</p>
-<p>Server setup: use <code>-R</code> to allow only padded clients.</p>
+<h2 id="drs">تغییر اندازه رکورد پویا (DRS)<a class="headerlink" href="#drs" title="Permanent link">&para;</a></h2>
+<p>اتصالات TLS به‌صورت خودکار از اندازه‌های تدریجی رکورد استفاده می‌کنند که رفتار وب‌سرورهای واقعی (Cloudflare، Go، Caddy) را تقلید می‌کند: رکوردهای کوچک به اندازه MTU در هنگام TCP slow-start (حدود ۱۴۵۰ بایت)، افزایش تا حدود ۴۰۹۶ بایت، و سپس حداکثر payload در TLS (حدود ۱۶۱۴۴ بایت). این کار تحلیل آماری ترافیک را که پروکسی را از طریق اندازه‌های یکنواخت رکورد شناسایی می‌کند، خنثی می‌سازد.</p>
+<p>نیازی به پیکربندی نیست. DRS به‌صورت خودکار برای تمام اتصالات TLS فعال می‌شود.</p>
+<h2 id="dd-padding">حالت DD (padding تصادفی)<a class="headerlink" href="#dd-padding" title="Permanent link">&para;</a></h2>
+<p>برای ISP‌هایی که MTProto را از طریق اندازه بسته‌ها شناسایی می‌کنند، padding تصادفی اضافه می‌شود.</p>
+<p>پیکربندی کلاینت: پیشوند <code>dd</code> را به secret اضافه کنید (<code>cafe...babe</code> تبدیل به <code>ddcafe...babe</code> می‌شود).</p>
+<p>پیکربندی سرور: از <code>-R</code> استفاده کنید تا فقط کلاینت‌های دارای padding مجاز باشند.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1638,7 +1679,7 @@
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Support this project</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
       </div>
     </div>
   </footer>
@@ -1652,7 +1693,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": "4.9.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>

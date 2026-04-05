@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring">
+        <meta name="description" content="Release history for Teleproxy. Version details, new features, bug fixes, and breaking changes across all releases.">
       
       
       
@@ -61,10 +61,44 @@
 
     
     
+  
+  <meta property="og:title" content="تاریخچه تغییرات - Teleproxy" />
+  <meta property="og:description" content="Release history for Teleproxy. Version details, new features, bug fixes, and breaking changes across all releases." />
+  <meta property="og:url" content="https://teleproxy.github.io/fa/changelog/" />
+  
+  <meta name="description" content="Release history for Teleproxy. Version details, new features, bug fixes, and breaking changes across all releases." />
+  
+  <meta name="twitter:title" content="تاریخچه تغییرات - Teleproxy" />
+  <meta name="twitter:description" content="Release history for Teleproxy. Version details, new features, bug fixes, and breaking changes across all releases." />
+  
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Teleproxy",
+    "description": "High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring",
+    "url": "https://teleproxy.github.io/",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/GPL-2.0",
+    "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
+    "softwareVersion": "4.9.0",
+    "author": {
+      "@type": "Person",
+      "name": "R. Kline"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   </head>
   
@@ -93,6 +127,10 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
     
     
       
@@ -1372,6 +1410,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#490" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#480" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1543,6 +1592,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#490" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#480" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1673,6 +1733,18 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="490">4.9.0<a class="headerlink" href="#490" title="Permanent link">&para;</a></h2>
+<p>PROXY protocol v1/v2 listener support (<a href="https://github.com/teleproxy/teleproxy/issues/50">#50</a>).</p>
+<ul>
+<li><strong>PROXY protocol</strong> — accept HAProxy PROXY protocol v1 (text) and v2 (binary) headers on client listeners. Required when running behind a load balancer (HAProxy, nginx, AWS NLB) that injects client IP. Enable with <code>--proxy-protocol</code> (CLI), <code>proxy_protocol = true</code> (TOML), or <code>PROXY_PROTOCOL=true</code> (Docker).</li>
+<li>Auto-detects v1 and v2 headers, extracts real client IP, re-checks IP ACLs against the real address.</li>
+<li>v2 LOCAL command accepted for load balancer health check probes.</li>
+<li>New Prometheus metrics: <code>teleproxy_proxy_protocol_connections_total</code>, <code>teleproxy_proxy_protocol_errors_total</code>.</li>
+<li>Fix auto-generated secret not written to TOML config — <code>start.sh</code> now correctly stores the generated secret in the TOML config.</li>
+<li>Documentation: complete SEO overhaul with per-page meta descriptions, OpenGraph tags, JSON-LD structured data, and robots.txt.</li>
+<li>Translations: Russian documentation now at 100% coverage, Farsi and Vietnamese expanded to 38%.</li>
+<li>TON wallet added as a donation option alongside Tribute.</li>
+</ul>
 <h2 id="480">4.8.0<a class="headerlink" href="#480" title="Permanent link">&para;</a></h2>
 <p>DC health probes (<a href="https://github.com/teleproxy/teleproxy/issues/47">#47</a>).</p>
 <ul>
@@ -1763,6 +1835,9 @@
 
 
 
+  
+  
+
 
 
 
@@ -1789,7 +1864,7 @@
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Support this project</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
       </div>
     </div>
   </footer>
@@ -1803,7 +1878,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": "4.9.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

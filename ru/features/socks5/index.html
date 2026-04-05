@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring">
+        <meta name="description" content="Маршрутизация исходящих подключений Teleproxy через SOCKS5-прокси при блокировке IP сервера Telegram или для сокрытия источника.">
       
       
       
@@ -63,10 +63,44 @@
 
     
     
+  
+  <meta property="og:title" content="SOCKS5 прокси - Teleproxy" />
+  <meta property="og:description" content="Маршрутизация исходящих подключений Teleproxy через SOCKS5-прокси при блокировке IP сервера Telegram или для сокрытия источника." />
+  <meta property="og:url" content="https://teleproxy.github.io/ru/features/socks5/" />
+  
+  <meta name="description" content="Маршрутизация исходящих подключений Teleproxy через SOCKS5-прокси при блокировке IP сервера Telegram или для сокрытия источника." />
+  
+  <meta name="twitter:title" content="SOCKS5 прокси - Teleproxy" />
+  <meta name="twitter:description" content="Маршрутизация исходящих подключений Teleproxy через SOCKS5-прокси при блокировке IP сервера Telegram или для сокрытия источника." />
+  
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Teleproxy",
+    "description": "High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring",
+    "url": "https://teleproxy.github.io/",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/GPL-2.0",
+    "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
+    "softwareVersion": "4.9.0",
+    "author": {
+      "@type": "Person",
+      "name": "R. Kline"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   </head>
   
@@ -87,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#socks5-upstream-proxy" class="md-skip">
+        <a href="#upstream-socks5" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -95,6 +129,10 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
     
     
       
@@ -1090,15 +1128,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration
+        Конфигурация
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuration">
+    <nav class="md-nav" aria-label="Конфигурация">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1113,10 +1151,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#toml-config" class="md-nav__link">
+  <a href="#toml-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TOML config
+        TOML-конфиг
       
     </span>
   </a>
@@ -1124,10 +1162,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cli-flag" class="md-nav__link">
+  <a href="#cli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI flag
+        Флаг CLI
       
     </span>
   </a>
@@ -1140,10 +1178,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#url-format" class="md-nav__link">
+  <a href="#url" class="md-nav__link">
     <span class="md-ellipsis">
       
-        URL format
+        Формат URL
       
     </span>
   </a>
@@ -1151,10 +1189,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Authentication
+        Аутентификация
       
     </span>
   </a>
@@ -1162,10 +1200,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Monitoring
+        Мониторинг
       
     </span>
   </a>
@@ -1173,10 +1211,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Notes
+        Примечания
       
     </span>
   </a>
@@ -1534,15 +1572,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration
+        Конфигурация
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuration">
+    <nav class="md-nav" aria-label="Конфигурация">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1557,10 +1595,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#toml-config" class="md-nav__link">
+  <a href="#toml-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TOML config
+        TOML-конфиг
       
     </span>
   </a>
@@ -1568,10 +1606,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cli-flag" class="md-nav__link">
+  <a href="#cli" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI flag
+        Флаг CLI
       
     </span>
   </a>
@@ -1584,10 +1622,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#url-format" class="md-nav__link">
+  <a href="#url" class="md-nav__link">
     <span class="md-ellipsis">
       
-        URL format
+        Формат URL
       
     </span>
   </a>
@@ -1595,10 +1633,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Authentication
+        Аутентификация
       
     </span>
   </a>
@@ -1606,10 +1644,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Monitoring
+        Мониторинг
       
     </span>
   </a>
@@ -1617,10 +1655,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Notes
+        Примечания
       
     </span>
   </a>
@@ -1647,12 +1685,12 @@
   
 
 
-<h1 id="socks5-upstream-proxy">SOCKS5 Upstream Proxy<a class="headerlink" href="#socks5-upstream-proxy" title="Permanent link">&para;</a></h1>
-<p>Route all outbound connections to Telegram DCs through a SOCKS5 proxy:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Client -&gt; Teleproxy -&gt; SOCKS5 proxy -&gt; Telegram DC
+<h1 id="upstream-socks5">Upstream-прокси SOCKS5<a class="headerlink" href="#upstream-socks5" title="Permanent link">&para;</a></h1>
+<p>Маршрутизация всех исходящих подключений к DC Telegram через SOCKS5-прокси:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Клиент -&gt; Teleproxy -&gt; SOCKS5-прокси -&gt; Telegram DC
 </code></pre></div>
-<p>This is useful when the server's IP is blocked by Telegram or when you want to hide the server's origin from Telegram's network.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>Полезно, когда IP сервера заблокирован Telegram или когда нужно скрыть источник сервера от сети Telegram.</p>
+<h2 id="_1">Конфигурация<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
@@ -1662,47 +1700,47 @@
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
 </code></pre></div>
-<p>With authentication:</p>
+<p>С аутентификацией:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>-e<span class="w"> </span><span class="nv">SOCKS5_PROXY</span><span class="o">=</span>socks5://user:pass@proxy.example.com:1080
 </code></pre></div>
-<h3 id="toml-config">TOML config<a class="headerlink" href="#toml-config" title="Permanent link">&para;</a></h3>
+<h3 id="toml-">TOML-конфиг<a class="headerlink" href="#toml-" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">socks5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;socks5://proxy.example.com:1080&quot;</span>
 </code></pre></div>
-<h3 id="cli-flag">CLI flag<a class="headerlink" href="#cli-flag" title="Permanent link">&para;</a></h3>
+<h3 id="cli">Флаг CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./teleproxy<span class="w"> </span>--direct<span class="w"> </span>--socks5<span class="w"> </span>socks5://user:pass@proxy.example.com:1080<span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>...
 </code></pre></div>
-<h2 id="url-format">URL format<a class="headerlink" href="#url-format" title="Permanent link">&para;</a></h2>
-<p>Two schemes are supported:</p>
+<h2 id="url">Формат URL<a class="headerlink" href="#url" title="Permanent link">&para;</a></h2>
+<p>Поддерживаются две схемы:</p>
 <table>
 <thead>
 <tr>
-<th>Scheme</th>
-<th>DNS resolution</th>
-<th>Use case</th>
+<th>Схема</th>
+<th>Резолв DNS</th>
+<th>Применение</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>socks5://</code></td>
-<td>Local (teleproxy resolves DC addresses)</td>
-<td>Default — works with most SOCKS5 proxies</td>
+<td>Локальный (Teleproxy резолвит адреса DC)</td>
+<td>По умолчанию — работает с большинством SOCKS5-прокси</td>
 </tr>
 <tr>
 <td><code>socks5h://</code></td>
-<td>Remote (SOCKS5 proxy resolves hostnames)</td>
-<td>Privacy-sensitive setups where DNS should not leak</td>
+<td>Удалённый (SOCKS5-прокси резолвит хостнеймы)</td>
+<td>Для сценариев с повышенной приватностью, где DNS не должен утекать</td>
 </tr>
 </tbody>
 </table>
-<p>Full format: <code>socks5[h]://[user:pass@]host:port</code></p>
-<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
+<p>Полный формат: <code>socks5[h]://[user:pass@]host:port</code></p>
+<h2 id="_2">Аутентификация<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Anonymous</strong>: <code>socks5://host:port</code> — no credentials, proxy must allow unauthenticated access</li>
-<li><strong>Username/Password</strong>: <code>socks5://user:pass@host:port</code> — RFC 1929 authentication</li>
+<li><strong>Анонимная</strong>: <code>socks5://host:port</code> — без учётных данных, прокси должен разрешать неаутентифицированный доступ</li>
+<li><strong>Логин/пароль</strong>: <code>socks5://user:pass@host:port</code> — аутентификация по RFC 1929</li>
 </ul>
-<h2 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h2>
-<p>SOCKS5 connection stats are exposed on the stats endpoints:</p>
-<p><code>/stats</code> (tab-separated):</p>
+<h2 id="_3">Мониторинг<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Статистика подключений SOCKS5 доступна на эндпоинтах:</p>
+<p><code>/stats</code> (табуляция):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>socks5_enabled  1
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>socks5_connects_attempted   42
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>socks5_connects_succeeded   40
@@ -1713,11 +1751,11 @@
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>teleproxy_socks5_connects_succeeded_total 40
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>teleproxy_socks5_connects_failed_total 2
 </code></pre></div>
-<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<h2 id="_4">Примечания<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Works with both direct mode and ME relay mode</li>
-<li>Not reloadable via SIGHUP — requires a restart to change the SOCKS5 proxy</li>
-<li>IPv6 target addresses are supported if the SOCKS5 proxy supports them</li>
+<li>Работает как в прямом режиме, так и в режиме ME relay</li>
+<li>Не перезагружается через SIGHUP — для смены SOCKS5-прокси требуется перезапуск</li>
+<li>IPv6-адреса назначения поддерживаются, если SOCKS5-прокси их поддерживает</li>
 </ul>
 
 
@@ -1725,6 +1763,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -1752,7 +1793,7 @@
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Support this project</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
       </div>
     </div>
   </footer>
@@ -1766,7 +1807,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": "4.9.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>

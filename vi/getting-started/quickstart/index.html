@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring">
+        <meta name="description" content="Chạy Teleproxy trong vòng 2 phút. Tải secret, cấu hình và kết nối client Telegram đầu tiên qua proxy.">
       
       
       
@@ -63,10 +63,44 @@
 
     
     
+  
+  <meta property="og:title" content="Khởi động nhanh - Teleproxy" />
+  <meta property="og:description" content="Chạy Teleproxy trong vòng 2 phút. Tải secret, cấu hình và kết nối client Telegram đầu tiên qua proxy." />
+  <meta property="og:url" content="https://teleproxy.github.io/vi/getting-started/quickstart/" />
+  
+  <meta name="description" content="Chạy Teleproxy trong vòng 2 phút. Tải secret, cấu hình và kết nối client Telegram đầu tiên qua proxy." />
+  
+  <meta name="twitter:title" content="Khởi động nhanh - Teleproxy" />
+  <meta name="twitter:description" content="Chạy Teleproxy trong vòng 2 phút. Tải secret, cấu hình và kết nối client Telegram đầu tiên qua proxy." />
+  
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Teleproxy",
+    "description": "High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring",
+    "url": "https://teleproxy.github.io/",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/GPL-2.0",
+    "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
+    "softwareVersion": "4.9.0",
+    "author": {
+      "@type": "Person",
+      "name": "R. Kline"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   </head>
   
@@ -87,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quick-start" class="md-skip">
+        <a href="#khoi-ong-nhanh" class="md-skip">
           Bỏ qua
         </a>
       
@@ -95,6 +129,10 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
     
     
       
@@ -692,10 +730,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-download-the-proxy-secret" class="md-nav__link">
+  <a href="#1-tai-proxy-secret" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Download the proxy secret
+        1. Tải proxy secret
       
     </span>
   </a>
@@ -703,10 +741,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-download-the-dc-configuration" class="md-nav__link">
+  <a href="#2-tai-cau-hinh-dc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Download the DC configuration
+        2. Tải cấu hình DC
       
     </span>
   </a>
@@ -714,10 +752,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-generate-a-client-secret" class="md-nav__link">
+  <a href="#3-tao-client-secret" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Generate a client secret
+        3. Tạo client secret
       
     </span>
   </a>
@@ -725,10 +763,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-run-teleproxy" class="md-nav__link">
+  <a href="#4-chay-teleproxy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Run Teleproxy
+        4. Chạy Teleproxy
       
     </span>
   </a>
@@ -736,10 +774,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-share-the-connection-link" class="md-nav__link">
+  <a href="#5-chia-se-lien-ket-ket-noi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Share the connection link
+        5. Chia sẻ liên kết kết nối
       
     </span>
   </a>
@@ -747,10 +785,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-register-with-telegram" class="md-nav__link">
+  <a href="#6-ang-ky-voi-telegram" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Register with Telegram
+        6. Đăng ký với Telegram
       
     </span>
   </a>
@@ -758,10 +796,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#or-just-use-docker" class="md-nav__link">
+  <a href="#hoac-dung-docker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Or just use Docker
+        Hoặc dùng Docker
       
     </span>
   </a>
@@ -1517,10 +1555,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-download-the-proxy-secret" class="md-nav__link">
+  <a href="#1-tai-proxy-secret" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Download the proxy secret
+        1. Tải proxy secret
       
     </span>
   </a>
@@ -1528,10 +1566,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-download-the-dc-configuration" class="md-nav__link">
+  <a href="#2-tai-cau-hinh-dc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Download the DC configuration
+        2. Tải cấu hình DC
       
     </span>
   </a>
@@ -1539,10 +1577,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-generate-a-client-secret" class="md-nav__link">
+  <a href="#3-tao-client-secret" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Generate a client secret
+        3. Tạo client secret
       
     </span>
   </a>
@@ -1550,10 +1588,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-run-teleproxy" class="md-nav__link">
+  <a href="#4-chay-teleproxy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Run Teleproxy
+        4. Chạy Teleproxy
       
     </span>
   </a>
@@ -1561,10 +1599,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-share-the-connection-link" class="md-nav__link">
+  <a href="#5-chia-se-lien-ket-ket-noi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Share the connection link
+        5. Chia sẻ liên kết kết nối
       
     </span>
   </a>
@@ -1572,10 +1610,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-register-with-telegram" class="md-nav__link">
+  <a href="#6-ang-ky-voi-telegram" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Register with Telegram
+        6. Đăng ký với Telegram
       
     </span>
   </a>
@@ -1583,10 +1621,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#or-just-use-docker" class="md-nav__link">
+  <a href="#hoac-dung-docker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Or just use Docker
+        Hoặc dùng Docker
       
     </span>
   </a>
@@ -1613,22 +1651,22 @@
   
 
 
-<h1 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h1>
-<p>Get Teleproxy running in under 2 minutes.</p>
-<h2 id="1-download-the-proxy-secret">1. Download the proxy secret<a class="headerlink" href="#1-download-the-proxy-secret" title="Permanent link">&para;</a></h2>
-<p>This key is used for encrypted communication with Telegram servers:</p>
+<h1 id="khoi-ong-nhanh">Khởi động nhanh<a class="headerlink" href="#khoi-ong-nhanh" title="Permanent link">&para;</a></h1>
+<p>Chạy Teleproxy trong vòng 2 phút.</p>
+<h2 id="1-tai-proxy-secret">1. Tải proxy secret<a class="headerlink" href="#1-tai-proxy-secret" title="Permanent link">&para;</a></h2>
+<p>Khóa này dùng để mã hóa giao tiếp với máy chủ Telegram:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://core.telegram.org/getProxySecret<span class="w"> </span>-o<span class="w"> </span>proxy-secret
 </code></pre></div>
-<h2 id="2-download-the-dc-configuration">2. Download the DC configuration<a class="headerlink" href="#2-download-the-dc-configuration" title="Permanent link">&para;</a></h2>
-<p>This file maps Telegram datacenter addresses. Update it daily via cron.</p>
+<h2 id="2-tai-cau-hinh-dc">2. Tải cấu hình DC<a class="headerlink" href="#2-tai-cau-hinh-dc" title="Permanent link">&para;</a></h2>
+<p>File này chứa bản đồ địa chỉ các datacenter của Telegram. Nên cập nhật hàng ngày qua cron.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://core.telegram.org/getProxyConfig<span class="w"> </span>-o<span class="w"> </span>proxy-multi.conf
 </code></pre></div>
-<h2 id="3-generate-a-client-secret">3. Generate a client secret<a class="headerlink" href="#3-generate-a-client-secret" title="Permanent link">&para;</a></h2>
-<p>Clients will use this secret to connect through your proxy:</p>
+<h2 id="3-tao-client-secret">3. Tạo client secret<a class="headerlink" href="#3-tao-client-secret" title="Permanent link">&para;</a></h2>
+<p>Client sẽ sử dụng secret này để kết nối qua proxy của bạn:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./teleproxy<span class="w"> </span>generate-secret
 </code></pre></div>
-<p>Save the output — you'll need it for the next step and for the connection link.</p>
-<h2 id="4-run-teleproxy">4. Run Teleproxy<a class="headerlink" href="#4-run-teleproxy" title="Permanent link">&para;</a></h2>
+<p>Lưu lại kết quả - bạn sẽ cần nó cho bước tiếp theo và cho liên kết kết nối.</p>
+<h2 id="4-chay-teleproxy">4. Chạy Teleproxy<a class="headerlink" href="#4-chay-teleproxy" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./teleproxy<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>-u<span class="w"> </span>nobody<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8888</span><span class="w"> </span><span class="se">\</span>
@@ -1641,74 +1679,77 @@
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Description</th>
+<th>Cờ</th>
+<th>Mô tả</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>-u nobody</code></td>
-<td>Drop root privileges after binding ports</td>
+<td>Bỏ quyền root sau khi bind port</td>
 </tr>
 <tr>
 <td><code>-H 443</code></td>
-<td>Client-facing port (what users connect to)</td>
+<td>Port phía client (port mà người dùng kết nối đến)</td>
 </tr>
 <tr>
 <td><code>-p 8888</code></td>
-<td>HTTP stats port — bind to localhost or a private network only</td>
+<td>Port thống kê HTTP - chỉ nên bind vào localhost hoặc mạng nội bộ</td>
 </tr>
 <tr>
 <td><code>-S &lt;secret&gt;</code></td>
-<td>Client secret. Repeat for multiple secrets: <code>-S &lt;s1&gt; -S &lt;s2&gt;</code></td>
+<td>Client secret. Lặp lại để dùng nhiều secret: <code>-S &lt;s1&gt; -S &lt;s2&gt;</code></td>
 </tr>
 <tr>
 <td><code>--http-stats</code></td>
-<td>Enable the built-in HTTP statistics page</td>
+<td>Bật trang thống kê HTTP tích hợp</td>
 </tr>
 <tr>
 <td><code>--aes-pwd proxy-secret</code></td>
-<td>Path to the proxy secret file</td>
+<td>Đường dẫn đến file proxy secret</td>
 </tr>
 <tr>
 <td><code>proxy-multi.conf</code></td>
-<td>Path to the DC configuration file</td>
+<td>Đường dẫn đến file cấu hình DC</td>
 </tr>
 <tr>
 <td><code>-M 1</code></td>
-<td>Number of worker processes</td>
+<td>Số tiến trình worker</td>
 </tr>
 </tbody>
 </table>
-<h2 id="5-share-the-connection-link">5. Share the connection link<a class="headerlink" href="#5-share-the-connection-link" title="Permanent link">&para;</a></h2>
-<p>Give users a link they can tap to configure Telegram automatically:</p>
+<h2 id="5-chia-se-lien-ket-ket-noi">5. Chia sẻ liên kết kết nối<a class="headerlink" href="#5-chia-se-lien-ket-ket-noi" title="Permanent link">&para;</a></h2>
+<p>Gửi cho người dùng một liên kết để tự động cấu hình Telegram:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>tg://proxy?server=YOUR_SERVER_IP&amp;port=443&amp;secret=SECRET
 </code></pre></div>
-<p>Replace <code>YOUR_SERVER_IP</code> with your server's public IP and <code>SECRET</code> with the hex secret from step 3.</p>
-<h2 id="6-register-with-telegram">6. Register with Telegram<a class="headerlink" href="#6-register-with-telegram" title="Permanent link">&para;</a></h2>
-<p>Message <a href="https://t.me/MTProxybot">@MTProxybot</a> on Telegram to register your proxy and receive a proxy tag. Then add it to your launch command:</p>
+<p>Thay <code>YOUR_SERVER_IP</code> bằng IP công khai của máy chủ và <code>SECRET</code> bằng secret dạng hex từ bước 3.</p>
+<h2 id="6-ang-ky-voi-telegram">6. Đăng ký với Telegram<a class="headerlink" href="#6-ang-ky-voi-telegram" title="Permanent link">&para;</a></h2>
+<p>Nhắn tin cho <a href="https://t.me/MTProxybot">@MTProxybot</a> trên Telegram để đăng ký proxy và nhận proxy tag. Sau đó thêm vào lệnh khởi chạy:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>-P<span class="w"> </span>&lt;proxy-tag&gt;
 </code></pre></div>
-<p>The proxy tag enables sponsored channels (required by Telegram for listed proxies) and makes your proxy discoverable.</p>
+<p>Proxy tag cho phép hiển thị kênh được tài trợ (bắt buộc theo yêu cầu của Telegram đối với proxy công khai) và giúp proxy của bạn được khám phá.</p>
 <hr />
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>For the simplest setup, use <a href="../../features/direct-mode/">Direct-to-DC mode</a> — no config files needed.</p>
+<p>Để thiết lập đơn giản nhất, hãy dùng <a href="../../features/direct-mode/">chế độ Direct-to-DC</a> - không cần file cấu hình.</p>
 </div>
-<h2 id="or-just-use-docker">Or just use Docker<a class="headerlink" href="#or-just-use-docker" title="Permanent link">&para;</a></h2>
-<p>Skip all of the above with a single command:</p>
+<h2 id="hoac-dung-docker">Hoặc dùng Docker<a class="headerlink" href="#hoac-dung-docker" title="Permanent link">&para;</a></h2>
+<p>Bỏ qua tất cả các bước trên chỉ với một lệnh:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
 </code></pre></div>
-<p>The container auto-downloads config files, generates a random secret, and prints the <code>tg://</code> connection link to the logs. See <a href="../../docker/">Docker Quick Start</a> for details.</p>
+<p>Container tự động tải file cấu hình, tạo secret ngẫu nhiên và in liên kết <code>tg://</code> vào log. Xem <a href="../../docker/">Docker Quick Start</a> để biết chi tiết.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1736,7 +1777,7 @@
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Support this project</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
       </div>
     </div>
   </footer>
@@ -1750,7 +1791,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "4.9.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>

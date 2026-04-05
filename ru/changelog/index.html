@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring">
+        <meta name="description" content="История релизов Teleproxy. Новые функции, исправления и важные изменения по версиям.">
       
       
       
@@ -61,10 +61,44 @@
 
     
     
+  
+  <meta property="og:title" content="Журнал изменений - Teleproxy" />
+  <meta property="og:description" content="История релизов Teleproxy. Новые функции, исправления и важные изменения по версиям." />
+  <meta property="og:url" content="https://teleproxy.github.io/ru/changelog/" />
+  
+  <meta name="description" content="История релизов Teleproxy. Новые функции, исправления и важные изменения по версиям." />
+  
+  <meta name="twitter:title" content="Журнал изменений - Teleproxy" />
+  <meta name="twitter:description" content="История релизов Teleproxy. Новые функции, исправления и важные изменения по версиям." />
+  
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Teleproxy",
+    "description": "High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring",
+    "url": "https://teleproxy.github.io/",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/GPL-2.0",
+    "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
+    "softwareVersion": "4.9.0",
+    "author": {
+      "@type": "Person",
+      "name": "R. Kline"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   </head>
   
@@ -85,7 +119,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#changelog" class="md-skip">
+        <a href="#_1" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -93,6 +127,10 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
     
     
       
@@ -1372,6 +1410,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#490" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#480" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1543,6 +1592,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#490" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#480" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1672,89 +1732,101 @@
   
 
 
-<h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
-<h2 id="480">4.8.0<a class="headerlink" href="#480" title="Permanent link">&para;</a></h2>
-<p>DC health probes (<a href="https://github.com/teleproxy/teleproxy/issues/47">#47</a>).</p>
+<h1 id="_1">Журнал изменений<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="490">4.9.0<a class="headerlink" href="#490" title="Permanent link">&para;</a></h2>
+<p>Поддержка PROXY protocol v1/v2 (<a href="https://github.com/teleproxy/teleproxy/issues/50">#50</a>).</p>
 <ul>
-<li><strong>DC latency probes</strong> - periodic TCP handshake measurement to all 5 Telegram DCs, exposed as Prometheus histograms (<code>teleproxy_dc_latency_seconds</code>), failure counters, and last-latency gauges. Helps operators diagnose slow downloads and pick optimal DC routing.</li>
-<li>Disabled by default. Enable with <code>--dc-probe-interval 30</code> (CLI), <code>dc_probe_interval = 30</code> (TOML), or <code>DC_PROBE_INTERVAL=30</code> (Docker env).</li>
-<li>Probes run in the master process only. Completion is tracked via non-blocking poll to preserve sub-millisecond accuracy.</li>
-<li>Text stats endpoint includes per-DC latency, average, count, and failure fields.</li>
+<li><strong>PROXY protocol</strong> — приём заголовков HAProxy PROXY protocol v1 (текст) и v2 (бинарный) на клиентских портах. Необходимо при работе за балансировщиком нагрузки (HAProxy, nginx, AWS NLB), который передаёт IP клиента. Включение: <code>--proxy-protocol</code> (CLI), <code>proxy_protocol = true</code> (TOML) или <code>PROXY_PROTOCOL=true</code> (Docker).</li>
+<li>Автоматическое определение v1 и v2, извлечение реального IP клиента, повторная проверка IP ACL по реальному адресу.</li>
+<li>Команда v2 LOCAL принимается для health-check зондов балансировщика.</li>
+<li>Новые метрики Prometheus: <code>teleproxy_proxy_protocol_connections_total</code>, <code>teleproxy_proxy_protocol_errors_total</code>.</li>
+<li>Исправлено: автоматически сгенерированный секрет не записывался в TOML-конфиг.</li>
+<li>Документация: полная SEO-оптимизация с уникальными мета-описаниями страниц, OpenGraph-тегами, JSON-LD и robots.txt.</li>
+<li>Переводы: русская документация на 100%, фарси и вьетнамский расширены до 38%.</li>
+<li>Добавлен TON-кошелёк как вариант пожертвования наряду с Tribute.</li>
+</ul>
+<h2 id="480">4.8.0<a class="headerlink" href="#480" title="Permanent link">&para;</a></h2>
+<p>Зонды состояния DC (<a href="https://github.com/teleproxy/teleproxy/issues/47">#47</a>).</p>
+<ul>
+<li><strong>Зонды задержки DC</strong> - периодическое измерение TCP-рукопожатия со всеми 5 дата-центрами Telegram, публикация в виде гистограмм Prometheus (<code>teleproxy_dc_latency_seconds</code>), счётчиков ошибок и gauge последней задержки. Помогает операторам диагностировать медленную загрузку и выбирать оптимальную маршрутизацию DC.</li>
+<li>По умолчанию отключено. Включение: <code>--dc-probe-interval 30</code> (CLI), <code>dc_probe_interval = 30</code> (TOML) или <code>DC_PROBE_INTERVAL=30</code> (Docker env).</li>
+<li>Зонды выполняются только в master-процессе. Завершение отслеживается через неблокирующий poll для сохранения субмиллисекундной точности.</li>
+<li>Текстовый эндпоинт статистики включает поля задержки, среднего значения, счётчика и ошибок по каждому DC.</li>
 </ul>
 <h2 id="470">4.7.0<a class="headerlink" href="#470" title="Permanent link">&para;</a></h2>
-<p>Per-secret quotas, unique-IP limits, and expiration (<a href="https://github.com/teleproxy/teleproxy/issues/26">#26</a>).</p>
+<p>Посекретные квоты, лимиты уникальных IP и срок действия (<a href="https://github.com/teleproxy/teleproxy/issues/26">#26</a>).</p>
 <ul>
-<li><strong>Data quota</strong> — cap total bytes transferred per secret; active connections are closed and new ones rejected when exhausted. Configurable in bytes or human-readable sizes (<code>quota = "10G"</code>)</li>
-<li><strong>Unique IP limit</strong> — cap how many distinct client IPs can use a secret simultaneously (<code>max_ips = 5</code>). Additional connections from an already-connected IP are always allowed</li>
-<li><strong>Secret expiration</strong> — auto-disable a secret after a timestamp (<code>expires = 2025-12-31T23:59:59Z</code>). Existing connections continue; only new ones are rejected</li>
-<li>Per-reason rejection counters in Prometheus and plain-text stats (<code>rejected_quota</code>, <code>rejected_ips</code>, <code>rejected_expired</code>)</li>
-<li>Docker env vars: <code>SECRET_QUOTA_N</code>, <code>SECRET_MAX_IPS_N</code>, <code>SECRET_EXPIRES_N</code></li>
-<li>SOCKS5 upstream proxy support (<a href="https://github.com/teleproxy/teleproxy/issues/22">#22</a>)</li>
-<li>One-click cloud deploy page</li>
-<li>Documentation: install/upgrade instructions, SOCKS5 docs, Observatory link</li>
+<li><strong>Квота трафика</strong> - ограничение суммарного объёма переданных данных по секрету; при исчерпании активные подключения закрываются, новые отклоняются. Настраивается в байтах или в читаемом формате (<code>quota = "10G"</code>)</li>
+<li><strong>Лимит уникальных IP</strong> - ограничение числа уникальных клиентских IP, одновременно использующих секрет (<code>max_ips = 5</code>). Дополнительные подключения с уже подключённого IP всегда разрешены</li>
+<li><strong>Срок действия секрета</strong> - автоматическое отключение секрета после метки времени (<code>expires = 2025-12-31T23:59:59Z</code>). Существующие подключения продолжают работать; отклоняются только новые</li>
+<li>Счётчики отклонений по причинам в Prometheus и текстовой статистике (<code>rejected_quota</code>, <code>rejected_ips</code>, <code>rejected_expired</code>)</li>
+<li>Docker env: <code>SECRET_QUOTA_N</code>, <code>SECRET_MAX_IPS_N</code>, <code>SECRET_EXPIRES_N</code></li>
+<li>Поддержка upstream-прокси SOCKS5 (<a href="https://github.com/teleproxy/teleproxy/issues/22">#22</a>)</li>
+<li>Страница быстрого развёртывания в облаке</li>
+<li>Документация: инструкции установки/обновления, документация SOCKS5, ссылка на Observatory</li>
 </ul>
 <h2 id="460">4.6.0<a class="headerlink" href="#460" title="Permanent link">&para;</a></h2>
-<p>DPI resistance and operational improvements.</p>
+<p>Устойчивость к DPI и эксплуатационные улучшения.</p>
 <ul>
-<li><strong>ServerHello size variation</strong> widened from ±1 to ±32 bytes, mimicking the natural variation in certificate chain and session ticket sizes seen from real TLS servers</li>
-<li><strong>ServerHello fragmentation</strong>: ServerHello and CCS+AppData are now sent as separate TCP segments, defeating DPI that pattern-matches the full handshake response in a single packet</li>
-<li>Docker healthcheck respects custom <code>STATS_PORT</code> — previously hardcoded to 8888, now uses <code>${STATS_PORT:-8888}</code> (<a href="https://github.com/teleproxy/teleproxy/issues/38">#38</a>)</li>
-<li><code>install.sh</code> supports multiple secrets via comma-separated <code>SECRET</code> or numbered <code>SECRET_N</code> variables</li>
-<li><code>/link</code> endpoint serves connection links as HTML pages with scannable QR codes</li>
+<li><strong>Вариативность размера ServerHello</strong> расширена с ±1 до ±32 байт, имитируя естественное разнообразие размеров цепочки сертификатов и сессионных тикетов реальных TLS-серверов</li>
+<li><strong>Фрагментация ServerHello</strong>: ServerHello и CCS+AppData теперь отправляются как отдельные TCP-сегменты, нейтрализуя DPI, который сопоставляет полный ответ рукопожатия в одном пакете</li>
+<li>Healthcheck Docker учитывает пользовательский <code>STATS_PORT</code> - ранее был жёстко задан 8888, теперь использует <code>${STATS_PORT:-8888}</code> (<a href="https://github.com/teleproxy/teleproxy/issues/38">#38</a>)</li>
+<li><code>install.sh</code> поддерживает несколько секретов через <code>SECRET</code> с разделителем-запятой или пронумерованные <code>SECRET_N</code></li>
+<li>Эндпоинт <code>/link</code> отдаёт ссылки подключения как HTML-страницы со сканируемыми QR-кодами</li>
 </ul>
-<p>New documentation: <a href="../features/dpi-resistance/">DPI Resistance</a> — covers server-side mitigations, recommended setup, and client-side bypass tools.</p>
+<p>Новая документация: <a href="../features/dpi-resistance/">Устойчивость к DPI</a> - серверные контрмеры, рекомендуемая настройка и инструменты обхода на стороне клиента.</p>
 <div class="admonition note">
-<p class="admonition-title">Client-side detection</p>
-<p>The primary detection vector for MTProxy fake-TLS in Russia is the <strong>Telegram client's TLS fingerprint</strong>, which cannot be fixed server-side. Telegram Desktop <a href="https://github.com/telegramdesktop/tdesktop/pull/30513">fixed several fingerprint artifacts</a>; keep clients updated. For affected networks, client-side bypass tools like <a href="https://github.com/bol-van/zapret">zapret</a> and <a href="https://github.com/ValdikSS/GoodbyeDPI">GoodbyeDPI</a> can help.</p>
+<p class="admonition-title">Обнаружение на стороне клиента</p>
+<p>Основной вектор обнаружения MTProxy fake-TLS в России - <strong>TLS-отпечаток клиента Telegram</strong>, который невозможно исправить на стороне сервера. Telegram Desktop <a href="https://github.com/telegramdesktop/tdesktop/pull/30513">исправил несколько артефактов отпечатка</a>; обновляйте клиенты. Для затронутых сетей помогут инструменты обхода DPI на стороне клиента: <a href="https://github.com/bol-van/zapret">zapret</a> и <a href="https://github.com/ValdikSS/GoodbyeDPI">GoodbyeDPI</a>.</p>
 </div>
 <h2 id="450">4.5.0<a class="headerlink" href="#450" title="Permanent link">&para;</a></h2>
-<p>QR codes for connection links.</p>
+<p>QR-коды для ссылок подключения.</p>
 <ul>
-<li><code>teleproxy link</code> subcommand prints a proxy URL and renders a scannable QR code in the terminal using UTF-8 half-block characters</li>
-<li>Docker <code>start.sh</code> and <code>install.sh</code> now display QR codes automatically at startup — point a phone camera at the screen to connect</li>
-<li>Vendored nayuki/QR-Code-generator (MIT) for zero-dependency QR rendering on any platform</li>
-<li>E2E tests decode the rendered QR output with pyzbar and verify it matches the expected URL</li>
-<li>Documentation: new "Connection Links" page (en + ru)</li>
+<li>Подкоманда <code>teleproxy link</code> выводит URL прокси и отображает сканируемый QR-код в терминале с помощью символов UTF-8 half-block</li>
+<li>Docker <code>start.sh</code> и <code>install.sh</code> теперь автоматически показывают QR-коды при запуске - наведите камеру телефона на экран для подключения</li>
+<li>Встроенный nayuki/QR-Code-generator (MIT) для рендеринга QR без внешних зависимостей на любой платформе</li>
+<li>E2E-тесты декодируют отрисованный QR-код с помощью pyzbar и проверяют совпадение с ожидаемым URL</li>
+<li>Документация: новая страница «Ссылки подключения» (en + ru)</li>
 </ul>
 <h2 id="440">4.4.0<a class="headerlink" href="#440" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>teleproxy check</code> diagnostic subcommand — validates configuration and tests connectivity before accepting clients. Checks DC reachability, NTP clock drift, fake-TLS domain probe, and SNI/DNS mismatch. Exit 0/1/2 for pass/fail/bad-args.</li>
+<li>Диагностическая подкоманда <code>teleproxy check</code> - валидация конфигурации и тестирование подключений перед приёмом клиентов. Проверяет доступность DC, NTP-дрейф часов, зондирование домена fake-TLS и совпадение SNI/DNS. Коды выхода: 0/1/2 (успех/ошибка/неверные аргументы).</li>
 </ul>
 <h2 id="430">4.3.0<a class="headerlink" href="#430" title="Permanent link">&para;</a></h2>
-<p>Direct mode connection resilience.</p>
+<p>Устойчивость подключений в прямом режиме.</p>
 <ul>
-<li>IPv6 auto-detection: probe at startup, enable without <code>-6</code> if reachable</li>
-<li>Multiple addresses per DC with synchronous failover on connect failure</li>
-<li>Connection retry with exponential backoff (200ms–800ms, 3 attempts)</li>
-<li><code>--dc-override dc_id:host:port</code> to add or replace DC addresses (repeatable). Docker: <code>DC_OVERRIDE=2:1.2.3.4:443,2:5.6.7.8:443</code></li>
-<li>New stat: <code>direct_dc_retries</code> / <code>teleproxy_direct_dc_retries_total</code></li>
+<li>Автоопределение IPv6: проверка при запуске, включение без <code>-6</code> если доступен</li>
+<li>Несколько адресов на DC с синхронным failover при ошибке подключения</li>
+<li>Повторные попытки подключения с экспоненциальным backoff (200-800 мс, 3 попытки)</li>
+<li><code>--dc-override dc_id:host:port</code> для добавления или замены адресов DC (повторяемый). Docker: <code>DC_OVERRIDE=2:1.2.3.4:443,2:5.6.7.8:443</code></li>
+<li>Новая метрика: <code>direct_dc_retries</code> / <code>teleproxy_direct_dc_retries_total</code></li>
 </ul>
 <h2 id="421">4.2.1<a class="headerlink" href="#421" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Fix aarch64 build: remove unused x86-only <code>sys/io.h</code> include</li>
-<li>Add native ARM64 glibc build to CI (catches platform-specific issues masked by Alpine/musl)</li>
+<li>Исправление сборки aarch64: удалён неиспользуемый x86-специфичный include <code>sys/io.h</code></li>
+<li>Добавлена нативная ARM64 glibc-сборка в CI (выявляет платформоспецифичные проблемы, скрытые Alpine/musl)</li>
 </ul>
 <h2 id="420">4.2.0<a class="headerlink" href="#420" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>--stats-allow-net CIDR</code> flag to extend stats endpoint access beyond RFC1918 ranges (repeatable). Docker: <code>STATS_ALLOW_NET=100.64.0.0/10,fd00::/8</code></li>
+<li>Флаг <code>--stats-allow-net CIDR</code> для расширения доступа к эндпоинту статистики за пределы RFC1918-диапазонов (повторяемый). Docker: <code>STATS_ALLOW_NET=100.64.0.0/10,fd00::/8</code></li>
 </ul>
 <h2 id="410">4.1.0<a class="headerlink" href="#410" title="Permanent link">&para;</a></h2>
-<p>MTProto transport protocol compliance improvements.</p>
+<p>Улучшения совместимости с транспортным протоколом MTProto.</p>
 <ul>
-<li>Detect and log transport error codes (-404, -429, etc.) from DCs in direct mode</li>
-<li>Detect transport error codes in medium mode client parse path</li>
-<li>Track quick ACK packets with <code>teleproxy_quickack_packets_total</code> counter</li>
-<li>Track transport errors with <code>teleproxy_transport_errors_total</code> counter</li>
+<li>Обнаружение и логирование транспортных кодов ошибок (-404, -429 и т.д.) от DC в прямом режиме</li>
+<li>Обнаружение транспортных кодов ошибок в пути разбора клиентских данных medium mode</li>
+<li>Счётчик пакетов quick ACK: <code>teleproxy_quickack_packets_total</code></li>
+<li>Счётчик транспортных ошибок: <code>teleproxy_transport_errors_total</code></li>
 </ul>
 <h2 id="400">4.0.0<a class="headerlink" href="#400" title="Permanent link">&para;</a></h2>
-<p>Rebrand to Teleproxy. Binary renamed from <code>mtproto-proxy</code> to <code>teleproxy</code>.</p>
+<p>Ребрендинг в Teleproxy. Бинарный файл переименован из <code>mtproto-proxy</code> в <code>teleproxy</code>.</p>
 <ul>
-<li>Binary name: <code>teleproxy</code> (was <code>mtproto-proxy</code>)</li>
-<li>Prometheus metrics prefix: <code>teleproxy_</code> (was <code>mtproxy_</code>)</li>
-<li>Docker user/paths: <code>/opt/teleproxy/</code> (was <code>/opt/mtproxy/</code>)</li>
-<li>Environment variables: <code>TELEPROXY_*</code> (old <code>MTPROXY_*</code> still accepted with deprecation warning)</li>
-<li>Docker image includes backward-compat symlink <code>mtproto-proxy -&gt; teleproxy</code></li>
-<li>CLI flags and behavior unchanged</li>
+<li>Имя бинарного файла: <code>teleproxy</code> (было <code>mtproto-proxy</code>)</li>
+<li>Префикс метрик Prometheus: <code>teleproxy_</code> (было <code>mtproxy_</code>)</li>
+<li>Docker пользователь/пути: <code>/opt/teleproxy/</code> (было <code>/opt/mtproxy/</code>)</li>
+<li>Переменные окружения: <code>TELEPROXY_*</code> (старые <code>MTPROXY_*</code> принимаются с предупреждением об устаревании)</li>
+<li>Docker-образ включает symlink обратной совместимости <code>mtproto-proxy -&gt; teleproxy</code></li>
+<li>CLI-флаги и поведение без изменений</li>
 </ul>
 
 
@@ -1762,6 +1834,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -1789,7 +1864,7 @@
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Support this project</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
       </div>
     </div>
   </footer>
@@ -1803,7 +1878,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": "4.9.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

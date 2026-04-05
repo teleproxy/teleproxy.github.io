@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring">
+        <meta name="description" content="Встроенный HTTP-эндпоинт статистики и метрики Prometheus для Teleproxy. Отслеживание подключений, трафика, посекретной нагрузки и состояния DC.">
       
       
       
@@ -63,10 +63,44 @@
 
     
     
+  
+  <meta property="og:title" content="Мониторинг - Teleproxy" />
+  <meta property="og:description" content="Встроенный HTTP-эндпоинт статистики и метрики Prometheus для Teleproxy. Отслеживание подключений, трафика, посекретной нагрузки и состояния DC." />
+  <meta property="og:url" content="https://teleproxy.github.io/ru/features/monitoring/" />
+  
+  <meta name="description" content="Встроенный HTTP-эндпоинт статистики и метрики Prometheus для Teleproxy. Отслеживание подключений, трафика, посекретной нагрузки и состояния DC." />
+  
+  <meta name="twitter:title" content="Мониторинг - Teleproxy" />
+  <meta name="twitter:description" content="Встроенный HTTP-эндпоинт статистики и метрики Prometheus для Teleproxy. Отслеживание подключений, трафика, посекретной нагрузки и состояния DC." />
+  
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Teleproxy",
+    "description": "High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring",
+    "url": "https://teleproxy.github.io/",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/GPL-2.0",
+    "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
+    "softwareVersion": "4.9.0",
+    "author": {
+      "@type": "Person",
+      "name": "R. Kline"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   </head>
   
@@ -87,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#monitoring" class="md-skip">
+        <a href="#_1" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -95,6 +129,10 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
     
     
       
@@ -1062,22 +1100,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#http-stats-endpoint" class="md-nav__link">
+  <a href="#http-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        HTTP Stats Endpoint
+        HTTP-эндпоинт статистики
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HTTP Stats Endpoint">
+    <nav class="md-nav" aria-label="HTTP-эндпоинт статистики">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#custom-network-access" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Network Access
+        Расширение сетевого доступа
       
     </span>
   </a>
@@ -1090,22 +1128,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prometheus-metrics" class="md-nav__link">
+  <a href="#prometheus" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prometheus Metrics
+        Метрики Prometheus
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Prometheus Metrics">
+    <nav class="md-nav" aria-label="Метрики Prometheus">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dc-latency-probes" class="md-nav__link">
+  <a href="#dc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DC Latency Probes
+        Зонды задержки DC
       
     </span>
   </a>
@@ -1121,7 +1159,7 @@
   <a href="#grafana-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Grafana Dashboard
+        Дашборд Grafana
       
     </span>
   </a>
@@ -1129,10 +1167,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#health-checks" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Health Checks
+        Проверка здоровья
       
     </span>
   </a>
@@ -1518,22 +1556,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#http-stats-endpoint" class="md-nav__link">
+  <a href="#http-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        HTTP Stats Endpoint
+        HTTP-эндпоинт статистики
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="HTTP Stats Endpoint">
+    <nav class="md-nav" aria-label="HTTP-эндпоинт статистики">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#custom-network-access" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Network Access
+        Расширение сетевого доступа
       
     </span>
   </a>
@@ -1546,22 +1584,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prometheus-metrics" class="md-nav__link">
+  <a href="#prometheus" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prometheus Metrics
+        Метрики Prometheus
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Prometheus Metrics">
+    <nav class="md-nav" aria-label="Метрики Prometheus">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dc-latency-probes" class="md-nav__link">
+  <a href="#dc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DC Latency Probes
+        Зонды задержки DC
       
     </span>
   </a>
@@ -1577,7 +1615,7 @@
   <a href="#grafana-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Grafana Dashboard
+        Дашборд Grafana
       
     </span>
   </a>
@@ -1585,10 +1623,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#health-checks" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Health Checks
+        Проверка здоровья
       
     </span>
   </a>
@@ -1615,66 +1653,66 @@
   
 
 
-<h1 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h1>
-<h2 id="http-stats-endpoint">HTTP Stats Endpoint<a class="headerlink" href="#http-stats-endpoint" title="Permanent link">&para;</a></h2>
+<h1 id="_1">Мониторинг<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="http-">HTTP-эндпоинт статистики<a class="headerlink" href="#http-" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>http://localhost:8888/stats
 </code></pre></div>
-<p>Requires <code>--http-stats</code> flag. Accessible from private networks only (loopback, <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>).</p>
-<h3 id="custom-network-access">Custom Network Access<a class="headerlink" href="#custom-network-access" title="Permanent link">&para;</a></h3>
-<p>To allow access from overlay/VPN networks (Tailscale, WireGuard, Netbird), use <code>--stats-allow-net</code>:</p>
+<p>Требует флаг <code>--http-stats</code>. Доступен только из приватных сетей (loopback, <code>10.0.0.0/8</code>, <code>172.16.0.0/12</code>, <code>192.168.0.0/16</code>).</p>
+<h3 id="_2">Расширение сетевого доступа<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Для доступа из overlay/VPN-сетей (Tailscale, WireGuard, Netbird) используйте <code>--stats-allow-net</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>--stats-allow-net<span class="w"> </span><span class="m">100</span>.64.0.0/10<span class="w"> </span>--stats-allow-net<span class="w"> </span>fd00::/8
 </code></pre></div>
-<p>Repeatable — specify multiple times for multiple ranges. Both IPv4 and IPv6 CIDR notation supported.</p>
-<h2 id="prometheus-metrics">Prometheus Metrics<a class="headerlink" href="#prometheus-metrics" title="Permanent link">&para;</a></h2>
+<p>Флаг можно указывать несколько раз для нескольких диапазонов. Поддерживается CIDR-нотация IPv4 и IPv6.</p>
+<h2 id="prometheus">Метрики Prometheus<a class="headerlink" href="#prometheus" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>http://localhost:8888/metrics
 </code></pre></div>
-<p>Returns Prometheus exposition format on the same stats port. Includes per-secret metrics when labels are configured.</p>
-<p>Available metrics include connection counts, per-secret connections, rejection counts, and IP ACL rejections.</p>
-<h3 id="dc-latency-probes">DC Latency Probes<a class="headerlink" href="#dc-latency-probes" title="Permanent link">&para;</a></h3>
-<p>When enabled, teleproxy periodically probes all 5 Telegram DCs with a TCP handshake and exposes the results as a Prometheus histogram:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Enable with 30-second probe interval</span>
+<p>Возвращает метрики в формате Prometheus exposition на том же порту статистики. Включает посекретные метрики при настроенных метках.</p>
+<p>Доступные метрики: количество подключений, подключения по секретам, счётчики отклонений и отклонения по IP ACL.</p>
+<h3 id="dc">Зонды задержки DC<a class="headerlink" href="#dc" title="Permanent link">&para;</a></h3>
+<p>При включении teleproxy периодически выполняет TCP-рукопожатие со всеми 5 дата-центрами Telegram и публикует результаты в виде гистограммы Prometheus:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Включение с интервалом 30 секунд</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>--dc-probe-interval<span class="w"> </span><span class="m">30</span>
 </code></pre></div>
-<p>Metrics exposed:</p>
+<p>Публикуемые метрики:</p>
 <table>
 <thead>
 <tr>
-<th>Metric</th>
-<th>Type</th>
-<th>Description</th>
+<th>Метрика</th>
+<th>Тип</th>
+<th>Описание</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>teleproxy_dc_latency_seconds</code></td>
 <td>histogram</td>
-<td>TCP handshake RTT per DC (labels: <code>dc="1"</code>..<code>dc="5"</code>)</td>
+<td>RTT TCP-рукопожатия по DC (метки: <code>dc="1"</code>..<code>dc="5"</code>)</td>
 </tr>
 <tr>
 <td><code>teleproxy_dc_probe_failures_total</code></td>
 <td>counter</td>
-<td>Failed probe attempts per DC</td>
+<td>Неудачные попытки зондирования по DC</td>
 </tr>
 <tr>
 <td><code>teleproxy_dc_latency_last_seconds</code></td>
 <td>gauge</td>
-<td>Most recent probe latency per DC</td>
+<td>Последняя измеренная задержка по DC</td>
 </tr>
 </tbody>
 </table>
-<p>The text <code>/stats</code> endpoint includes matching fields: <code>dc_probe_interval</code>, <code>dcN_probe_latency_last</code>, <code>dcN_probe_latency_avg</code>, <code>dcN_probe_count</code>, <code>dcN_probe_failures</code>.</p>
-<p>Disabled by default. Set <code>dc_probe_interval</code> in the TOML config or use the <code>DC_PROBE_INTERVAL</code> environment variable in Docker.</p>
-<h2 id="grafana-dashboard">Grafana Dashboard<a class="headerlink" href="#grafana-dashboard" title="Permanent link">&para;</a></h2>
-<p>Import the <a href="https://github.com/teleproxy/teleproxy/blob/main/dashboards/teleproxy.json">bundled dashboard</a> into Grafana:</p>
+<p>Текстовый эндпоинт <code>/stats</code> содержит соответствующие поля: <code>dc_probe_interval</code>, <code>dcN_probe_latency_last</code>, <code>dcN_probe_latency_avg</code>, <code>dcN_probe_count</code>, <code>dcN_probe_failures</code>.</p>
+<p>По умолчанию отключено. Задайте <code>dc_probe_interval</code> в TOML-конфиге или используйте переменную окружения <code>DC_PROBE_INTERVAL</code> в Docker.</p>
+<h2 id="grafana-dashboard">Дашборд Grafana<a class="headerlink" href="#grafana-dashboard" title="Permanent link">&para;</a></h2>
+<p>Импортируйте <a href="https://github.com/teleproxy/teleproxy/blob/main/dashboards/teleproxy.json">готовый дашборд</a> в Grafana:</p>
 <ol>
-<li>Download <code>dashboards/teleproxy.json</code> from the repository</li>
-<li>In Grafana → Dashboards → Import → Upload JSON file</li>
-<li>Select your Prometheus datasource</li>
+<li>Скачайте <code>dashboards/teleproxy.json</code> из репозитория</li>
+<li>В Grafana: Dashboards → Import → Upload JSON file</li>
+<li>Выберите источник данных Prometheus</li>
 </ol>
-<p>The dashboard covers connections, per-secret usage, rejection rates, DC connectivity, and resource utilization.</p>
-<h2 id="health-checks">Health Checks<a class="headerlink" href="#health-checks" title="Permanent link">&para;</a></h2>
-<p>Docker containers include built-in health monitoring via the stats endpoint. Check with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># STATUS column shows health</span>
+<p>Дашборд охватывает подключения, посекретную нагрузку, частоту отклонений, связность с DC и утилизацию ресурсов.</p>
+<h2 id="_3">Проверка здоровья<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Docker-контейнеры включают встроенный мониторинг здоровья через эндпоинт статистики. Проверка:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># столбец STATUS показывает состояние здоровья</span>
 </code></pre></div>
 
 
@@ -1682,6 +1720,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -1709,7 +1750,7 @@
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Support this project</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
       </div>
     </div>
   </footer>
@@ -1723,7 +1764,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": "4.9.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>

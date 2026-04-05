@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring">
+        <meta name="description" content="Включение IPv6 в Teleproxy флагом -6. Поддержка dual-stack и чисто IPv6-окружений для прокси-соединений Telegram.">
       
       
       
@@ -35,7 +35,7 @@
     
     
       
-        <title>IPv6 - Teleproxy</title>
+        <title>Поддержка IPv6 - Teleproxy</title>
       
     
     
@@ -63,10 +63,44 @@
 
     
     
+  
+  <meta property="og:title" content="Поддержка IPv6 - Teleproxy" />
+  <meta property="og:description" content="Включение IPv6 в Teleproxy флагом -6. Поддержка dual-stack и чисто IPv6-окружений для прокси-соединений Telegram." />
+  <meta property="og:url" content="https://teleproxy.github.io/ru/deployment/ipv6/" />
+  
+  <meta name="description" content="Включение IPv6 в Teleproxy флагом -6. Поддержка dual-stack и чисто IPv6-окружений для прокси-соединений Telegram." />
+  
+  <meta name="twitter:title" content="Поддержка IPv6 - Teleproxy" />
+  <meta name="twitter:description" content="Включение IPv6 в Teleproxy флагом -6. Поддержка dual-stack и чисто IPv6-окружений для прокси-соединений Telegram." />
+  
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Teleproxy",
+    "description": "High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring",
+    "url": "https://teleproxy.github.io/",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/GPL-2.0",
+    "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
+    "softwareVersion": "4.9.0",
+    "author": {
+      "@type": "Person",
+      "name": "R. Kline"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   </head>
   
@@ -96,6 +130,10 @@
       
     </div>
     
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
     
       
 
@@ -120,7 +158,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              IPv6
+              Поддержка IPv6
             
           </span>
         </div>
@@ -1289,10 +1327,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example
+        Пример
       
     </span>
   </a>
@@ -1300,10 +1338,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#client-side" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Client Side
+        Клиентская сторона
       
     </span>
   </a>
@@ -1311,10 +1349,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verification
+        Проверка
       
     </span>
   </a>
@@ -1322,10 +1360,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting
+        Устранение проблем
       
     </span>
   </a>
@@ -1495,10 +1533,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Example
+        Пример
       
     </span>
   </a>
@@ -1506,10 +1544,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#client-side" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Client Side
+        Клиентская сторона
       
     </span>
   </a>
@@ -1517,10 +1555,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verification" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verification
+        Проверка
       
     </span>
   </a>
@@ -1528,10 +1566,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Troubleshooting
+        Устранение проблем
       
     </span>
   </a>
@@ -1570,45 +1608,45 @@
 
 
 <h1 id="ipv6">IPv6<a class="headerlink" href="#ipv6" title="Permanent link">&para;</a></h1>
-<p>Teleproxy supports IPv6. Enable with the <code>-6</code> flag.</p>
-<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<p>Teleproxy поддерживает IPv6. Включается флагом <code>-6</code>.</p>
+<h2 id="_1">Пример<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./teleproxy<span class="w"> </span>-6<span class="w"> </span>-u<span class="w"> </span>nobody<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span><span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>--http-stats<span class="w"> </span>--aes-pwd<span class="w"> </span>proxy-secret<span class="w"> </span>proxy-multi.conf<span class="w"> </span>-M<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
 <ul>
-<li><code>-6</code> enables IPv6 listening. Binds to <code>::</code> (all IPv6 interfaces). On most systems also accepts IPv4 (dual-stack).</li>
-<li><code>-H</code> accepts comma-separated port numbers only (e.g. <code>-H 80,443</code>). Don't pass IP literals.</li>
-<li>Binding to a specific IPv6 address is not supported — use a firewall.</li>
+<li><code>-6</code> включает прослушивание IPv6. Привязка к <code>::</code> (все IPv6-интерфейсы). На большинстве систем также принимает IPv4 (dual-stack).</li>
+<li><code>-H</code> принимает только номера портов через запятую (например, <code>-H 80,443</code>). Не передавайте IP-адреса.</li>
+<li>Привязка к конкретному IPv6-адресу не поддерживается — используйте файрвол.</li>
 </ul>
-<h2 id="client-side">Client Side<a class="headerlink" href="#client-side" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Клиентская сторона<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Prefer a hostname with an AAAA record</li>
-<li>Some clients may not accept raw IPv6 literals in <code>tg://</code> links</li>
+<li>Предпочтительнее использовать имя хоста с AAAA-записью</li>
+<li>Некоторые клиенты могут не принимать голые IPv6-адреса в ссылках <code>tg://</code></li>
 </ul>
-<p>Examples:</p>
+<p>Примеры:</p>
 <ul>
-<li>Hostname: <code>tg://proxy?server=proxy.example.com&amp;port=443&amp;secret=&lt;secret&gt;</code></li>
-<li>Raw IPv6: <code>tg://proxy?server=[2001:db8::1]&amp;port=443&amp;secret=&lt;secret&gt;</code></li>
+<li>Имя хоста: <code>tg://proxy?server=proxy.example.com&amp;port=443&amp;secret=&lt;secret&gt;</code></li>
+<li>IPv6-адрес: <code>tg://proxy?server=[2001:db8::1]&amp;port=443&amp;secret=&lt;secret&gt;</code></li>
 </ul>
-<h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Check proxy listens on IPv6</span>
+<h2 id="_3">Проверка<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Проверка, что прокси слушает на IPv6</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ss<span class="w"> </span>-ltnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>:443
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Expect :::443</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Ожидается :::443</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Test stats via IPv6</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Тест статистики через IPv6</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>curl<span class="w"> </span>-6<span class="w"> </span>http://<span class="o">[</span>::1<span class="o">]</span>:8888/stats
 </code></pre></div>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h2 id="_4">Устранение проблем<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Ensure IPv6 is enabled: <code>sysctl net.ipv6.conf.all.disable_ipv6</code> (should be <code>0</code>)</li>
-<li>Firewalls/security groups must allow IPv6 on the chosen port</li>
-<li>If IPv4 breaks after <code>-6</code>, check <code>net.ipv6.bindv6only</code> and firewall rules</li>
-<li>Use a hostname with an AAAA record to avoid client parsing issues</li>
+<li>Убедитесь, что IPv6 включён: <code>sysctl net.ipv6.conf.all.disable_ipv6</code> (должно быть <code>0</code>)</li>
+<li>Файрволы и группы безопасности должны разрешать IPv6 на выбранном порту</li>
+<li>Если IPv4 перестал работать после <code>-6</code>, проверьте <code>net.ipv6.bindv6only</code> и правила файрвола</li>
+<li>Используйте имя хоста с AAAA-записью, чтобы избежать проблем с парсингом на клиенте</li>
 </ul>
 <h2 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Ensure the Docker daemon has IPv6 enabled and the host has routable IPv6</li>
-<li>The default image entrypoint doesn't include <code>-6</code>. Override the container command or run on the host.</li>
-<li>See Docker docs for <code>daemon.json</code> (<code>"ipv6": true</code>, <code>"fixed-cidr-v6"</code>)</li>
+<li>Убедитесь, что Docker-демон поддерживает IPv6 и у хоста есть маршрутизируемый IPv6-адрес</li>
+<li>Entrypoint образа по умолчанию не включает <code>-6</code>. Переопределите команду контейнера или запускайте на хосте напрямую.</li>
+<li>См. документацию Docker по <code>daemon.json</code> (<code>"ipv6": true</code>, <code>"fixed-cidr-v6"</code>)</li>
 </ul>
 
 
@@ -1616,6 +1654,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -1643,7 +1684,7 @@
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Support this project</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
       </div>
     </div>
   </footer>
@@ -1657,7 +1698,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": "4.9.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>

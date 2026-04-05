@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring">
+        <meta name="description" content="Teleproxy را در کمتر از ۲ دقیقه راه‌اندازی کنید. دانلود رمزها، پیکربندی و اتصال اولین کلاینت تلگرام از طریق پروکسی.">
       
       
       
@@ -63,10 +63,44 @@
 
     
     
+  
+  <meta property="og:title" content="شروع سریع - Teleproxy" />
+  <meta property="og:description" content="Teleproxy را در کمتر از ۲ دقیقه راه‌اندازی کنید. دانلود رمزها، پیکربندی و اتصال اولین کلاینت تلگرام از طریق پروکسی." />
+  <meta property="og:url" content="https://teleproxy.github.io/fa/getting-started/quickstart/" />
+  
+  <meta name="description" content="Teleproxy را در کمتر از ۲ دقیقه راه‌اندازی کنید. دانلود رمزها، پیکربندی و اتصال اولین کلاینت تلگرام از طریق پروکسی." />
+  
+  <meta name="twitter:title" content="شروع سریع - Teleproxy" />
+  <meta name="twitter:description" content="Teleproxy را در کمتر از ۲ دقیقه راه‌اندازی کنید. دانلود رمزها، پیکربندی و اتصال اولین کلاینت تلگرام از طریق پروکسی." />
+  
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Teleproxy",
+    "description": "High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring",
+    "url": "https://teleproxy.github.io/",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/GPL-2.0",
+    "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
+    "softwareVersion": "4.9.0",
+    "author": {
+      "@type": "Person",
+      "name": "R. Kline"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   </head>
   
@@ -87,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quick-start" class="md-skip">
+        <a href="#_1" class="md-skip">
           پرش به محتویات
         </a>
       
@@ -95,6 +129,10 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
     
     
       
@@ -692,10 +730,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-download-the-proxy-secret" class="md-nav__link">
+  <a href="#secret" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Download the proxy secret
+        ۱. دانلود secret پروکسی
       
     </span>
   </a>
@@ -703,10 +741,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-download-the-dc-configuration" class="md-nav__link">
+  <a href="#dc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Download the DC configuration
+        ۲. دانلود پیکربندی DC
       
     </span>
   </a>
@@ -714,10 +752,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-generate-a-client-secret" class="md-nav__link">
+  <a href="#secret_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Generate a client secret
+        ۳. تولید secret کلاینت
       
     </span>
   </a>
@@ -725,10 +763,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-run-teleproxy" class="md-nav__link">
+  <a href="#teleproxy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Run Teleproxy
+        ۴. اجرای Teleproxy
       
     </span>
   </a>
@@ -736,10 +774,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-share-the-connection-link" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Share the connection link
+        ۵. اشتراک‌گذاری لینک اتصال
       
     </span>
   </a>
@@ -747,10 +785,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-register-with-telegram" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Register with Telegram
+        ۶. ثبت در تلگرام
       
     </span>
   </a>
@@ -758,10 +796,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#or-just-use-docker" class="md-nav__link">
+  <a href="#docker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Or just use Docker
+        یا فقط از Docker استفاده کنید
       
     </span>
   </a>
@@ -1517,10 +1555,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-download-the-proxy-secret" class="md-nav__link">
+  <a href="#secret" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Download the proxy secret
+        ۱. دانلود secret پروکسی
       
     </span>
   </a>
@@ -1528,10 +1566,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-download-the-dc-configuration" class="md-nav__link">
+  <a href="#dc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Download the DC configuration
+        ۲. دانلود پیکربندی DC
       
     </span>
   </a>
@@ -1539,10 +1577,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-generate-a-client-secret" class="md-nav__link">
+  <a href="#secret_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Generate a client secret
+        ۳. تولید secret کلاینت
       
     </span>
   </a>
@@ -1550,10 +1588,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-run-teleproxy" class="md-nav__link">
+  <a href="#teleproxy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Run Teleproxy
+        ۴. اجرای Teleproxy
       
     </span>
   </a>
@@ -1561,10 +1599,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-share-the-connection-link" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Share the connection link
+        ۵. اشتراک‌گذاری لینک اتصال
       
     </span>
   </a>
@@ -1572,10 +1610,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-register-with-telegram" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Register with Telegram
+        ۶. ثبت در تلگرام
       
     </span>
   </a>
@@ -1583,10 +1621,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#or-just-use-docker" class="md-nav__link">
+  <a href="#docker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Or just use Docker
+        یا فقط از Docker استفاده کنید
       
     </span>
   </a>
@@ -1613,22 +1651,22 @@
   
 
 
-<h1 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h1>
-<p>Get Teleproxy running in under 2 minutes.</p>
-<h2 id="1-download-the-proxy-secret">1. Download the proxy secret<a class="headerlink" href="#1-download-the-proxy-secret" title="Permanent link">&para;</a></h2>
-<p>This key is used for encrypted communication with Telegram servers:</p>
+<h1 id="_1">شروع سریع<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Teleproxy را در کمتر از ۲ دقیقه راه‌اندازی کنید.</p>
+<h2 id="secret">۱. دانلود secret پروکسی<a class="headerlink" href="#secret" title="Permanent link">&para;</a></h2>
+<p>این کلید برای ارتباط رمزنگاری‌شده با سرورهای تلگرام استفاده می‌شود:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://core.telegram.org/getProxySecret<span class="w"> </span>-o<span class="w"> </span>proxy-secret
 </code></pre></div>
-<h2 id="2-download-the-dc-configuration">2. Download the DC configuration<a class="headerlink" href="#2-download-the-dc-configuration" title="Permanent link">&para;</a></h2>
-<p>This file maps Telegram datacenter addresses. Update it daily via cron.</p>
+<h2 id="dc">۲. دانلود پیکربندی DC<a class="headerlink" href="#dc" title="Permanent link">&para;</a></h2>
+<p>این فایل آدرس‌های دیتاسنترهای تلگرام را مشخص می‌کند. آن را روزانه با cron به‌روزرسانی کنید.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://core.telegram.org/getProxyConfig<span class="w"> </span>-o<span class="w"> </span>proxy-multi.conf
 </code></pre></div>
-<h2 id="3-generate-a-client-secret">3. Generate a client secret<a class="headerlink" href="#3-generate-a-client-secret" title="Permanent link">&para;</a></h2>
-<p>Clients will use this secret to connect through your proxy:</p>
+<h2 id="secret_1">۳. تولید secret کلاینت<a class="headerlink" href="#secret_1" title="Permanent link">&para;</a></h2>
+<p>کلاینت‌ها با این secret از طریق پروکسی شما متصل خواهند شد:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./teleproxy<span class="w"> </span>generate-secret
 </code></pre></div>
-<p>Save the output — you'll need it for the next step and for the connection link.</p>
-<h2 id="4-run-teleproxy">4. Run Teleproxy<a class="headerlink" href="#4-run-teleproxy" title="Permanent link">&para;</a></h2>
+<p>خروجی را ذخیره کنید. در مرحله بعد و برای لینک اتصال به آن نیاز خواهید داشت.</p>
+<h2 id="teleproxy">۴. اجرای Teleproxy<a class="headerlink" href="#teleproxy" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./teleproxy<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>-u<span class="w"> </span>nobody<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8888</span><span class="w"> </span><span class="se">\</span>
@@ -1641,74 +1679,77 @@
 <table>
 <thead>
 <tr>
-<th>Flag</th>
-<th>Description</th>
+<th>فلگ</th>
+<th>توضیح</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>-u nobody</code></td>
-<td>Drop root privileges after binding ports</td>
+<td>رها کردن دسترسی root پس از اتصال به پورت‌ها</td>
 </tr>
 <tr>
 <td><code>-H 443</code></td>
-<td>Client-facing port (what users connect to)</td>
+<td>پورت سمت کلاینت (کاربران به این پورت متصل می‌شوند)</td>
 </tr>
 <tr>
 <td><code>-p 8888</code></td>
-<td>HTTP stats port — bind to localhost or a private network only</td>
+<td>پورت آمار HTTP - فقط به localhost یا شبکه خصوصی متصل کنید</td>
 </tr>
 <tr>
 <td><code>-S &lt;secret&gt;</code></td>
-<td>Client secret. Repeat for multiple secrets: <code>-S &lt;s1&gt; -S &lt;s2&gt;</code></td>
+<td>secret کلاینت. برای چند secret تکرار کنید: <code>-S &lt;s1&gt; -S &lt;s2&gt;</code></td>
 </tr>
 <tr>
 <td><code>--http-stats</code></td>
-<td>Enable the built-in HTTP statistics page</td>
+<td>فعال‌سازی صفحه آمار HTTP داخلی</td>
 </tr>
 <tr>
 <td><code>--aes-pwd proxy-secret</code></td>
-<td>Path to the proxy secret file</td>
+<td>مسیر فایل secret پروکسی</td>
 </tr>
 <tr>
 <td><code>proxy-multi.conf</code></td>
-<td>Path to the DC configuration file</td>
+<td>مسیر فایل پیکربندی DC</td>
 </tr>
 <tr>
 <td><code>-M 1</code></td>
-<td>Number of worker processes</td>
+<td>تعداد فرآیندهای کاری</td>
 </tr>
 </tbody>
 </table>
-<h2 id="5-share-the-connection-link">5. Share the connection link<a class="headerlink" href="#5-share-the-connection-link" title="Permanent link">&para;</a></h2>
-<p>Give users a link they can tap to configure Telegram automatically:</p>
+<h2 id="_2">۵. اشتراک‌گذاری لینک اتصال<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>لینکی به کاربران بدهید که با ضربه زدن روی آن، تلگرام به‌صورت خودکار پیکربندی شود:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>tg://proxy?server=YOUR_SERVER_IP&amp;port=443&amp;secret=SECRET
 </code></pre></div>
-<p>Replace <code>YOUR_SERVER_IP</code> with your server's public IP and <code>SECRET</code> with the hex secret from step 3.</p>
-<h2 id="6-register-with-telegram">6. Register with Telegram<a class="headerlink" href="#6-register-with-telegram" title="Permanent link">&para;</a></h2>
-<p>Message <a href="https://t.me/MTProxybot">@MTProxybot</a> on Telegram to register your proxy and receive a proxy tag. Then add it to your launch command:</p>
+<p><code>YOUR_SERVER_IP</code> را با IP عمومی سرور و <code>SECRET</code> را با secret هگزادسیمال مرحله ۳ جایگزین کنید.</p>
+<h2 id="_3">۶. ثبت در تلگرام<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>به <a href="https://t.me/MTProxybot">@MTProxybot</a> در تلگرام پیام دهید تا پروکسی خود را ثبت کنید و یک تگ پروکسی دریافت کنید. سپس آن را به دستور اجرا اضافه کنید:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>-P<span class="w"> </span>&lt;proxy-tag&gt;
 </code></pre></div>
-<p>The proxy tag enables sponsored channels (required by Telegram for listed proxies) and makes your proxy discoverable.</p>
+<p>تگ پروکسی کانال‌های تبلیغاتی را فعال می‌کند (الزام تلگرام برای پروکسی‌های عمومی) و پروکسی شما را قابل کشف می‌سازد.</p>
 <hr />
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>For the simplest setup, use <a href="../../features/direct-mode/">Direct-to-DC mode</a> — no config files needed.</p>
+<p>برای ساده‌ترین راه‌اندازی، از <a href="../../features/direct-mode/">حالت اتصال مستقیم به DC</a> استفاده کنید. نیازی به فایل پیکربندی نیست.</p>
 </div>
-<h2 id="or-just-use-docker">Or just use Docker<a class="headerlink" href="#or-just-use-docker" title="Permanent link">&para;</a></h2>
-<p>Skip all of the above with a single command:</p>
+<h2 id="docker">یا فقط از Docker استفاده کنید<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
+<p>با یک دستور از تمام مراحل بالا صرف‌نظر کنید:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
 </code></pre></div>
-<p>The container auto-downloads config files, generates a random secret, and prints the <code>tg://</code> connection link to the logs. See <a href="../../docker/">Docker Quick Start</a> for details.</p>
+<p>کانتینر به‌صورت خودکار فایل‌های پیکربندی را دانلود می‌کند، یک secret تصادفی تولید می‌کند و لینک اتصال <code>tg://</code> را در لاگ‌ها نمایش می‌دهد. برای جزئیات بیشتر <a href="../../docker/">شروع سریع Docker</a> را ببینید.</p>
 
 
 
 
 
 
+
+  
+  
 
 
 
@@ -1736,7 +1777,7 @@
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Support this project</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
       </div>
     </div>
   </footer>
@@ -1750,7 +1791,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": "4.9.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>

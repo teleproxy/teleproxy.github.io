@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring">
+        <meta name="description" content="Chạy Teleproxy trong Docker chỉ với một lệnh. Tự động tạo secret và in link kết nối. Không cần file cấu hình.">
       
       
       
@@ -63,10 +63,44 @@
 
     
     
+  
+  <meta property="og:title" content="Khởi động nhanh - Teleproxy" />
+  <meta property="og:description" content="Chạy Teleproxy trong Docker chỉ với một lệnh. Tự động tạo secret và in link kết nối. Không cần file cấu hình." />
+  <meta property="og:url" content="https://teleproxy.github.io/vi/docker/" />
+  
+  <meta name="description" content="Chạy Teleproxy trong Docker chỉ với một lệnh. Tự động tạo secret và in link kết nối. Không cần file cấu hình." />
+  
+  <meta name="twitter:title" content="Khởi động nhanh - Teleproxy" />
+  <meta name="twitter:description" content="Chạy Teleproxy trong Docker chỉ với một lệnh. Tự động tạo secret và in link kết nối. Không cần file cấu hình." />
+  
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Teleproxy",
+    "description": "High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring",
+    "url": "https://teleproxy.github.io/",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/GPL-2.0",
+    "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
+    "softwareVersion": "4.9.0",
+    "author": {
+      "@type": "Person",
+      "name": "R. Kline"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   </head>
   
@@ -95,6 +129,10 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
     
     
       
@@ -779,10 +817,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#with-fake-tls-ee-mode" class="md-nav__link">
+  <a href="#voi-fake-tls-che-o-ee" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With Fake-TLS (EE Mode)
+        Với Fake-TLS (Chế độ EE)
       
     </span>
   </a>
@@ -790,10 +828,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#direct-to-dc-mode" class="md-nav__link">
+  <a href="#che-o-direct-to-dc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Direct-to-DC Mode
+        Chế độ Direct-to-DC
       
     </span>
   </a>
@@ -801,10 +839,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#available-tags" class="md-nav__link">
+  <a href="#tag-co-san" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Available Tags
+        Tag có sẵn
       
     </span>
   </a>
@@ -812,10 +850,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-your-own-image" class="md-nav__link">
+  <a href="#build-image-cua-rieng-ban" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Building Your Own Image
+        Build image của riêng bạn
       
     </span>
   </a>
@@ -823,10 +861,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#updating" class="md-nav__link">
+  <a href="#cap-nhat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Updating
+        Cập nhật
       
     </span>
   </a>
@@ -1495,10 +1533,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#with-fake-tls-ee-mode" class="md-nav__link">
+  <a href="#voi-fake-tls-che-o-ee" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With Fake-TLS (EE Mode)
+        Với Fake-TLS (Chế độ EE)
       
     </span>
   </a>
@@ -1506,10 +1544,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#direct-to-dc-mode" class="md-nav__link">
+  <a href="#che-o-direct-to-dc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Direct-to-DC Mode
+        Chế độ Direct-to-DC
       
     </span>
   </a>
@@ -1517,10 +1555,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#available-tags" class="md-nav__link">
+  <a href="#tag-co-san" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Available Tags
+        Tag có sẵn
       
     </span>
   </a>
@@ -1528,10 +1566,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-your-own-image" class="md-nav__link">
+  <a href="#build-image-cua-rieng-ban" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Building Your Own Image
+        Build image của riêng bạn
       
     </span>
   </a>
@@ -1539,10 +1577,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#updating" class="md-nav__link">
+  <a href="#cap-nhat" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Updating
+        Cập nhật
       
     </span>
   </a>
@@ -1570,7 +1608,7 @@
 
 
 <h1 id="docker-quick-start">Docker Quick Start<a class="headerlink" href="#docker-quick-start" title="Permanent link">&para;</a></h1>
-<p>The simplest way to run Teleproxy — no configuration needed:</p>
+<p>Cách đơn giản nhất để chạy Teleproxy - không cần cấu hình gì:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
@@ -1578,21 +1616,21 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
 </code></pre></div>
-<p>The container automatically:</p>
+<p>Container tự động:</p>
 <ul>
-<li>Downloads the latest proxy configuration from Telegram</li>
-<li>Generates a random secret if none provided</li>
-<li>Starts the proxy on port 443</li>
+<li>Tải cấu hình proxy mới nhất từ Telegram</li>
+<li>Tạo secret ngẫu nhiên nếu không được cung cấp</li>
+<li>Khởi chạy proxy trên port 443</li>
 </ul>
-<p>Connection links are printed in the logs:</p>
+<p>Liên kết kết nối được in trong log:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>teleproxy
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># ===== Connection Links =====</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># https://t.me/proxy?server=203.0.113.1&amp;port=443&amp;secret=eecafe...</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># =============================</span>
 </code></pre></div>
-<p>If external IP detection fails (e.g. behind a corporate firewall), set the <code>EXTERNAL_IP</code> environment variable explicitly.</p>
-<h2 id="with-fake-tls-ee-mode">With Fake-TLS (EE Mode)<a class="headerlink" href="#with-fake-tls-ee-mode" title="Permanent link">&para;</a></h2>
-<p>Wrap MTProto traffic in a real TLS handshake, making it indistinguishable from normal HTTPS:</p>
+<p>Nếu phát hiện IP công khai thất bại (ví dụ: nằm sau tường lửa doanh nghiệp), hãy đặt biến môi trường <code>EXTERNAL_IP</code> một cách tường minh.</p>
+<h2 id="voi-fake-tls-che-o-ee">Với Fake-TLS (Chế độ EE)<a class="headerlink" href="#voi-fake-tls-che-o-ee" title="Permanent link">&para;</a></h2>
+<p>Bọc lưu lượng MTProto trong TLS handshake thật, khiến nó không thể phân biệt với HTTPS bình thường:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
@@ -1600,8 +1638,8 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
 </code></pre></div>
-<h2 id="direct-to-dc-mode">Direct-to-DC Mode<a class="headerlink" href="#direct-to-dc-mode" title="Permanent link">&para;</a></h2>
-<p>Bypass Telegram's middle-end relay servers and route clients straight to the nearest datacenter:</p>
+<h2 id="che-o-direct-to-dc">Chế độ Direct-to-DC<a class="headerlink" href="#che-o-direct-to-dc" title="Permanent link">&para;</a></h2>
+<p>Bỏ qua các máy chủ trung gian của Telegram và định tuyến client trực tiếp đến datacenter gần nhất:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
@@ -1609,30 +1647,30 @@
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
 </code></pre></div>
-<h2 id="available-tags">Available Tags<a class="headerlink" href="#available-tags" title="Permanent link">&para;</a></h2>
+<h2 id="tag-co-san">Tag có sẵn<a class="headerlink" href="#tag-co-san" title="Permanent link">&para;</a></h2>
 <p><strong>GitHub Container Registry:</strong></p>
 <ul>
 <li><code>ghcr.io/teleproxy/teleproxy:latest</code></li>
-<li><code>ghcr.io/teleproxy/teleproxy:{version}</code> (e.g. <code>4.7.0</code>, <code>4.7</code>, <code>4</code>)</li>
+<li><code>ghcr.io/teleproxy/teleproxy:{version}</code> (ví dụ: <code>4.7.0</code>, <code>4.7</code>, <code>4</code>)</li>
 </ul>
 <p><strong>Docker Hub:</strong></p>
 <ul>
 <li><code>rkline0x/teleproxy:latest</code></li>
-<li><code>rkline0x/teleproxy:{version}</code> (e.g. <code>4.7.0</code>, <code>4.7</code>, <code>4</code>)</li>
+<li><code>rkline0x/teleproxy:{version}</code> (ví dụ: <code>4.7.0</code>, <code>4.7</code>, <code>4</code>)</li>
 </ul>
-<p>Use Docker Hub if your environment has trouble pulling from ghcr.io (e.g. MikroTik RouterOS containers).</p>
-<h2 id="building-your-own-image">Building Your Own Image<a class="headerlink" href="#building-your-own-image" title="Permanent link">&para;</a></h2>
+<p>Dùng Docker Hub nếu môi trường của bạn gặp khó khăn khi pull từ ghcr.io (ví dụ: MikroTik RouterOS containers).</p>
+<h2 id="build-image-cua-rieng-ban">Build image của riêng bạn<a class="headerlink" href="#build-image-cua-rieng-ban" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>teleproxy<span class="w"> </span>.
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>teleproxy<span class="w"> </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span>teleproxy
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>docker<span class="w"> </span>logs<span class="w"> </span>teleproxy<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Generated secret&quot;</span>
 </code></pre></div>
-<h2 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h2>
-<p>Pull the latest image and recreate the container:</p>
+<h2 id="cap-nhat">Cập nhật<a class="headerlink" href="#cap-nhat" title="Permanent link">&para;</a></h2>
+<p>Pull image mới nhất và tạo lại container:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/teleproxy/teleproxy:latest
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>docker<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>teleproxy
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>teleproxy<span class="w"> </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span>ghcr.io/teleproxy/teleproxy:latest
 </code></pre></div>
-<p>With Docker Compose:</p>
+<p>Với Docker Compose:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>pull
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
@@ -1642,6 +1680,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -1669,7 +1710,7 @@
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Support this project</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
       </div>
     </div>
   </footer>
@@ -1683,7 +1724,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "4.9.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>

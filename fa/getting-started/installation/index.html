@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring">
+        <meta name="description" content="نصب Teleproxy با اسکریپت یک‌خطی، دانلود مستقیم باینری، یا ساخت از سورس. پشتیبانی از x86_64 و ARM64 روی لینوکس.">
       
       
       
@@ -63,10 +63,44 @@
 
     
     
+  
+  <meta property="og:title" content="نصب - Teleproxy" />
+  <meta property="og:description" content="نصب Teleproxy با اسکریپت یک‌خطی، دانلود مستقیم باینری، یا ساخت از سورس. پشتیبانی از x86_64 و ARM64 روی لینوکس." />
+  <meta property="og:url" content="https://teleproxy.github.io/fa/getting-started/installation/" />
+  
+  <meta name="description" content="نصب Teleproxy با اسکریپت یک‌خطی، دانلود مستقیم باینری، یا ساخت از سورس. پشتیبانی از x86_64 و ARM64 روی لینوکس." />
+  
+  <meta name="twitter:title" content="نصب - Teleproxy" />
+  <meta name="twitter:description" content="نصب Teleproxy با اسکریپت یک‌خطی، دانلود مستقیم باینری، یا ساخت از سورس. پشتیبانی از x86_64 و ARM64 روی لینوکس." />
+  
+  <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
   <meta property="og:image:width" content="1280" />
   <meta property="og:image:height" content="640" />
   <meta name="twitter:card" content="summary_large_image" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Teleproxy",
+    "description": "High-performance MTProto proxy for Telegram with DPI resistance, fake-TLS camouflage, and production-grade monitoring",
+    "url": "https://teleproxy.github.io/",
+    "applicationCategory": "NetworkApplication",
+    "operatingSystem": "Linux",
+    "license": "https://opensource.org/licenses/GPL-2.0",
+    "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
+    "softwareVersion": "4.9.0",
+    "author": {
+      "@type": "Person",
+      "name": "R. Kline"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 
   </head>
   
@@ -87,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation" class="md-skip">
+        <a href="#_1" class="md-skip">
           پرش به محتویات
         </a>
       
@@ -95,6 +129,10 @@
     <div data-md-component="announce">
       
     </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
     
     
       
@@ -667,19 +705,19 @@
   <a href="#one-liner-install-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
-        One-Liner Install (Recommended)
+        نصب با یک دستور (پیشنهادی)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="One-Liner Install (Recommended)">
+    <nav class="md-nav" aria-label="نصب با یک دستور (پیشنهادی)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#multiple-secrets" class="md-nav__link">
+  <a href="#secret" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Multiple Secrets
+        چند secret
       
     </span>
   </a>
@@ -692,10 +730,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#updating" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Updating
+        به‌روزرسانی
       
     </span>
   </a>
@@ -703,10 +741,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#static-binary-any-linux" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Static Binary (Any Linux)
+        باینری استاتیک (هر لینوکسی)
       
     </span>
   </a>
@@ -725,10 +763,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-from-source" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Building from Source
+        ساخت از سورس
       
     </span>
   </a>
@@ -1515,19 +1553,19 @@
   <a href="#one-liner-install-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
-        One-Liner Install (Recommended)
+        نصب با یک دستور (پیشنهادی)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="One-Liner Install (Recommended)">
+    <nav class="md-nav" aria-label="نصب با یک دستور (پیشنهادی)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#multiple-secrets" class="md-nav__link">
+  <a href="#secret" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Multiple Secrets
+        چند secret
       
     </span>
   </a>
@@ -1540,10 +1578,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#updating" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Updating
+        به‌روزرسانی
       
     </span>
   </a>
@@ -1551,10 +1589,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#static-binary-any-linux" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Static Binary (Any Linux)
+        باینری استاتیک (هر لینوکسی)
       
     </span>
   </a>
@@ -1573,10 +1611,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-from-source" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Building from Source
+        ساخت از سورس
       
     </span>
   </a>
@@ -1603,50 +1641,50 @@
   
 
 
-<h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
-<h2 id="one-liner-install-recommended">One-Liner Install (Recommended)<a class="headerlink" href="#one-liner-install-recommended" title="Permanent link">&para;</a></h2>
-<p>The install script downloads the binary, creates a systemd service, generates a secret, and prints the connection link:</p>
+<h1 id="_1">نصب<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="one-liner-install-recommended">نصب با یک دستور (پیشنهادی)<a class="headerlink" href="#one-liner-install-recommended" title="Permanent link">&para;</a></h2>
+<p>اسکریپت نصب باینری را دانلود می‌کند، سرویس systemd را ایجاد می‌کند، یک secret تولید می‌کند و لینک اتصال را نمایش می‌دهد:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
-<p>Customize with environment variables:</p>
+<p>سفارشی‌سازی با متغیرهای محیطی:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">PORT</span><span class="o">=</span><span class="m">8443</span><span class="w"> </span><span class="nv">EE_DOMAIN</span><span class="o">=</span>www.google.com<span class="w"> </span>sh
 </code></pre></div>
-<h3 id="multiple-secrets">Multiple Secrets<a class="headerlink" href="#multiple-secrets" title="Permanent link">&para;</a></h3>
-<p>Auto-generate several secrets at once:</p>
+<h3 id="secret">چند secret<a class="headerlink" href="#secret" title="Permanent link">&para;</a></h3>
+<p>تولید خودکار چند secret به‌صورت هم‌زمان:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">SECRET_COUNT</span><span class="o">=</span><span class="m">3</span><span class="w"> </span>sh
 </code></pre></div>
-<p>Or pass your own as a comma-separated list:</p>
+<p>یا ارسال secret‌های دلخواه به‌صورت لیست جدا شده با کاما:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nv">SECRET</span><span class="o">=</span>aabbccdd11223344aabbccdd11223344,eeff00112233445566778899aabbccdd<span class="w"> </span>sh
 </code></pre></div>
-<p>Numbered secrets with labels and per-secret connection limits:</p>
+<p>secret‌های شماره‌دار با برچسب و محدودیت اتصال مجزا:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nv">SECRET_1</span><span class="o">=</span>aabbccdd11223344aabbccdd11223344<span class="w"> </span><span class="nv">SECRET_LABEL_1</span><span class="o">=</span>family<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nv">SECRET_2</span><span class="o">=</span>eeff00112233445566778899aabbccdd<span class="w"> </span><span class="nv">SECRET_LABEL_2</span><span class="o">=</span>work<span class="w"> </span><span class="nv">SECRET_LIMIT_2</span><span class="o">=</span><span class="m">500</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>sh
 </code></pre></div>
-<p>Each secret gets its own QR code and connection link at the end of installation. You can also add or remove secrets later by editing the config and reloading:</p>
+<p>برای هر secret یک کد QR و لینک اتصال جداگانه در پایان نصب نمایش داده می‌شود. همچنین می‌توانید بعدا با ویرایش فایل پیکربندی و بارگذاری مجدد، secret اضافه یا حذف کنید:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nano<span class="w"> </span>/etc/teleproxy/config.toml
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>teleproxy
 </code></pre></div>
-<p>After installation, manage with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>teleproxy<span class="w">       </span><span class="c1"># check status</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>teleproxy<span class="w">       </span><span class="c1"># reload config after editing</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>nano<span class="w"> </span>/etc/teleproxy/config.toml<span class="w">  </span><span class="c1"># edit config (secrets, ports, etc.)</span>
+<p>پس از نصب، مدیریت سرویس:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>teleproxy<span class="w">       </span><span class="c1"># بررسی وضعیت</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>teleproxy<span class="w">       </span><span class="c1"># بارگذاری مجدد پیکربندی پس از ویرایش</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>nano<span class="w"> </span>/etc/teleproxy/config.toml<span class="w">  </span><span class="c1"># ویرایش پیکربندی (secret‌ها، پورت‌ها و غیره)</span>
 </code></pre></div>
-<p>To uninstall:</p>
+<p>حذف نصب:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-s<span class="w"> </span>--<span class="w"> </span>--uninstall
 </code></pre></div>
-<h2 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h2>
-<p>Re-run the install script to upgrade to the latest version:</p>
+<h2 id="_2">به‌روزرسانی<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>برای ارتقا به آخرین نسخه، اسکریپت نصب را دوباره اجرا کنید:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
-<p>The script replaces the binary and restarts the service. Your existing config (<code>/etc/teleproxy/config.toml</code>) — including secrets, ports, and domain settings — is preserved.</p>
-<p>To pin a specific version:</p>
+<p>اسکریپت باینری را جایگزین کرده و سرویس را مجددا راه‌اندازی می‌کند. پیکربندی فعلی (<code>/etc/teleproxy/config.toml</code>) شامل secret‌ها، پورت‌ها و تنظیمات دامنه حفظ می‌شود.</p>
+<p>برای نصب یک نسخه مشخص:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">TELEPROXY_VERSION</span><span class="o">=</span><span class="m">1</span>.2.3<span class="w"> </span>sh
 </code></pre></div>
-<h2 id="static-binary-any-linux">Static Binary (Any Linux)<a class="headerlink" href="#static-binary-any-linux" title="Permanent link">&para;</a></h2>
-<p>Pre-built static binaries are published with every release — statically linked against musl libc, zero runtime dependencies. Download and run.</p>
+<h2 id="_3">باینری استاتیک (هر لینوکسی)<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>باینری‌های استاتیک از پیش ساخته‌شده با هر انتشار منتشر می‌شوند. این باینری‌ها به‌صورت استاتیک با musl libc لینک شده‌اند و هیچ وابستگی اجرایی ندارند. دانلود کنید و اجرا کنید.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">amd64</label><label for="__tabbed_1_2">arm64</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1661,12 +1699,12 @@
 </div>
 </div>
 </div>
-<p>SHA256 checksums are published alongside each release for verification.</p>
+<p>چک‌سام‌های SHA256 همراه هر انتشار برای تایید صحت منتشر می‌شوند.</p>
 <h2 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h2>
-<p>See <a href="../../docker/">Docker Quick Start</a> for the simplest way to run Teleproxy — a single <code>docker run</code> command with auto-generated secrets.</p>
-<h2 id="building-from-source">Building from Source<a class="headerlink" href="#building-from-source" title="Permanent link">&para;</a></h2>
-<p>Install build dependencies:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Debian / Ubuntu</label><label for="__tabbed_2_2">CentOS / RHEL</label><label for="__tabbed_2_3">macOS (development)</label></div>
+<p>برای ساده‌ترین روش اجرای Teleproxy، بخش <a href="../../docker/">شروع سریع Docker</a> را ببینید. تنها یک دستور <code>docker run</code> با تولید خودکار secret.</p>
+<h2 id="_4">ساخت از سورس<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>نصب وابستگی‌های ساخت:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Debian / Ubuntu</label><label for="__tabbed_2_2">CentOS / RHEL</label><label for="__tabbed_2_3">macOS (توسعه)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>curl<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev<span class="w"> </span>zlib1g-dev
@@ -1680,19 +1718,19 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>brew<span class="w"> </span>install<span class="w"> </span>epoll-shim<span class="w"> </span>openssl
 </code></pre></div>
-<p>macOS builds use <a href="https://github.com/jiixyj/epoll-shim">epoll-shim</a> to wrap kqueue behind the Linux epoll API, and Homebrew OpenSSL (keg-only). This is intended for local development — production deployments should use Linux.</p>
+<p>ساخت روی macOS از <a href="https://github.com/jiixyj/epoll-shim">epoll-shim</a> برای شبیه‌سازی API لینوکس epoll از طریق kqueue و OpenSSL نصب‌شده با Homebrew استفاده می‌کند. این روش برای توسعه محلی در نظر گرفته شده است و برای محیط عملیاتی باید از لینوکس استفاده کنید.</p>
 </div>
 </div>
 </div>
-<p>Clone and build:</p>
+<p>کلون و ساخت:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/teleproxy/teleproxy
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">cd</span><span class="w"> </span>teleproxy
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>make
 </code></pre></div>
-<p>The compiled binary will be at <code>objs/bin/teleproxy</code>.</p>
+<p>باینری کامپایل‌شده در مسیر <code>objs/bin/teleproxy</code> قرار خواهد داشت.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If the build fails, run <code>make clean</code> before retrying.</p>
+<p>اگر ساخت با خطا مواجه شد، قبل از تلاش مجدد دستور <code>make clean</code> را اجرا کنید.</p>
 </div>
 
 
@@ -1700,6 +1738,9 @@
 
 
 
+
+  
+  
 
 
 
@@ -1727,7 +1768,7 @@
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Support this project</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
       </div>
     </div>
   </footer>
@@ -1741,7 +1782,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": "4.9.0"}</script>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
