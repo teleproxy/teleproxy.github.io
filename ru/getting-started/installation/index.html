@@ -741,6 +741,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rpm-rhel-rocky-alma-fedora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPM-репозиторий (RHEL, Rocky, Alma, Fedora)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#linux" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1589,6 +1600,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rpm-rhel-rocky-alma-fedora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPM-репозиторий (RHEL, Rocky, Alma, Fedora)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#linux" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1683,18 +1705,30 @@
 <p>Для установки конкретной версии:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/teleproxy/teleproxy/main/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">TELEPROXY_VERSION</span><span class="o">=</span><span class="m">1</span>.2.3<span class="w"> </span>sh
 </code></pre></div>
+<h2 id="rpm-rhel-rocky-alma-fedora">RPM-репозиторий (RHEL, Rocky, Alma, Fedora)<a class="headerlink" href="#rpm-rhel-rocky-alma-fedora" title="Permanent link">&para;</a></h2>
+<p>Для RHEL 9, RHEL 10, AlmaLinux, Rocky Linux и Fedora 41/42 ставьте через dnf — обновления пойдут через пакетный менеджер:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>dnf<span class="w"> </span>install<span class="w"> </span>https://teleproxy.github.io/repo/teleproxy-release-latest.noarch.rpm
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>dnf<span class="w"> </span>install<span class="w"> </span>teleproxy
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>teleproxy
+</code></pre></div>
+<p>При первой установке генерируется случайный секрет в <code>/etc/teleproxy/config.toml</code>, и пост-установочное сообщение печатает ссылку для подключения. Последующие <code>dnf upgrade</code> обновляют только бинарник и никогда не трогают ваш конфиг.</p>
+<p>Репозиторий подписан ключом RSA 4096 с SHA-512 (совместим с rpm-sequoia в RHEL 9). Setup-пакет кладёт <code>/etc/yum.repos.d/teleproxy.repo</code> и публичный ключ в <code>/etc/pki/rpm-gpg/</code>.</p>
+<p>Удаление:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>dnf<span class="w"> </span>remove<span class="w"> </span>teleproxy
+</code></pre></div>
+<p>Файл <code>/etc/teleproxy/config.toml</code> остаётся на месте, чтобы при повторной установке всё подхватилось как было.</p>
 <h2 id="linux">Готовый бинарник (любой Linux)<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h2>
 <p>Статически собранные бинарники публикуются с каждым релизом — линковка с musl libc, никаких зависимостей. Скачайте и запускайте.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">amd64</label><label for="__tabbed_1_2">arm64</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>curl<span class="w"> </span>-Lo<span class="w"> </span>teleproxy<span class="w"> </span>https://github.com/teleproxy/teleproxy/releases/latest/download/teleproxy-linux-amd64
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>teleproxy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl<span class="w"> </span>-Lo<span class="w"> </span>teleproxy<span class="w"> </span>https://github.com/teleproxy/teleproxy/releases/latest/download/teleproxy-linux-amd64
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>teleproxy
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>curl<span class="w"> </span>-Lo<span class="w"> </span>teleproxy<span class="w"> </span>https://github.com/teleproxy/teleproxy/releases/latest/download/teleproxy-linux-arm64
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>teleproxy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl<span class="w"> </span>-Lo<span class="w"> </span>teleproxy<span class="w"> </span>https://github.com/teleproxy/teleproxy/releases/latest/download/teleproxy-linux-arm64
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>teleproxy
 </code></pre></div>
 </div>
 </div>
@@ -1707,25 +1741,25 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Debian / Ubuntu</label><label for="__tabbed_2_2">CentOS / RHEL</label><label for="__tabbed_2_3">macOS (разработка)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>curl<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev<span class="w"> </span>zlib1g-dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>apt<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>curl<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev<span class="w"> </span>zlib1g-dev
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>yum<span class="w"> </span>groupinstall<span class="w"> </span><span class="s2">&quot;Development Tools&quot;</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>yum<span class="w"> </span>install<span class="w"> </span>openssl-devel<span class="w"> </span>zlib-devel
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>yum<span class="w"> </span>groupinstall<span class="w"> </span><span class="s2">&quot;Development Tools&quot;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>yum<span class="w"> </span>install<span class="w"> </span>openssl-devel<span class="w"> </span>zlib-devel
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>brew<span class="w"> </span>install<span class="w"> </span>epoll-shim<span class="w"> </span>openssl
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>brew<span class="w"> </span>install<span class="w"> </span>epoll-shim<span class="w"> </span>openssl
 </code></pre></div>
 <p>Сборка под macOS использует <a href="https://github.com/jiixyj/epoll-shim">epoll-shim</a> для эмуляции Linux epoll через kqueue, и Homebrew OpenSSL. Предназначено для локальной разработки — в продакшене используйте Linux.</p>
 </div>
 </div>
 </div>
 <p>Клонируйте репозиторий и соберите:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/teleproxy/teleproxy
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">cd</span><span class="w"> </span>teleproxy
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>make
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/teleproxy/teleproxy
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nb">cd</span><span class="w"> </span>teleproxy
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>make
 </code></pre></div>
 <p>Скомпилированный бинарник будет находиться по пути <code>objs/bin/teleproxy</code>.</p>
 <div class="admonition note">
