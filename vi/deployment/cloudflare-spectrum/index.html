@@ -6,41 +6,43 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Proxy MTProto hiệu suất cao với ngụy trang fake-TLS và chống DPI. Làm cho lưu lượng Telegram không thể phân biệt với HTTPS thông thường.">
+        <meta name="description" content="Run Teleproxy behind Cloudflare Spectrum to mask your server IP while preserving fake-TLS and DPI resistance.">
       
       
       
-        <link rel="canonical" href="https://teleproxy.github.io/vi/">
+        <link rel="canonical" href="https://teleproxy.github.io/vi/deployment/cloudflare-spectrum/">
       
       
+        <link rel="prev" href="../ipv6/">
       
-        <link rel="next" href="comparison/">
+      
+        <link rel="next" href="../../testing/">
       
       
         
-          <link rel="alternate" href="/" hreflang="en">
+          <link rel="alternate" href="../../../deployment/cloudflare-spectrum/" hreflang="en">
         
-          <link rel="alternate" href="/ru/" hreflang="ru">
+          <link rel="alternate" href="../../../ru/deployment/cloudflare-spectrum/" hreflang="ru">
         
-          <link rel="alternate" href="/fa/" hreflang="fa">
+          <link rel="alternate" href="../../../fa/deployment/cloudflare-spectrum/" hreflang="fa">
         
-          <link rel="alternate" href="/vi/" hreflang="vi">
+          <link rel="alternate" href="./" hreflang="vi">
         
       
       
-      <link rel="icon" href="../assets/favicon.png">
+      <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Trang chủ - Teleproxy</title>
+        <title>Cloudflare Spectrum - Teleproxy</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,23 +55,23 @@
       
     
     
-      <link rel="stylesheet" href="../assets/extra.css">
+      <link rel="stylesheet" href="../../../assets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
   
-  <meta property="og:title" content="Trang chủ - Teleproxy" />
-  <meta property="og:description" content="Proxy MTProto hiệu suất cao với ngụy trang fake-TLS và chống DPI. Làm cho lưu lượng Telegram không thể phân biệt với HTTPS thông thường." />
-  <meta property="og:url" content="https://teleproxy.github.io/vi/" />
+  <meta property="og:title" content="Cloudflare Spectrum - Teleproxy" />
+  <meta property="og:description" content="Run Teleproxy behind Cloudflare Spectrum to mask your server IP while preserving fake-TLS and DPI resistance." />
+  <meta property="og:url" content="https://teleproxy.github.io/vi/deployment/cloudflare-spectrum/" />
   
-  <meta name="description" content="Proxy MTProto hiệu suất cao với ngụy trang fake-TLS và chống DPI. Làm cho lưu lượng Telegram không thể phân biệt với HTTPS thông thường." />
+  <meta name="description" content="Run Teleproxy behind Cloudflare Spectrum to mask your server IP while preserving fake-TLS and DPI resistance." />
   
-  <meta name="twitter:title" content="Trang chủ - Teleproxy" />
-  <meta name="twitter:description" content="Proxy MTProto hiệu suất cao với ngụy trang fake-TLS và chống DPI. Làm cho lưu lượng Telegram không thể phân biệt với HTTPS thông thường." />
+  <meta name="twitter:title" content="Cloudflare Spectrum - Teleproxy" />
+  <meta name="twitter:description" content="Run Teleproxy behind Cloudflare Spectrum to mask your server IP while preserving fake-TLS and DPI resistance." />
   
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
@@ -119,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mo-khoa-telegram-vo-hinh" class="md-skip">
+        <a href="#cloudflare-spectrum" class="md-skip">
           Bỏ qua
         </a>
       
@@ -137,9 +139,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Đầu trang">
-    <a href="./" title="Teleproxy" class="md-header__button md-logo" aria-label="Teleproxy" data-md-component="logo">
+    <a href="../../" title="Teleproxy" class="md-header__button md-logo" aria-label="Teleproxy" data-md-component="logo">
       
-  <img src="../assets/logo.svg" alt="logo">
+  <img src="../../../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -156,7 +158,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Trang chủ
+              Cloudflare Spectrum
             
           </span>
         </div>
@@ -203,25 +205,25 @@
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="/" hreflang="en" class="md-select__link">
+            <a href="../../../deployment/cloudflare-spectrum/" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="/ru/" hreflang="ru" class="md-select__link">
+            <a href="../../../ru/deployment/cloudflare-spectrum/" hreflang="ru" class="md-select__link">
               Русский
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="/fa/" hreflang="fa" class="md-select__link">
+            <a href="../../../fa/deployment/cloudflare-spectrum/" hreflang="fa" class="md-select__link">
               فارسی
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="/vi/" hreflang="vi" class="md-select__link">
+            <a href="./" hreflang="vi" class="md-select__link">
               Tiếng Việt
             </a>
           </li>
@@ -305,11 +307,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
         
   
   
@@ -328,7 +328,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="comparison/" class="md-tabs__link">
+      <a href="../../comparison/" class="md-tabs__link">
         
   
   
@@ -349,7 +349,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="getting-started/installation/" class="md-tabs__link">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
           
   
   
@@ -369,7 +369,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="docker/" class="md-tabs__link">
+        <a href="../../docker/" class="md-tabs__link">
           
   
   
@@ -389,7 +389,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="features/dpi-resistance/" class="md-tabs__link">
+        <a href="../../features/dpi-resistance/" class="md-tabs__link">
           
   
   
@@ -405,11 +405,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="deployment/systemd/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../systemd/" class="md-tabs__link">
           
   
   
@@ -427,7 +429,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="testing/" class="md-tabs__link">
+      <a href="../../testing/" class="md-tabs__link">
         
   
   
@@ -446,7 +448,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="changelog/" class="md-tabs__link">
+      <a href="../../changelog/" class="md-tabs__link">
         
   
   
@@ -489,9 +491,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -502,9 +502,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Thanh điều hướng" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="./" title="Teleproxy" class="md-nav__button md-logo" aria-label="Teleproxy" data-md-component="logo">
+    <a href="../../" title="Teleproxy" class="md-nav__button md-logo" aria-label="Teleproxy" data-md-component="logo">
       
-  <img src="../assets/logo.svg" alt="logo">
+  <img src="../../../assets/logo.svg" alt="logo">
 
     </a>
     Teleproxy
@@ -528,37 +528,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Trang chủ
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -574,103 +547,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Mục lục
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#fake-tls-chong-dpi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fake-TLS &amp; Chống DPI
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ket-noi-truc-tiep-en-dc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Kết nối trực tiếp đến DC
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#giam-sat-production" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Giám sát Production
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-image-chi-8-mb" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Docker Image chỉ 8 MB
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nhieu-secret-kiem-soat-truy-cap" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Nhiều Secret &amp; Kiểm soát truy cập
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-uoc-kiem-chung" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Đã được kiểm chứng
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#khoi-ong-nhanh" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Khởi động nhanh
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -682,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="comparison/" class="md-nav__link">
+      <a href="../../comparison/" class="md-nav__link">
         
   
   
@@ -761,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -789,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/quickstart/" class="md-nav__link">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -876,7 +752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docker/" class="md-nav__link">
+      <a href="../../docker/" class="md-nav__link">
         
   
   
@@ -904,7 +780,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docker/configuration/" class="md-nav__link">
+      <a href="../../docker/configuration/" class="md-nav__link">
         
   
   
@@ -932,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="docker/monitoring/" class="md-nav__link">
+      <a href="../../docker/monitoring/" class="md-nav__link">
         
   
   
@@ -1019,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/dpi-resistance/" class="md-nav__link">
+      <a href="../../features/dpi-resistance/" class="md-nav__link">
         
   
   
@@ -1047,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/fake-tls/" class="md-nav__link">
+      <a href="../../features/fake-tls/" class="md-nav__link">
         
   
   
@@ -1075,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/direct-mode/" class="md-nav__link">
+      <a href="../../features/direct-mode/" class="md-nav__link">
         
   
   
@@ -1103,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/access-control/" class="md-nav__link">
+      <a href="../../features/access-control/" class="md-nav__link">
         
   
   
@@ -1131,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/secrets/" class="md-nav__link">
+      <a href="../../features/secrets/" class="md-nav__link">
         
   
   
@@ -1159,7 +1035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/monitoring/" class="md-nav__link">
+      <a href="../../features/monitoring/" class="md-nav__link">
         
   
   
@@ -1187,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/socks5/" class="md-nav__link">
+      <a href="../../features/socks5/" class="md-nav__link">
         
   
   
@@ -1215,7 +1091,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/proxy-protocol/" class="md-nav__link">
+      <a href="../../features/proxy-protocol/" class="md-nav__link">
         
   
   
@@ -1243,7 +1119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/link/" class="md-nav__link">
+      <a href="../../features/link/" class="md-nav__link">
         
   
   
@@ -1271,7 +1147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="features/diagnostics/" class="md-nav__link">
+      <a href="../../features/diagnostics/" class="md-nav__link">
         
   
   
@@ -1303,26 +1179,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
@@ -1340,7 +1221,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1358,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/systemd/" class="md-nav__link">
+      <a href="../systemd/" class="md-nav__link">
         
   
   
@@ -1386,7 +1267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/ipv6/" class="md-nav__link">
+      <a href="../ipv6/" class="md-nav__link">
         
   
   
@@ -1411,10 +1292,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="deployment/cloudflare-spectrum/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloudflare Spectrum
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1430,6 +1338,120 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Mục lục">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Mục lục
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it works
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cloudflare-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Cloudflare Spectrum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-teleproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Teleproxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-client-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Client link
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ip-acls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP ACLs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1477,7 +1499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="testing/" class="md-nav__link">
+      <a href="../../testing/" class="md-nav__link">
         
   
   
@@ -1504,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="changelog/" class="md-nav__link">
+      <a href="../../changelog/" class="md-nav__link">
         
   
   
@@ -1559,9 +1581,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1580,10 +1600,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#fake-tls-chong-dpi" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fake-TLS &amp; Chống DPI
+        How it works
       
     </span>
   </a>
@@ -1591,10 +1611,60 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ket-noi-truc-tiep-en-dc" class="md-nav__link">
+  <a href="#configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Kết nối trực tiếp đến DC
+        Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-cloudflare-spectrum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Cloudflare Spectrum
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-teleproxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Teleproxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-client-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Client link
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ip-acls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP ACLs
       
     </span>
   </a>
@@ -1602,10 +1672,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#giam-sat-production" class="md-nav__link">
+  <a href="#verification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Giám sát Production
+        Verification
       
     </span>
   </a>
@@ -1613,43 +1683,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker-image-chi-8-mb" class="md-nav__link">
+  <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Docker Image chỉ 8 MB
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#nhieu-secret-kiem-soat-truy-cap" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Nhiều Secret &amp; Kiểm soát truy cập
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#a-uoc-kiem-chung" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Đã được kiểm chứng
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#khoi-ong-nhanh" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Khởi động nhanh
+        Notes
       
     </span>
   </a>
@@ -1670,58 +1707,69 @@
               <article class="md-content__inner md-typeset">
                 
                   
-  
-
 
 
   
   
 
 
-<div class="tx-hero">
-<h1 id="mo-khoa-telegram-vo-hinh">Mở khoá Telegram. Vô hình.<a class="headerlink" href="#mo-khoa-telegram-vo-hinh" title="Permanent link">&para;</a></h1>
-<p>Proxy MTProto hiệu suất cao giúp lưu lượng Telegram không thể phân biệt với HTTPS thông thường — vượt qua kiểm tra gói tin sâu (DPI).</p>
-<p><a class="md-button md-button--primary" href="getting-started/quickstart/">Bắt đầu</a>
-<a class="md-button" href="docker/">Khởi chạy với Docker</a></p>
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m2 21 21-9L2 3v7l15 2-15 2z"/></svg></span> Theo dõi <strong><a href="https://t.me/teleproxy_dev">@teleproxy_dev</a></strong> trên Telegram để nhận cập nhật.</p>
-</div>
-<div class="feature-grid">
-<div class="feature">
-<h3 id="fake-tls-chong-dpi"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4 9 4zm-9 10c3.75-1 7-5.46 7-9.78V6.3l-7-3.12L5 6.3v4.92C5 15.54 8.25 20 12 21m2.8-10V9.5C14.8 8.1 13.4 7 12 7S9.2 8.1 9.2 9.5V11c-.6 0-1.2.6-1.2 1.2v3.5c0 .7.6 1.3 1.2 1.3h5.5c.7 0 1.3-.6 1.3-1.2v-3.5c0-.7-.6-1.3-1.2-1.3m-1.3 0h-3V9.5c0-.8.7-1.3 1.5-1.3s1.5.5 1.5 1.3z"/></svg></span> Fake-TLS &amp; Chống DPI<a class="headerlink" href="#fake-tls-chong-dpi" title="Permanent link">&para;</a></h3>
-<p>Bọc MTProto trong TLS handshake thật — về mặt thống kê không thể phân biệt với HTTPS bình thường.</p>
-</div>
-<div class="feature">
-<h3 id="ket-noi-truc-tiep-en-dc"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 15H6l7-14v8h5l-7 14z"/></svg></span> Kết nối trực tiếp đến DC<a class="headerlink" href="#ket-noi-truc-tiep-en-dc" title="Permanent link">&para;</a></h3>
-<p>Bỏ qua các máy chủ trung gian của Telegram, kết nối trực tiếp đến trung tâm dữ liệu gần nhất.</p>
-</div>
-<div class="feature">
-<h3 id="giam-sat-production"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16 11.78 4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z"/></svg></span> Giám sát Production<a class="headerlink" href="#giam-sat-production" title="Permanent link">&para;</a></h3>
-<p>Prometheus metrics endpoint và trang thống kê HTTP để giám sát thời gian thực.</p>
-</div>
-<div class="feature">
-<h3 id="docker-image-chi-8-mb"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.81 10.25c-.06-.04-.56-.43-1.64-.43-.28 0-.56.03-.84.08-.21-1.4-1.38-2.11-1.43-2.14l-.29-.17-.18.27c-.24.36-.43.77-.51 1.19-.2.8-.08 1.56.33 2.21-.49.28-1.29.35-1.46.35H2.62c-.34 0-.62.28-.62.63 0 1.15.18 2.3.58 3.38.45 1.19 1.13 2.07 2 2.61.98.6 2.59.94 4.42.94.79 0 1.61-.07 2.42-.22 1.12-.2 2.2-.59 3.19-1.16A8.3 8.3 0 0 0 16.78 16c1.05-1.17 1.67-2.5 2.12-3.65h.19c1.14 0 1.85-.46 2.24-.85.26-.24.45-.53.59-.87l.08-.24zm-17.96.99h1.76c.08 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16H3.85c-.09 0-.16.07-.16.16v1.58c.01.09.07.16.16.16m2.43 0h1.76c.08 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16H6.28c-.09 0-.16.07-.16.16v1.58c.01.09.07.16.16.16m2.47 0h1.75c.1 0 .17-.07.17-.16V9.5c0-.08-.06-.16-.17-.16H8.75c-.08 0-.15.07-.15.16v1.58c0 .09.06.16.15.16m2.44 0h1.77c.08 0 .15-.07.15-.16V9.5c0-.08-.06-.16-.15-.16h-1.77c-.08 0-.15.07-.15.16v1.58c0 .09.07.16.15.16M6.28 9h1.76c.08 0 .16-.09.16-.18V7.25c0-.09-.07-.16-.16-.16H6.28c-.09 0-.16.06-.16.16v1.57c.01.09.07.18.16.18m2.47 0h1.75c.1 0 .17-.09.17-.18V7.25c0-.09-.06-.16-.17-.16H8.75c-.08 0-.15.06-.15.16v1.57c0 .09.06.18.15.18m2.44 0h1.77c.08 0 .15-.09.15-.18V7.25c0-.09-.07-.16-.15-.16h-1.77c-.08 0-.15.06-.15.16v1.57c0 .09.07.18.15.18m0-2.28h1.77c.08 0 .15-.07.15-.16V5c0-.1-.07-.17-.15-.17h-1.77c-.08 0-.15.06-.15.17v1.56c0 .08.07.16.15.16m2.46 4.52h1.76c.09 0 .16-.07.16-.16V9.5c0-.08-.07-.16-.16-.16h-1.76c-.08 0-.15.07-.15.16v1.58c0 .09.07.16.15.16"/></svg></span> Docker Image chỉ 8 MB<a class="headerlink" href="#docker-image-chi-8-mb" title="Permanent link">&para;</a></h3>
-<p>Nhỏ hơn 7 lần so với image gốc của Telegram. Hỗ trợ AMD64 và ARM64.</p>
-</div>
-<div class="feature">
-<h3 id="nhieu-secret-kiem-soat-truy-cap"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 18v4h-4v-3h-3v-3h-3l-2.26-2.26c-.55.17-1.13.26-1.74.26a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6c0 .61-.09 1.19-.26 1.74zM7 5a2 2 0 0 0-2 2 2 2 0 0 0 2 2 2 2 0 0 0 2-2 2 2 0 0 0-2-2"/></svg></span> Nhiều Secret &amp; Kiểm soát truy cập<a class="headerlink" href="#nhieu-secret-kiem-soat-truy-cap" title="Permanent link">&para;</a></h3>
-<p>Tối đa 16 secret với nhãn, giới hạn kết nối và danh sách IP.</p>
-</div>
-<div class="feature">
-<h3 id="a-uoc-kiem-chung"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 4 4 4 4 0 0 0 4-4V4h1V2zm4 14c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m2-4c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m1-5h-4V4h4z"/></svg></span> Đã được kiểm chứng<a class="headerlink" href="#a-uoc-kiem-chung" title="Permanent link">&para;</a></h3>
-<p>Proxy MTProto duy nhất có E2E test tự động với Telegram thật.</p>
-</div>
-</div>
-<h2 id="khoi-ong-nhanh">Khởi động nhanh<a class="headerlink" href="#khoi-ong-nhanh" title="Permanent link">&para;</a></h2>
-<p>Chạy proxy bằng một lệnh:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
+<h1 id="cloudflare-spectrum">Cloudflare Spectrum<a class="headerlink" href="#cloudflare-spectrum" title="Permanent link">&para;</a></h1>
+<p><a href="https://developers.cloudflare.com/spectrum/">Cloudflare Spectrum</a> forwards raw TCP traffic through Cloudflare's edge network. This masks your origin server IP behind Cloudflare's anycast IPs while preserving full fake-TLS and DPI resistance.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Client -&gt; Cloudflare Edge (TCP) -&gt; [PROXY protocol] -&gt; Teleproxy
 </code></pre></div>
-<p>Container tạo secret ngẫu nhiên khi khởi động lần đầu và in liên kết <code>tg://</code> vào log.</p>
-<div class="callout">
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"/></svg></span> <strong>Tài liệu đầy đủ bằng tiếng Anh.</strong> Để xem hướng dẫn cài đặt, cấu hình và tính năng chi tiết, vui lòng xem <a href="./" hreflang="en">phiên bản tiếng Anh</a>.</p>
-</div>
+<p>Spectrum requires a Cloudflare Business or Enterprise plan.</p>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<p>Spectrum proxies TCP at layer 4 without inspecting the payload. The fake-TLS handshake passes through unchanged. Cloudflare injects a PROXY protocol v2 header so Teleproxy can recover the real client IP.</p>
+<p>The combination is effective for DPI resistance: censors see a TLS connection to a Cloudflare IP, which is indistinguishable from normal HTTPS traffic to any Cloudflare-hosted website.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<h3 id="1-cloudflare-spectrum">1. Cloudflare Spectrum<a class="headerlink" href="#1-cloudflare-spectrum" title="Permanent link">&para;</a></h3>
+<p>In the Cloudflare dashboard, create a Spectrum application:</p>
+<ul>
+<li><strong>Protocol</strong>: TCP</li>
+<li><strong>Edge port</strong>: 443</li>
+<li><strong>Origin</strong>: your server IP and port (e.g. <code>203.0.113.10:443</code>)</li>
+<li><strong>PROXY protocol</strong>: Enabled (v2)</li>
+</ul>
+<p>Point your domain's DNS A record to Cloudflare (proxied).</p>
+<h3 id="2-teleproxy">2. Teleproxy<a class="headerlink" href="#2-teleproxy" title="Permanent link">&para;</a></h3>
+<p>Enable PROXY protocol on the Teleproxy side.</p>
+<p><strong>Docker:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">PROXY_PROTOCOL</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">DIRECT_MODE</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
+</code></pre></div>
+<p><strong>TOML config:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">proxy_protocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</code></pre></div>
+<p><strong>CLI:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./teleproxy<span class="w"> </span>--direct<span class="w"> </span>--proxy-protocol<span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>-D<span class="w"> </span>www.google.com<span class="w"> </span>...
+</code></pre></div>
+<h3 id="3-client-link">3. Client link<a class="headerlink" href="#3-client-link" title="Permanent link">&para;</a></h3>
+<p>Use the Cloudflare-proxied domain in your <code>tg://proxy</code> link:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>tg://proxy?server=proxy.example.com&amp;port=443&amp;secret=ee&lt;hex&gt;...
+</code></pre></div>
+<h2 id="ip-acls">IP ACLs<a class="headerlink" href="#ip-acls" title="Permanent link">&para;</a></h2>
+<p>When using Spectrum with IP ACLs, allow Cloudflare's edge IPs at accept time. Real client IPs are extracted from the PROXY header and checked separately.</p>
+<p>Cloudflare publishes their IP ranges at <a href="https://www.cloudflare.com/ips/">cloudflare.com/ips</a>.</p>
+<h2 id="verification">Verification<a class="headerlink" href="#verification" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Check Spectrum is forwarding (from a different machine)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>curl<span class="w"> </span>-v<span class="w"> </span>--connect-to<span class="w"> </span>proxy.example.com:443:proxy.example.com:443<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>https://proxy.example.com<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-20
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Check PROXY protocol metrics</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>curl<span class="w"> </span>http://localhost:8888/metrics<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>proxy_protocol
+</code></pre></div>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Spectrum adds one network hop, adding a few milliseconds of latency</li>
+<li>Only TCP is forwarded; UDP is not supported</li>
+<li>Cloudflare's IPs are shared across millions of domains, making traffic analysis harder</li>
+<li>If Spectrum is misconfigured (PROXY protocol disabled), Teleproxy will reject all connections</li>
+</ul>
 
 
 
@@ -1734,8 +1782,6 @@
 
 
 
-
-  
 
 
 
@@ -1774,12 +1820,12 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "4.9.0"}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "4.9.0"}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../assets/comparison.js"></script>
+        <script src="../../../assets/comparison.js"></script>
       
     
   </body>

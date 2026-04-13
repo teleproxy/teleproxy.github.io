@@ -1288,6 +1288,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../deployment/cloudflare-spectrum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloudflare Spectrum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="https://teleproxy.github.io/deploy/" class="md-nav__link">
         
   
@@ -1410,10 +1438,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#unreleased" class="md-nav__link">
+  <a href="#4110" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unreleased
+        4.11.0
       
     </span>
   </a>
@@ -1614,10 +1642,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#unreleased" class="md-nav__link">
+  <a href="#4110" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unreleased
+        4.11.0
       
     </span>
   </a>
@@ -1777,7 +1805,14 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
-<h2 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
+<h2 id="4110">4.11.0<a class="headerlink" href="#4110" title="Permanent link">&para;</a></h2>
+<p>SOCKS5 upstream support in the check command (<a href="https://github.com/teleproxy/teleproxy/issues/57">#57</a>) and a new Cloudflare Spectrum deployment guide (<a href="https://github.com/teleproxy/teleproxy/issues/55">#55</a>).</p>
+<ul>
+<li><strong><code>teleproxy check</code> now routes DC probes through the configured SOCKS5 proxy</strong> — new <code>--socks5 URL</code> CLI flag, also reads from the <code>socks5</code> field in TOML config. Useful for environments where the proxy itself sits behind a SOCKS5 upstream.</li>
+<li>Handle buffer allocation failures gracefully instead of crashing (<a href="https://github.com/teleproxy/teleproxy/issues/58">#58</a>). Under memory pressure, <code>rwm_alloc</code> and related functions could return NULL and trigger a segfault. Now they fail the connection cleanly.</li>
+<li>Fix PROXY protocol metrics always reporting 0 in multi-worker mode (<a href="https://github.com/teleproxy/teleproxy/issues/53">#53</a>). <code>teleproxy_proxy_protocol_connections_total</code> and <code>teleproxy_proxy_protocol_errors_total</code> were not aggregated from worker processes — the master read its own zero copy. Both the text stats and Prometheus endpoints now report correct values.</li>
+<li>New <a href="/deployment/cloudflare-spectrum/">deployment guide</a> for running behind Cloudflare Spectrum.</li>
+</ul>
 <h2 id="4100">4.10.0<a class="headerlink" href="#4100" title="Permanent link">&para;</a></h2>
 <p>Graceful connection draining on secret removal (<a href="https://github.com/teleproxy/teleproxy/issues/45">#45</a>) and a brand-new signed RPM repository (<a href="https://github.com/teleproxy/teleproxy/issues/21">#21</a>).</p>
 <ul>
