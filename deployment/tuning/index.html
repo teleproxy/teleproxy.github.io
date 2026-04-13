@@ -6,27 +6,27 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Accept HAProxy PROXY protocol v1/v2 headers for real client IP preservation behind load balancers like HAProxy, nginx, or AWS NLB.">
+        <meta name="description" content="Size connection limits and worker counts for your server's available memory and CPU.">
       
       
       
-        <link rel="canonical" href="https://teleproxy.github.io/features/proxy-protocol/">
+        <link rel="canonical" href="https://teleproxy.github.io/deployment/tuning/">
       
       
-        <link rel="prev" href="../socks5/">
+        <link rel="prev" href="../ipv6/">
       
       
-        <link rel="next" href="../link/">
+        <link rel="next" href="../cloudflare-spectrum/">
       
       
         
           <link rel="alternate" href="./" hreflang="en">
         
-          <link rel="alternate" href="../../ru/features/proxy-protocol/" hreflang="ru">
+          <link rel="alternate" href="../../ru/deployment/tuning/" hreflang="ru">
         
-          <link rel="alternate" href="../../fa/features/proxy-protocol/" hreflang="fa">
+          <link rel="alternate" href="../../fa/deployment/tuning/" hreflang="fa">
         
-          <link rel="alternate" href="../../vi/features/proxy-protocol/" hreflang="vi">
+          <link rel="alternate" href="../../vi/deployment/tuning/" hreflang="vi">
         
       
       
@@ -35,7 +35,7 @@
     
     
       
-        <title>PROXY Protocol - Teleproxy</title>
+        <title>Tuning - Teleproxy</title>
       
     
     
@@ -64,14 +64,14 @@
     
     
   
-  <meta property="og:title" content="PROXY Protocol - Teleproxy" />
-  <meta property="og:description" content="Accept HAProxy PROXY protocol v1/v2 headers for real client IP preservation behind load balancers like HAProxy, nginx, or AWS NLB." />
-  <meta property="og:url" content="https://teleproxy.github.io/features/proxy-protocol/" />
+  <meta property="og:title" content="Tuning - Teleproxy" />
+  <meta property="og:description" content="Size connection limits and worker counts for your server's available memory and CPU." />
+  <meta property="og:url" content="https://teleproxy.github.io/deployment/tuning/" />
   
-  <meta name="description" content="Accept HAProxy PROXY protocol v1/v2 headers for real client IP preservation behind load balancers like HAProxy, nginx, or AWS NLB." />
+  <meta name="description" content="Size connection limits and worker counts for your server's available memory and CPU." />
   
-  <meta name="twitter:title" content="PROXY Protocol - Teleproxy" />
-  <meta name="twitter:description" content="Accept HAProxy PROXY protocol v1/v2 headers for real client IP preservation behind load balancers like HAProxy, nginx, or AWS NLB." />
+  <meta name="twitter:title" content="Tuning - Teleproxy" />
+  <meta name="twitter:description" content="Size connection limits and worker counts for your server's available memory and CPU." />
   
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://raw.githubusercontent.com/teleproxy/teleproxy/main/branding/github-social-preview.png" />
@@ -121,7 +121,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#proxy-protocol" class="md-skip">
+        <a href="#tuning" class="md-skip">
           Skip to content
         </a>
       
@@ -158,7 +158,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PROXY Protocol
+              Tuning
             
           </span>
         </div>
@@ -211,19 +211,19 @@
           </li>
         
           <li class="md-select__item">
-            <a href="../../ru/features/proxy-protocol/" hreflang="ru" class="md-select__link">
+            <a href="../../ru/deployment/tuning/" hreflang="ru" class="md-select__link">
               Русский
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../fa/features/proxy-protocol/" hreflang="fa" class="md-select__link">
+            <a href="../../fa/deployment/tuning/" hreflang="fa" class="md-select__link">
               فارسی
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../vi/features/proxy-protocol/" hreflang="vi" class="md-select__link">
+            <a href="../../vi/deployment/tuning/" hreflang="vi" class="md-select__link">
               Tiếng Việt
             </a>
           </li>
@@ -385,13 +385,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../dpi-resistance/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../features/dpi-resistance/" class="md-tabs__link">
           
   
   
@@ -407,11 +405,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../deployment/systemd/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../systemd/" class="md-tabs__link">
           
   
   
@@ -840,31 +840,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   
@@ -882,7 +877,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -900,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../dpi-resistance/" class="md-nav__link">
+      <a href="../../features/dpi-resistance/" class="md-nav__link">
         
   
   
@@ -928,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fake-tls/" class="md-nav__link">
+      <a href="../../features/fake-tls/" class="md-nav__link">
         
   
   
@@ -956,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../direct-mode/" class="md-nav__link">
+      <a href="../../features/direct-mode/" class="md-nav__link">
         
   
   
@@ -984,7 +979,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../access-control/" class="md-nav__link">
+      <a href="../../features/access-control/" class="md-nav__link">
         
   
   
@@ -1012,7 +1007,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../secrets/" class="md-nav__link">
+      <a href="../../features/secrets/" class="md-nav__link">
         
   
   
@@ -1040,7 +1035,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../monitoring/" class="md-nav__link">
+      <a href="../../features/monitoring/" class="md-nav__link">
         
   
   
@@ -1068,7 +1063,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../socks5/" class="md-nav__link">
+      <a href="../../features/socks5/" class="md-nav__link">
         
   
   
@@ -1076,6 +1071,210 @@
     
   
     SOCKS5 Upstream Proxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/proxy-protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PROXY Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/link/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connection Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/diagnostics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagnostics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systemd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ipv6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IPv6
   
 
     
@@ -1112,7 +1311,7 @@
   <span class="md-ellipsis">
     
   
-    PROXY Protocol
+    Tuning
   
 
     
@@ -1130,7 +1329,7 @@
   <span class="md-ellipsis">
     
   
-    PROXY Protocol
+    Tuning
   
 
     
@@ -1156,44 +1355,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#connection-limits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration
+        Connection limits
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuration">
+    <nav class="md-nav" aria-label="Connection limits">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#docker" class="md-nav__link">
+  <a href="#sizing-for-your-server" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Docker
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toml-config" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TOML config
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cli-flag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI flag
+        Sizing for your server
       
     </span>
   </a>
@@ -1206,10 +1383,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#workers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How it works
+        Workers
       
     </span>
   </a>
@@ -1217,10 +1394,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ip-acl-integration" class="md-nav__link">
+  <a href="#per-secret-limits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        IP ACL integration
+        Per-secret limits
       
     </span>
   </a>
@@ -1228,10 +1405,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#proxy-protocol-v2-local" class="md-nav__link">
+  <a href="#kernel-tuning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PROXY protocol v2 LOCAL
+        Kernel tuning
       
     </span>
   </a>
@@ -1239,21 +1416,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring" class="md-nav__link">
+  <a href="#monitoring-for-capacity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Monitoring
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notes
+        Monitoring for capacity
       
     </span>
   </a>
@@ -1276,206 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../link/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Connection Links
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../diagnostics/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Diagnostics
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deployment
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Deployment
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../deployment/systemd/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Systemd
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../deployment/ipv6/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    IPv6
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../deployment/tuning/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tuning
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../deployment/cloudflare-spectrum/" class="md-nav__link">
+      <a href="../cloudflare-spectrum/" class="md-nav__link">
         
   
   
@@ -1639,44 +1606,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
+  <a href="#connection-limits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration
+        Connection limits
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuration">
+    <nav class="md-nav" aria-label="Connection limits">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#docker" class="md-nav__link">
+  <a href="#sizing-for-your-server" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Docker
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#toml-config" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TOML config
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cli-flag" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI flag
+        Sizing for your server
       
     </span>
   </a>
@@ -1689,10 +1634,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#workers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How it works
+        Workers
       
     </span>
   </a>
@@ -1700,10 +1645,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ip-acl-integration" class="md-nav__link">
+  <a href="#per-secret-limits" class="md-nav__link">
     <span class="md-ellipsis">
       
-        IP ACL integration
+        Per-secret limits
       
     </span>
   </a>
@@ -1711,10 +1656,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#proxy-protocol-v2-local" class="md-nav__link">
+  <a href="#kernel-tuning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        PROXY protocol v2 LOCAL
+        Kernel tuning
       
     </span>
   </a>
@@ -1722,21 +1667,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitoring" class="md-nav__link">
+  <a href="#monitoring-for-capacity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Monitoring
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notes
+        Monitoring for capacity
       
     </span>
   </a>
@@ -1763,64 +1697,114 @@
   
 
 
-<h1 id="proxy-protocol">PROXY Protocol<a class="headerlink" href="#proxy-protocol" title="Permanent link">&para;</a></h1>
-<p>Accept <a href="https://www.haproxy.org/download/2.9/doc/proxy-protocol.txt">HAProxy PROXY protocol</a> v1 (text) and v2 (binary) headers on client listeners. Required when running behind a load balancer (HAProxy, nginx, AWS NLB, etc.) that injects client IP via PROXY protocol.</p>
-<p>Without this, IP ACLs, per-IP limits, per-secret IP tracking, and logging all see the load balancer's IP instead of the real client.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Client -&gt; Load Balancer (PROXY protocol) -&gt; Teleproxy
+<h1 id="tuning">Tuning<a class="headerlink" href="#tuning" title="Permanent link">&para;</a></h1>
+<h2 id="connection-limits">Connection limits<a class="headerlink" href="#connection-limits" title="Permanent link">&para;</a></h2>
+<p>Each open connection consumes memory in both kernel space (TCP socket buffers) and user space (crypto state, network buffers). The dominant cost is kernel TCP buffers: roughly <strong>50-100 KB per connection</strong> depending on traffic patterns and sysctl settings.</p>
+<p>The <code>MAX_CONNECTIONS</code> environment variable (or <code>maxconn</code> in TOML) controls how many file descriptors the proxy will use per worker. The default is <strong>10,000</strong> — safe for machines with 1 GB+ RAM.</p>
+<h3 id="sizing-for-your-server">Sizing for your server<a class="headerlink" href="#sizing-for-your-server" title="Permanent link">&para;</a></h3>
+<p>A conservative formula:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>max_connections = (RAM_MB - 300) * 10
 </code></pre></div>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<h3 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">PROXY_PROTOCOL</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">DIRECT_MODE</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
+<p>This reserves 300 MB for the process itself (static tables, buffer pool, OS overhead) and allocates ~100 KB per connection.</p>
+<table>
+<thead>
+<tr>
+<th>RAM</th>
+<th>Recommended <code>MAX_CONNECTIONS</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>512 MB</td>
+<td>2,000</td>
+</tr>
+<tr>
+<td>1 GB</td>
+<td>7,000</td>
+</tr>
+<tr>
+<td>2 GB</td>
+<td>10,000 (default)</td>
+</tr>
+<tr>
+<td>4 GB</td>
+<td>30,000</td>
+</tr>
+<tr>
+<td>8 GB+</td>
+<td>60,000</td>
+</tr>
+</tbody>
+</table>
+<p>The hard compile-time limit is 65,536.</p>
+<p>To override the default in Docker:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">teleproxy</span><span class="p">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/teleproxy/teleproxy:latest</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">MAX_CONNECTIONS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30000</span>
 </code></pre></div>
-<h3 id="toml-config">TOML config<a class="headerlink" href="#toml-config" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">proxy_protocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you see <code>connections_failed_lru</code> increasing in <a href="/features/monitoring/">metrics</a>, the proxy is evicting idle connections under memory pressure. Either lower <code>MAX_CONNECTIONS</code> or add RAM.</p>
+</div>
+<h2 id="workers">Workers<a class="headerlink" href="#workers" title="Permanent link">&para;</a></h2>
+<p><code>WORKERS</code> sets the number of worker processes. Default: <strong>1</strong>.</p>
+<p>Each worker runs independently with its own connection table and buffer pool, so memory usage scales linearly with worker count. Set workers to your CPU core count for maximum throughput:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">WORKERS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">MAX_CONNECTIONS</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10000</span><span class="w">  </span><span class="c1"># per worker — total capacity is 40,000</span>
 </code></pre></div>
-<h3 id="cli-flag">CLI flag<a class="headerlink" href="#cli-flag" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>./teleproxy<span class="w"> </span>--direct<span class="w"> </span>--proxy-protocol<span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>...
+<p>Note that <code>MAX_CONNECTIONS</code> is <strong>per worker</strong>. With 4 workers and 10,000 max connections each, the proxy can handle up to 40,000 concurrent connections total.</p>
+<h2 id="per-secret-limits">Per-secret limits<a class="headerlink" href="#per-secret-limits" title="Permanent link">&para;</a></h2>
+<p>For fine-grained control over individual secrets (connection caps, byte quotas, IP limits, rate limiting), see <a href="/features/secrets/">Secrets &amp; Limits</a>.</p>
+<h2 id="kernel-tuning">Kernel tuning<a class="headerlink" href="#kernel-tuning" title="Permanent link">&para;</a></h2>
+<p>On Linux, reducing TCP buffer sizes frees kernel memory for more connections:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Lower default TCP buffer sizes (bytes: min, default, max)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.tcp_rmem<span class="o">=</span><span class="s2">&quot;4096 16384 131072&quot;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.tcp_wmem<span class="o">=</span><span class="s2">&quot;4096 16384 131072&quot;</span>
 </code></pre></div>
-<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
-<p>When enabled, every client connection must start with a PROXY protocol header before any MTProto/TLS data. The proxy:</p>
-<ol>
-<li>Reads the PROXY header (v1 or v2, auto-detected)</li>
-<li>Extracts the real client IP and port</li>
-<li>Replaces the connection's remote address with the extracted values</li>
-<li>Re-checks IP ACLs against the real client IP</li>
-<li>Proceeds with normal protocol detection (obfs2, fake-TLS, etc.)</li>
-</ol>
-<p>Connections without a valid PROXY header are closed.</p>
-<h2 id="ip-acl-integration">IP ACL integration<a class="headerlink" href="#ip-acl-integration" title="Permanent link">&para;</a></h2>
-<p>When proxy protocol is enabled, two IP checks happen:</p>
-<ol>
-<li><strong>At accept time</strong>: the load balancer's IP is checked. If you use an IP allowlist, include the LB's address.</li>
-<li><strong>After PROXY header</strong>: the real client IP is checked against your blocklist/allowlist.</li>
-</ol>
-<p>This means IP ACLs filter real clients, not the load balancer.</p>
-<h2 id="proxy-protocol-v2-local">PROXY protocol v2 LOCAL<a class="headerlink" href="#proxy-protocol-v2-local" title="Permanent link">&para;</a></h2>
-<p>Load balancers send LOCAL commands for health checks (no address payload). Teleproxy accepts these and keeps the original connection IP.</p>
-<h2 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h2>
-<p>Stats endpoint (<code>/stats</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>proxy_protocol_enabled  1
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>proxy_protocol_connections  42
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>proxy_protocol_errors   3
+<p>This drops per-socket kernel memory from ~46 KB to ~32 KB at the cost of slightly lower throughput for large file transfers. Telegram messages are small, so the impact is minimal.</p>
+<p>For Docker, pass sysctl settings in compose:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">teleproxy</span><span class="p">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">sysctls</span><span class="p">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">net.ipv4.tcp_rmem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4096</span><span class="nv"> </span><span class="s">16384</span><span class="nv"> </span><span class="s">131072&quot;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">net.ipv4.tcp_wmem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4096</span><span class="nv"> </span><span class="s">16384</span><span class="nv"> </span><span class="s">131072&quot;</span>
 </code></pre></div>
-<p>Prometheus (<code>/metrics</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>teleproxy_proxy_protocol_enabled 1
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>teleproxy_proxy_protocol_connections_total 42
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>teleproxy_proxy_protocol_errors_total 3
-</code></pre></div>
-<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Both v1 (text) and v2 (binary) are supported and auto-detected</li>
-<li>Not reloadable via SIGHUP — requires a restart to enable/disable</li>
-<li>The stats/HTTP endpoint port is not affected — only client listeners expect the header</li>
-<li>IPv6 client addresses in PROXY headers are fully supported</li>
-</ul>
+<h2 id="monitoring-for-capacity">Monitoring for capacity<a class="headerlink" href="#monitoring-for-capacity" title="Permanent link">&para;</a></h2>
+<p>Key metrics to watch (available at the <code>/stats</code> and <code>/metrics</code> endpoints):</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>connections_failed_lru</code></td>
+<td>Connections evicted under memory pressure — lower <code>MAX_CONNECTIONS</code> or add RAM</td>
+</tr>
+<tr>
+<td><code>connections_failed_flood</code></td>
+<td>Connections rejected because a single client used too much buffer space</td>
+</tr>
+<tr>
+<td><code>total_special_connections</code></td>
+<td>Current active connections</td>
+</tr>
+<tr>
+<td><code>total_max_special_connections</code></td>
+<td>Configured connection limit</td>
+</tr>
+<tr>
+<td><code>total_network_buffers_used_size</code></td>
+<td>Current userspace buffer usage in bytes</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="/features/monitoring/">Monitoring</a> for the full metrics reference.</p>
 
 
 

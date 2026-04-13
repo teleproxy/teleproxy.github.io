@@ -64,6 +64,15 @@
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/systemd/"/>
     </url>
     <url>
+        <loc>https://teleproxy.github.io/deployment/tuning/</loc>
+        <lastmod>2026-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/tuning/"/>
+    </url>
+    <url>
         <loc>https://teleproxy.github.io/docker/</loc>
         <lastmod>2026-04-13</lastmod>
         <changefreq>daily</changefreq>
@@ -260,6 +269,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/systemd/"/>
         <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/systemd/"/>
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/systemd/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/ru/deployment/tuning/</loc>
+        <lastmod>2026-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/tuning/"/>
     </url>
     <url>
         <loc>https://teleproxy.github.io/ru/docker/</loc>
@@ -460,6 +478,15 @@
         <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/systemd/"/>
     </url>
     <url>
+        <loc>https://teleproxy.github.io/fa/deployment/tuning/</loc>
+        <lastmod>2026-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/tuning/"/>
+    </url>
+    <url>
         <loc>https://teleproxy.github.io/fa/docker/</loc>
         <lastmod>2026-04-13</lastmod>
         <changefreq>daily</changefreq>
@@ -656,6 +683,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/systemd/"/>
         <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/systemd/"/>
         <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/systemd/"/>
+    </url>
+    <url>
+        <loc>https://teleproxy.github.io/vi/deployment/tuning/</loc>
+        <lastmod>2026-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="vi" href="https://teleproxy.github.io/vi/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://teleproxy.github.io/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="fa" href="https://teleproxy.github.io/fa/deployment/tuning/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://teleproxy.github.io/ru/deployment/tuning/"/>
     </url>
     <url>
         <loc>https://teleproxy.github.io/vi/docker/</loc>
