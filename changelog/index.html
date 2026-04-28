@@ -1466,6 +1466,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#4120" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4110" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1670,6 +1681,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#4120" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4110" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1833,6 +1855,14 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="4120">4.12.0<a class="headerlink" href="#4120" title="Permanent link">&para;</a></h2>
+<p>Bug fixes for Docker deployments and per-secret metrics.</p>
+<ul>
+<li><strong>Fix <code>teleproxy_secret_unique_ips</code> always reporting 0</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/70">#70</a>). The counter only ever incremented for secrets that had <code>max_ips</code> or <code>rate_limit</code> configured — a stale guard inside <code>ip_track_connect()</code> that broke the metric for every plain secret. Removed the guard so the IP-tracking table populates for all secrets. Also clarified the metric type: <code>teleproxy_secret_unique_ips</code> is <code>counter</code> (cumulative count of distinct source IPs since startup), not <code>gauge</code>.</li>
+<li><strong>Clarified <code>teleproxy_secret_bytes_received_total</code> / <code>_sent_total</code> HELP text</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/70">#70</a>). The labels are technically correct ("received from clients" = uploads, "sent to clients" = downloads) but easy to misread from a client perspective. The HELP lines now explicitly call out the direction. Note: these counters increment in direct mode only — relay-mode aggregation is a separate gap, tracked for a follow-up.</li>
+<li><strong>Fix Docker <code>SECRET=hex:label,hex:label</code> writing the entire string as the TOML key</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/67">#67</a>). The numbered-secret path (<code>SECRET_LABEL_N</code>) was already correct; the comma-separated path now mirrors it and writes a separate <code>label = ...</code> line.</li>
+<li><strong>New <code>EXTERNAL_PORT</code> env var</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/66">#66</a>) for advertising a different port in the connection link than the internal listen port — needed when Docker maps <code>-p 4443:443</code>. Also added a matching <code>external_port</code> TOML option, consumed by both the operator-printed connection URL and the <code>/link</code> HTML page (QR codes).</li>
+</ul>
 <h2 id="4110">4.11.0<a class="headerlink" href="#4110" title="Permanent link">&para;</a></h2>
 <p>SOCKS5 upstream support in the check command (<a href="https://github.com/teleproxy/teleproxy/issues/57">#57</a>) and a new Cloudflare Spectrum deployment guide (<a href="https://github.com/teleproxy/teleproxy/issues/55">#55</a>).</p>
 <ul>

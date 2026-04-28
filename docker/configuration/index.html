@@ -1712,7 +1712,12 @@
 <tr>
 <td><code>PORT</code></td>
 <td>443</td>
-<td>Client connection port</td>
+<td>Client connection port (internal listen port)</td>
+</tr>
+<tr>
+<td><code>EXTERNAL_PORT</code></td>
+<td><code>$PORT</code></td>
+<td>Port advertised in connection links and <code>/link</code> QR codes. Set to the host-side port when Docker maps a different external port (e.g. <code>-p 4443:443</code> → <code>EXTERNAL_PORT=4443</code>)</td>
 </tr>
 <tr>
 <td><code>STATS_PORT</code></td>
