@@ -1775,6 +1775,11 @@
 <td>Route upstream DC connections through a SOCKS5 proxy (<code>socks5://[user:pass@]host:port</code>)</td>
 </tr>
 <tr>
+<td><code>CONFIG_DOWNLOAD_PROXY</code></td>
+<td><code>$SOCKS5_PROXY</code></td>
+<td>Outbound proxy for fetching <code>proxy-multi.conf</code> from <code>core.telegram.org</code>. Accepts any URL <code>curl -x</code> understands (<code>http://</code>, <code>https://</code>, <code>socks5://</code>, <code>socks5h://</code>). Defaults to <code>SOCKS5_PROXY</code> if unset</td>
+</tr>
+<tr>
 <td><code>PROXY_PROTOCOL</code></td>
 <td>false</td>
 <td>Enable PROXY protocol v1/v2 on client listeners (for HAProxy/nginx/NLB)</td>
@@ -1824,9 +1829,13 @@
 <p>If <code>core.telegram.org</code> is unreachable, the container uses the cached config from the volume.</p>
 <h2 id="automatic-config-refresh">Automatic Config Refresh<a class="headerlink" href="#automatic-config-refresh" title="Permanent link">&para;</a></h2>
 <p>A cron job refreshes the Telegram DC configuration every 6 hours. It downloads the latest config, validates it, compares it with the existing one, and hot-reloads the proxy via <code>SIGHUP</code> if the config changed. No configuration needed.</p>
+<p>If direct connections to <code>core.telegram.org</code> are blocked from the host, set <code>CONFIG_DOWNLOAD_PROXY</code> to route the download through an outbound proxy:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-e<span class="w"> </span><span class="nv">CONFIG_DOWNLOAD_PROXY</span><span class="o">=</span>socks5://10.0.0.1:1080<span class="w"> </span>...<span class="w"> </span>ghcr.io/teleproxy/teleproxy:latest
+</code></pre></div>
+<p>When unset, falls back to <code>SOCKS5_PROXY</code> if that's configured for upstream DC routing.</p>
 <h2 id="health-check">Health Check<a class="headerlink" href="#health-check" title="Permanent link">&para;</a></h2>
 <p>The Docker image includes a built-in health check that monitors the stats endpoint:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># Check the STATUS column for health</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># Check the STATUS column for health</span>
 </code></pre></div>
 <p>The health check runs every 30 seconds after a 60-second startup grace period.</p>
 
