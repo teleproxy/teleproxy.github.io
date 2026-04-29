@@ -1466,6 +1466,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#4121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12.1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4120" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1681,6 +1692,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#4121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.12.1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4120" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1855,6 +1877,13 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="4121">4.12.1<a class="headerlink" href="#4121" title="Permanent link">&para;</a></h2>
+<p>Hotfix for log spam introduced by the 4.12.0 unique-IPs counter rework.</p>
+<ul>
+<li><strong>Fix <code>WARNING: IP tracking table full for secret 0</code> flooding docker logs</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/71">#71</a>). The 4.12.0 fix for <a href="https://github.com/teleproxy/teleproxy/issues/70">#70</a> made every secret populate a fixed-size 256-entry per-IP table; on a busy public proxy with no <code>max_ips</code> or <code>rate_limit</code> configured, the table fills as soon as ~256 distinct source IPs have connected and every subsequent unique client logs a warning. Plain secrets now bypass the precise table entirely and feed <code>teleproxy_secret_unique_ips</code> from a per-secret Bloom filter — bounded memory, no overflow, ~0.5% FPR at 10K IPs.</li>
+<li><strong>Throttle the table-full warning</strong> to once per minute per slot for limit-bearing secrets where <code>max_ips</code> legitimately exceeds the table size. The message now also includes the secret label and a hint to raise <code>max_ips</code> or check the configuration.</li>
+<li>The macro <code>SECRET_MAX_TRACKED_IPS</code> is now overridable at build time (<code>make EXTRA_CFLAGS="-DSECRET_MAX_TRACKED_IPS=N"</code>), used by the new <code>make test-table-full</code> regression test.</li>
+</ul>
 <h2 id="4120">4.12.0<a class="headerlink" href="#4120" title="Permanent link">&para;</a></h2>
 <p>Bug fixes for Docker deployments and per-secret metrics.</p>
 <ul>
