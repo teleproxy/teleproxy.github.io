@@ -1178,6 +1178,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#socks5-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подключение к SOCKS5-прокси на хосте Docker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#url" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1678,6 +1689,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#socks5-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подключение к SOCKS5-прокси на хосте Docker
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#url" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1765,6 +1787,57 @@
 <h3 id="cli">Флаг CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./teleproxy<span class="w"> </span>--direct<span class="w"> </span>--socks5<span class="w"> </span>socks5://user:pass@proxy.example.com:1080<span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>...
 </code></pre></div>
+<h2 id="socks5-docker">Подключение к SOCKS5-прокси на хосте Docker<a class="headerlink" href="#socks5-docker" title="Permanent link">&para;</a></h2>
+<p>Когда SOCKS5-прокси работает на той же машине, что и контейнер, нужно совпадение
+двух условий:</p>
+<p><strong>1. Резолв хоста изнутри контейнера.</strong></p>
+<p><code>127.0.0.1</code> внутри контейнера в bridge-сети указывает на сам контейнер, а не на
+хост. Используйте <code>host.docker.internal</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Платформа</th>
+<th>Настройка</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Docker Desktop (macOS, Windows)</td>
+<td>Работает из коробки, флаги не нужны</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>Передайте <code>--add-host=host.docker.internal:host-gateway</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. SOCKS5-демон должен слушать не только loopback.</strong></p>
+<p>Демон, привязанный только к <code>127.0.0.1</code>, недоступен из любого контейнера в
+bridge-сети, какой бы ни был <code>host.docker.internal</code>. Привяжите его к <code>0.0.0.0</code>
+(или к IP docker-моста, например <code>172.17.0.1</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Не работает — слушает только loopback хоста</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ssh<span class="w"> </span>-D<span class="w"> </span><span class="m">127</span>.0.0.1:1080<span class="w"> </span>user@hop.example.com
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Работает — доступен из контейнеров</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>ssh<span class="w"> </span>-D<span class="w"> </span><span class="m">0</span>.0.0.0:1080<span class="w"> </span>user@hop.example.com
+</code></pre></div>
+<p>То же касается dante, gost, 3proxy, sing-box и любого другого SOCKS5-сервера.
+Адрес прослушивания можно проверить через <code>ss -ltnp | grep 1080</code>.</p>
+<p><strong>Проверьте до запуска teleproxy:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--add-host<span class="o">=</span>host.docker.internal:host-gateway<span class="w"> </span>alpine<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;apk add -q curl &amp;&amp; curl -sS --socks5 host.docker.internal:1080 https://api.telegram.org&#39;</span>
+</code></pre></div>
+<p>Если выводится баннер Telegram API, teleproxy тоже заработает:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span>--add-host<span class="o">=</span>host.docker.internal:host-gateway<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">SOCKS5_PROXY</span><span class="o">=</span>socks5://host.docker.internal:1080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">DIRECT_MODE</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
+</code></pre></div>
+<p><code>--network host</code> — самый простой вариант, когда порт на хосте свободен, но он
+не обязателен.</p>
 <h2 id="url">Формат URL<a class="headerlink" href="#url" title="Permanent link">&para;</a></h2>
 <p>Поддерживаются две схемы:</p>
 <table>
@@ -1797,15 +1870,15 @@
 <h2 id="_3">Мониторинг<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>Статистика подключений SOCKS5 доступна на эндпоинтах:</p>
 <p><code>/stats</code> (табуляция):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>socks5_enabled  1
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>socks5_connects_attempted   42
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>socks5_connects_succeeded   40
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>socks5_connects_failed  2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>socks5_enabled  1
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>socks5_connects_attempted   42
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>socks5_connects_succeeded   40
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>socks5_connects_failed  2
 </code></pre></div>
 <p><code>/metrics</code> (Prometheus):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>teleproxy_socks5_connects_attempted_total 42
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>teleproxy_socks5_connects_succeeded_total 40
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>teleproxy_socks5_connects_failed_total 2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>teleproxy_socks5_connects_attempted_total 42
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>teleproxy_socks5_connects_succeeded_total 40
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>teleproxy_socks5_connects_failed_total 2
 </code></pre></div>
 <h2 id="_4">Примечания<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <ul>

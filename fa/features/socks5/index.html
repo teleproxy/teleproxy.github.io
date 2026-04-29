@@ -1178,6 +1178,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#connecting-to-a-socks5-proxy-on-the-docker-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting to a SOCKS5 proxy on the Docker host
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#url-format" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1678,6 +1689,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#connecting-to-a-socks5-proxy-on-the-docker-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting to a SOCKS5 proxy on the Docker host
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#url-format" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1765,6 +1787,57 @@
 <h3 id="cli-flag">CLI flag<a class="headerlink" href="#cli-flag" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./teleproxy<span class="w"> </span>--direct<span class="w"> </span>--socks5<span class="w"> </span>socks5://user:pass@proxy.example.com:1080<span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>...
 </code></pre></div>
+<h2 id="connecting-to-a-socks5-proxy-on-the-docker-host">Connecting to a SOCKS5 proxy on the Docker host<a class="headerlink" href="#connecting-to-a-socks5-proxy-on-the-docker-host" title="Permanent link">&para;</a></h2>
+<p>Two pieces have to line up when the SOCKS5 proxy runs on the same machine as the
+container:</p>
+<p><strong>1. Resolve the host from inside the container.</strong></p>
+<p><code>127.0.0.1</code> inside a bridge-network container points at the container itself,
+not the host. Use <code>host.docker.internal</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Setup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Docker Desktop (macOS, Windows)</td>
+<td>Wired up automatically, no flags needed</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>Pass <code>--add-host=host.docker.internal:host-gateway</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. Bind the SOCKS5 daemon to a non-loopback address.</strong></p>
+<p>A daemon bound only to <code>127.0.0.1</code> is unreachable from any container on a
+bridge network, regardless of <code>host.docker.internal</code>. Bind it to <code>0.0.0.0</code>
+(or to the docker bridge IP, e.g. <code>172.17.0.1</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Won&#39;t work — only listens on host loopback</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ssh<span class="w"> </span>-D<span class="w"> </span><span class="m">127</span>.0.0.1:1080<span class="w"> </span>user@hop.example.com
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Works — reachable from containers</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>ssh<span class="w"> </span>-D<span class="w"> </span><span class="m">0</span>.0.0.0:1080<span class="w"> </span>user@hop.example.com
+</code></pre></div>
+<p>The same applies to dante, gost, 3proxy, sing-box, and any other SOCKS5 server.
+Check the listen address with <code>ss -ltnp | grep 1080</code>.</p>
+<p><strong>Verify before launching teleproxy:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--add-host<span class="o">=</span>host.docker.internal:host-gateway<span class="w"> </span>alpine<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;apk add -q curl &amp;&amp; curl -sS --socks5 host.docker.internal:1080 https://api.telegram.org&#39;</span>
+</code></pre></div>
+<p>If that prints the Telegram API banner, teleproxy will work too:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">443</span>:443<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span>--add-host<span class="o">=</span>host.docker.internal:host-gateway<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">SOCKS5_PROXY</span><span class="o">=</span>socks5://host.docker.internal:1080<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">DIRECT_MODE</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span>ghcr.io/teleproxy/teleproxy:latest
+</code></pre></div>
+<p><code>--network host</code> is the simplest fallback when the host port is free, but it is
+not required.</p>
 <h2 id="url-format">URL format<a class="headerlink" href="#url-format" title="Permanent link">&para;</a></h2>
 <p>Two schemes are supported:</p>
 <table>
@@ -1797,15 +1870,15 @@
 <h2 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h2>
 <p>SOCKS5 connection stats are exposed on the stats endpoints:</p>
 <p><code>/stats</code> (tab-separated):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>socks5_enabled  1
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>socks5_connects_attempted   42
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>socks5_connects_succeeded   40
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>socks5_connects_failed  2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>socks5_enabled  1
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>socks5_connects_attempted   42
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>socks5_connects_succeeded   40
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>socks5_connects_failed  2
 </code></pre></div>
 <p><code>/metrics</code> (Prometheus):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>teleproxy_socks5_connects_attempted_total 42
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>teleproxy_socks5_connects_succeeded_total 40
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>teleproxy_socks5_connects_failed_total 2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>teleproxy_socks5_connects_attempted_total 42
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>teleproxy_socks5_connects_succeeded_total 40
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>teleproxy_socks5_connects_failed_total 2
 </code></pre></div>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
 <ul>
