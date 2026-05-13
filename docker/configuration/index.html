@@ -1752,7 +1752,12 @@
 <tr>
 <td><code>EE_DOMAIN</code></td>
 <td>—</td>
-<td>Domain for Fake-TLS. Accepts <code>host:port</code> for custom TLS backends</td>
+<td>Domain for Fake-TLS (SNI hostname advertised to clients)</td>
+</tr>
+<tr>
+<td><code>EE_BACKEND</code></td>
+<td>—</td>
+<td>Optional backend for fake-TLS camouflage. Splits the SNI domain (<code>EE_DOMAIN</code>) from the connect target. Accepts <code>host:port</code>, <code>[ipv6]:port</code>, or <code>unix:/path</code> for a local socket — useful when <code>EE_DOMAIN</code> is a public SNI like <code>cloudflare.com</code> but the actual backend is a local nginx</td>
 </tr>
 <tr>
 <td><code>IP_BLOCKLIST</code></td>
