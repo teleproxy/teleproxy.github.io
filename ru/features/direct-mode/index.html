@@ -965,6 +965,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Прямое подключение к DC
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -981,6 +999,36 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ограничения
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1490,6 +1538,25 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ограничения
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1521,8 +1588,16 @@
 <li>Файлы <code>proxy-multi.conf</code> и <code>proxy-secret</code> не нужны</li>
 <li>Аргумент конфигурационного файла не требуется</li>
 <li>Подключение идёт напрямую к известным адресам дата-центров Telegram</li>
-<li><strong>Несовместим с <code>-P</code> (тег прокси)</strong> — спонсорские каналы требуют ME relay</li>
+<li><strong>Несовместим с <code>-P</code> (тег прокси)</strong> — учёт тегов спонсорских каналов происходит на middle-end Telegram, поэтому слоты для спонсорских каналов требуют ME relay</li>
 </ul>
+<h2 id="_1">Ограничения<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Прямой режим обходит middle-end Telegram (MiddleProxy) по проекту. Этот компромисс стоит трёх вещей на стороне клиента:</p>
+<ul>
+<li><strong>Медиа на не-Premium аккаунтах может не загружаться.</strong> Фото, видео и сторис для бесплатных аккаунтов привязаны Telegram к авторизации сессии, которая проходит через MiddleProxy; сессии, установленные через прямой режим, считаются не-авторизованными для этого медиа, и клиент видит бесконечную "загрузку" вместо явной ошибки. Premium-аккаунты не затронуты. Это симптом, который пользователи описывают в <a href="https://github.com/teleproxy/teleproxy/issues/60">#60</a>.</li>
+<li><strong>Спонсорские (промо) каналы не доставляются.</strong> Та же причина — теги спонсорских каналов выдаются на ME.</li>
+<li><strong>Голосовые и видео-звонки Telegram не передаются ни одним MTProto-прокси</strong> — ни прямым, ни relay. Клиент Telegram принимает прокси для сигнального трафика звонков только в виде встроенного SOCKS5; MTProto-прокси видит только трафик чатов. Это не специфично для прямого режима, но это полезно знать при выборе схемы развёртывания.</li>
+</ul>
+<p>Если медиа важнее выигрыша по задержкам, уберите <code>--direct</code> и запускайтесь с <code>proxy-multi.conf</code> + <code>proxy-secret</code> (путь по умолчанию через ME relay).</p>
 <p>Docker:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>

@@ -1016,6 +1016,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connection-resilience" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1556,6 +1567,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connection-resilience" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1610,8 +1632,16 @@
 <li>No <code>proxy-multi.conf</code> or <code>proxy-secret</code> files needed</li>
 <li>No config file argument required</li>
 <li>Connects directly to well-known Telegram DC addresses</li>
-<li><strong>Incompatible with <code>-P</code> (proxy tag)</strong> — promoted channels require ME relays</li>
+<li><strong>Incompatible with <code>-P</code> (proxy tag)</strong> — promotion-tag accounting happens at Telegram's middle-end, so promoted-channel slots require ME relays</li>
 </ul>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
+<p>Direct mode skips Telegram's middle-end (MiddleProxy) by design. That trade-off costs three things on the client side:</p>
+<ul>
+<li><strong>Media on non-Premium accounts may not load.</strong> Photos, videos, and stories for free-tier accounts are gated by Telegram on session authorization that happens through MiddleProxy; sessions established via direct mode are treated as un-authorized for that media and the client sees indefinite "loading" rather than a clean error. Premium accounts are unaffected. This is the symptom users report in <a href="https://github.com/teleproxy/teleproxy/issues/60">#60</a>.</li>
+<li><strong>Sponsored / promoted channels are not delivered.</strong> Same reason — promotion tags are issued by ME.</li>
+<li><strong>Telegram voice/video calls are never carried by any MTProto proxy</strong> — direct or relay. The Telegram client only honours an in-app SOCKS5 proxy for the call signalling path; MTProto proxies only see chat traffic. This isn't direct-mode-specific, but it's worth knowing when picking a deployment shape.</li>
+</ul>
+<p>If media matters more than the latency win, drop <code>--direct</code> and run with <code>proxy-multi.conf</code> + <code>proxy-secret</code> (the default ME-relay path).</p>
 <p>Docker:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--name<span class="w"> </span>teleproxy<span class="w"> </span><span class="se">\</span>
