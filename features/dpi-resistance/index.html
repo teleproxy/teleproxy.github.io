@@ -1088,6 +1088,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#wildcard-certificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wildcard certificates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#use-random-padding-dd-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1828,6 +1839,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#wildcard-certificates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wildcard certificates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#use-random-padding-dd-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1917,6 +1939,8 @@
 <p>Choose a popular, CDN-backed domain for SNI (e.g., <code>www.google.com</code>, <code>cloudflare.com</code>). The domain must support TLS 1.3. Teleproxy probes the domain at startup to learn its ServerHello characteristics and mimics them.</p>
 <h3 id="run-a-custom-tls-backend">Run a custom TLS backend<a class="headerlink" href="#run-a-custom-tls-backend" title="Permanent link">&para;</a></h3>
 <p>If you control the server's domain, set up nginx with a valid TLS certificate behind Teleproxy. This makes the server indistinguishable from a normal HTTPS website under active probing. See <a href="../fake-tls/#custom-tls-backend-tcp-splitting">Fake-TLS: Custom TLS Backend</a>.</p>
+<h3 id="wildcard-certificates">Wildcard certificates<a class="headerlink" href="#wildcard-certificates" title="Permanent link">&para;</a></h3>
+<p>If your TLS certificate is a wildcard (e.g. <code>*.example.com</code> served from <code>proxy.example.com</code>), configure the <code>-D</code> flag with the wildcard pattern: <code>-D '*.example.com:proxy.example.com:443'</code>. Teleproxy matches any single-label subdomain of <code>example.com</code> against the pattern (RFC 6125): <code>proxy.example.com</code> and <code>node-7.example.com</code> match; <code>example.com</code> (apex) and <code>a.b.example.com</code> (multi-label) do not. Fingerprinting at startup probes the backend host, not the literal <code>*.example.com</code>. An explicit backend is required for wildcard entries.</p>
 <h3 id="use-random-padding-dd-mode">Use random padding (DD mode)<a class="headerlink" href="#use-random-padding-dd-mode" title="Permanent link">&para;</a></h3>
 <p>For ISPs that fingerprint MTProto by packet sizes, enable random padding by prefixing <code>dd</code> to the client secret.</p>
 <h2 id="what-users-can-do-client-side">What Users Can Do (Client-Side)<a class="headerlink" href="#what-users-can-do-client-side" title="Permanent link">&para;</a></h2>
