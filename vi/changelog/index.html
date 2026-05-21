@@ -87,7 +87,7 @@
     "operatingSystem": "Linux",
     "license": "https://opensource.org/licenses/GPL-2.0",
     "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
-    "softwareVersion": "4.9.0",
+    "softwareVersion": "4.13.0",
     "author": {
       "@type": "Person",
       "name": "R. Kline"
@@ -1466,10 +1466,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#unreleased" class="md-nav__link">
+  <a href="#4130" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unreleased
+        4.13.0
       
     </span>
   </a>
@@ -1714,10 +1714,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#unreleased" class="md-nav__link">
+  <a href="#4130" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unreleased
+        4.13.0
       
     </span>
   </a>
@@ -1921,13 +1921,14 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
-<h2 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
+<h2 id="4130">4.13.0<a class="headerlink" href="#4130" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Wildcard certificate support in fake-TLS</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/44">#44</a>). Operators with a wildcard cert like <code>*.example.com</code> served from a concrete vhost (e.g. <code>proxy.example.com</code>) couldn't make fake-TLS work — SNI lookup did literal string compare against <code>*.example.com</code>, every real ClientHello missed the match, and the connection landed on nginx's default vhost serving an unrelated cert (the failure mode also reported against mtg as <a href="https://github.com/9seconds/mtg/issues/394">9seconds/mtg#394</a>). Configure <code>-D '*.example.com:proxy.example.com:443'</code> (or <code>EE_DOMAIN=*.example.com</code>, <code>EE_BACKEND=proxy.example.com:443</code>) and teleproxy now matches any single-label subdomain against the pattern per RFC 6125: <code>proxy.example.com</code> matches, <code>example.com</code> (apex) and <code>a.b.example.com</code> (multi-label) do not. Startup fingerprinting probes the backend hostname, so the captured ServerHello parameters reflect the real cert vhost. Covered by <code>make test-wildcard-cert</code>.</li>
 <li><strong>Document direct-mode limitations</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/79">#79</a>). The <a href="/features/direct-mode/">Direct-to-DC Mode</a> page now spells out what <code>--direct</code> trades away by skipping Telegram's middle-end: media on non-Premium accounts may not load, sponsored channels aren't delivered, and Telegram voice/video calls aren't carried by any MTProto proxy regardless of mode. Answers the recurring symptom in <a href="https://github.com/teleproxy/teleproxy/issues/60">#60</a>.</li>
 <li><strong><code>CONFIG_DOWNLOAD_PROXY</code> env var for the proxy-multi.conf download</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/61">#61</a>). Hosts that can't reach <code>core.telegram.org</code> directly can now route the config refresh through an outbound HTTP or SOCKS proxy. Accepts any URL <code>curl -x</code> understands (<code>http://</code>, <code>https://</code>, <code>socks5://</code>, <code>socks5h://</code>, with optional <code>user:pass@</code>). Falls back to <code>SOCKS5_PROXY</code> when unset, so users who already proxy DC traffic don't need to set anything new. Applies to the initial fetch in <code>start.sh</code> and the 6-hour cron refresh.</li>
 <li><strong>Split SNI domain from camouflage backend</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/62">#62</a>). The fake-TLS feature used to require <code>EE_DOMAIN</code> to be both the SNI hostname and the backend connect target — operators worked around it by editing <code>/etc/hosts</code>. New <code>EE_BACKEND</code> env var separates the two: <code>EE_DOMAIN</code> keeps a clean public SNI name like <code>cloudflare.com</code>, while <code>EE_BACKEND</code> points at the actual backend (<code>127.0.0.1:8443</code>, <code>[::1]:8443</code>, or <code>unix:/run/nginx.sock</code>). Reality-style. Available as TOML too: <code>domain = [{ name = "cloudflare.com", backend = "127.0.0.1:8443" }]</code>. The legacy <code>EE_DOMAIN=host:port</code> and <code>domain = "..."</code> strings still work unchanged.</li>
 <li><strong>Fix pre-handshake socket accumulation</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/63">#63</a>). Scanners and probes that opened a TCP connection but never sent the obfs2 header used to sit on the proxy until OS-level TCP keepalive killed them roughly two hours later, inflating <code>total_connections</code> (Prometheus <code>teleproxy_active_connections</code>) far above the authenticated user count. The proxy already schedules a 10-second handshake alarm, but the handler used to no-op when fake-TLS wasn't configured. It now drops the unhandshaked socket. Most visible under random-padding (<code>dd</code>) mode, where there's no SNI gate to filter scanners early. New <code>make test-handshake-timeout</code> regression test asserts the counter returns to baseline within 15 seconds.</li>
+<li><strong>Memory-handling robustness and exhaustive cppcheck in CI</strong> (<a href="https://github.com/teleproxy/teleproxy/pull/84">#84</a>, <a href="https://github.com/teleproxy/teleproxy/pull/85">#85</a>, <a href="https://github.com/teleproxy/teleproxy/pull/82">#82</a>, <a href="https://github.com/teleproxy/teleproxy/pull/78">#78</a>). Tightened allocation/free paths in <code>src/common/common-stats.c</code> and a few buffer sites that could leak or double-free under memory pressure. <code>make lint</code> now runs <code>cppcheck --check-level=exhaustive</code> against a source-built cppcheck 2.20 (Ubuntu's 2.13 silently misses OOM checks), and CI fails on new findings — so future OOM-path regressions surface before merge instead of after.</li>
 </ul>
 <h2 id="4122">4.12.2<a class="headerlink" href="#4122" title="Permanent link">&para;</a></h2>
 <p>Build hygiene release. No runtime changes.</p>
@@ -2114,7 +2115,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "4.9.0"}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0110\u00e3 sao ch\u00e9p", "clipboard.copy": "Sao ch\u00e9p v\u00e0o b\u1ed9 nh\u1edb t\u1ea1m", "search.result.more.one": "1 t\u1eeb kh\u00e1c trong trang", "search.result.more.other": "# t\u1eeb kh\u00e1c trong trang", "search.result.none": "Kh\u00f4ng t\u00ecm th\u1ea5y t\u00e0i li\u1ec7u li\u00ean quan", "search.result.one": "1 t\u00e0i li\u1ec7u li\u00ean quan", "search.result.other": "# t\u00e0i li\u1ec7u li\u00ean quan", "search.result.placeholder": "Nh\u1eadp \u0111\u1ec3 b\u1eaft \u0111\u1ea7u t\u00ecm ki\u1ebfm", "search.result.term.missing": "Kh\u00f4ng", "select.version": "Ch\u1ecdn phi\u00ean b\u1ea3n"}, "version": "4.13.0"}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
