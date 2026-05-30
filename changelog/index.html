@@ -1466,6 +1466,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#4141" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.14.1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4140" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1725,6 +1736,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#4141" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.14.1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4140" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1943,6 +1965,11 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="4141">4.14.1<a class="headerlink" href="#4141" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Fix macOS backend-forward path</strong>. Backend forwarding (the camouflage fallback for invalid handshakes — wrong secret, stale timestamp, unknown SNI, duplicate client_random, plain HTTPS probes from a browser) silently dropped every request on macOS native builds: <code>writev()</code> to a freshly opened outbound socket whose <code>connect()</code> was still in <code>EINPROGRESS</code> returns <code>ENOTCONN</code> on BSD/Darwin where Linux returns <code>EAGAIN</code>, and the proxy treated anything other than <code>EAGAIN</code>/<code>EINTR</code> as fatal — tearing down the connection before the SYN-ACK arrived. <code>ENOTCONN</code> is now a retry condition too. Five fake-TLS E2E tests that were previously silently passing in Linux Docker but failing on the macOS dev build (<code>test_wrong_secret_rejected</code>, <code>test_stale_timestamp_rejected</code>, <code>test_unknown_sni_falls_back</code>, <code>test_duplicate_client_random_rejected</code>, <code>test_browser_tls_sees_real_backend</code>) now pass on both targets. The bug never manifested in production because production runs Linux.</li>
+<li><strong>Disable knob for the v4.14.0 MSS clamp</strong>. New <code>mss_clamp = false</code> TOML key, <code>--no-mss-clamp</code> CLI flag, and <code>MSS_CLAMP=false</code> env var (start.sh) turn off the automatic ClientHello fragmentation shipped in v4.14.0. Default stays on. Useful escape hatch for bandwidth-bound operators willing to take the JA4 detection risk in exchange for ~5× lower packet count on the proxy listener. See <a href="/features/dpi-resistance/#forced-clienthello-fragmentation-automatic">Forced ClientHello fragmentation</a> for what's being turned off.</li>
+</ul>
 <h2 id="4140">4.14.0<a class="headerlink" href="#4140" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Automatic ClientHello fragmentation against TSPU JA4 fingerprinting</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/39">#39</a>). Russian DPI (TSPU/ASBI) classifies traffic to fake-TLS MTProxies by JA4-hashing the <em>client's</em> ClientHello — a fingerprint teleproxy itself can't change because the bytes are produced by the Telegram client. But teleproxy can change how those bytes hit the wire: the public listening socket now announces a 256-byte TCP MSS in the SYN-ACK, and the client kernel respects it, splitting the outgoing ClientHello (~500-700 bytes) across 2-3 TCP segments. Critically, ALPN and <code>signature_algorithms</code> — both required inputs to the JA4 hash — typically land in segment 2 or 3 of a real Telegram ClientHello, so a DPI that fingerprints from the first segment alone computes the wrong hash and the connection slips past the signature. The trick is automatic — no flag, no config, no upgrade-time decisions for the operator — and is scoped to the user-facing proxy port only; the HTTP <code>/stats</code> / <code>/metrics</code> listener keeps full system MSS. Pairs with the existing <a href="/features/dpi-resistance/#serverhello-response-variation">ServerHello segmentation</a> so <em>both</em> sides of the handshake become unfriendly to single-packet DPI. Genuinely novel — neither <code>mtg</code> nor <code>telemt</code> does this. Trade-off: Linux applies the listening-socket MSS to both directions of each accepted connection, so server→client segments are also capped at 256 bytes — packet count rises ~5× and per-byte TCP/IP header overhead grows from ~3% to ~15% on the proxy listener. Modern hardware with TSO/GSO handles the CPU side, and the existing 20MB MTProto E2E test still completes well inside its timeout. See the new <a href="/features/dpi-resistance/#forced-clienthello-fragmentation-automatic">Forced ClientHello fragmentation</a> section for the mechanism and rationale.</li>
