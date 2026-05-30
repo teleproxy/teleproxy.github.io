@@ -1140,6 +1140,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ja4-clienthello" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Распределение JA4 отпечатков ClientHello
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dc" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1652,6 +1663,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ja4-clienthello" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Распределение JA4 отпечатков ClientHello
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dc" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1724,10 +1746,18 @@
 </code></pre></div>
 <p>Возвращает метрики в формате Prometheus exposition на том же порту статистики. Включает посекретные метрики при настроенных метках.</p>
 <p>Доступные метрики: количество подключений, подключения по секретам, счётчики отклонений и отклонения по IP ACL.</p>
+<h3 id="ja4-clienthello">Распределение JA4 отпечатков ClientHello<a class="headerlink" href="#ja4-clienthello" title="Permanent link">&para;</a></h3>
+<p>Каждый корректный TLS ClientHello, доходящий до прокси, фингерпринтится по <a href="https://github.com/FoxIO-LLC/ja4">JA4</a> и попадает в топ-32 счётчик — включая ClientHello, которые потом не проходят HMAC-проверку. Это и есть смысл: когда ТСПУ выкатывает новую сигнатуру блокировки, операционно интересен именно тот зонд, который HMAC <em>не</em> проходит. Включено всегда, без настройки.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># HELP teleproxy_ja4_seen ClientHello JA4 fingerprints observed (top 32 by count, aggregated across workers).
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a># TYPE teleproxy_ja4_seen counter
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>teleproxy_ja4_seen{hash=&quot;t13d1615h2_46e7e9700bed_45f260be83e2&quot;} 8
+</code></pre></div>
+<p>В <code>/stats</code> те же данные приходят как tab-разделённые строки <code>ja4_seen\t&lt;hash&gt;\t&lt;count&gt;</code>. Сверьте распределение со счётчиком пользователей или логами апстрима — фингерпринт, который появляется только когда растёт rate блокировок, и есть новая сигнатура.</p>
+<p>Опционально: <code>--ja4-log</code> (или <code>[stats] ja4_log = true</code> в TOML, <code>JA4_LOG=true</code> в Docker) печатает строку <code>ja4=... sni=...</code> на каждое подключение при verbose 2. Полезно для разовых разборов, шумно в обычном режиме.</p>
 <h3 id="dc">Зонды задержки DC<a class="headerlink" href="#dc" title="Permanent link">&para;</a></h3>
 <p>При включении teleproxy периодически выполняет TCP-рукопожатие со всеми 5 дата-центрами Telegram и публикует результаты в виде гистограммы Prometheus:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Включение с интервалом 30 секунд</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>--dc-probe-interval<span class="w"> </span><span class="m">30</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Включение с интервалом 30 секунд</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>--dc-probe-interval<span class="w"> </span><span class="m">30</span>
 </code></pre></div>
 <p>Публикуемые метрики:</p>
 <table>
@@ -1768,7 +1798,7 @@
 <p>Дашборд охватывает подключения, посекретную нагрузку, частоту отклонений, связность с DC и утилизацию ресурсов.</p>
 <h2 id="_3">Проверка здоровья<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>Docker-контейнеры включают встроенный мониторинг здоровья через эндпоинт статистики. Проверка:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># столбец STATUS показывает состояние здоровья</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># столбец STATUS показывает состояние здоровья</span>
 </code></pre></div>
 
 

@@ -1140,6 +1140,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#clienthello-ja4-fingerprint-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ClientHello JA4 Fingerprint Distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dc-latency-probes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1652,6 +1663,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#clienthello-ja4-fingerprint-distribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ClientHello JA4 Fingerprint Distribution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dc-latency-probes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1724,10 +1746,18 @@
 </code></pre></div>
 <p>Returns Prometheus exposition format on the same stats port. Includes per-secret metrics when labels are configured.</p>
 <p>Available metrics include connection counts, per-secret connections, rejection counts, and IP ACL rejections.</p>
+<h3 id="clienthello-ja4-fingerprint-distribution">ClientHello JA4 Fingerprint Distribution<a class="headerlink" href="#clienthello-ja4-fingerprint-distribution" title="Permanent link">&para;</a></h3>
+<p>Every well-formed TLS ClientHello reaching the proxy is fingerprinted with <a href="https://github.com/FoxIO-LLC/ja4">JA4</a> and accumulated into a top-32 counter — including ClientHellos that subsequently fail HMAC validation. That second part is the point: when TSPU pushes a new detection signature, the only operationally interesting traffic is the probe that <em>doesn't</em> validate. Always on, zero configuration.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># HELP teleproxy_ja4_seen ClientHello JA4 fingerprints observed (top 32 by count, aggregated across workers).
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a># TYPE teleproxy_ja4_seen counter
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>teleproxy_ja4_seen{hash=&quot;t13d1615h2_46e7e9700bed_45f260be83e2&quot;} 8
+</code></pre></div>
+<p>The <code>/stats</code> endpoint emits the same data as tab-separated <code>ja4_seen\t&lt;hash&gt;\t&lt;count&gt;</code> lines. Diff the distribution against your user count or upstream session log to spot the probe — a fingerprint that shows up only when block rate spikes is the new signature.</p>
+<p>Optional: <code>--ja4-log</code> (or <code>[stats] ja4_log = true</code> in TOML, <code>JA4_LOG=true</code> in Docker) prints one <code>ja4=... sni=...</code> line per connection at verbose level 2. Useful for one-off investigations, noisy for steady-state logging.</p>
 <h3 id="dc-latency-probes">DC Latency Probes<a class="headerlink" href="#dc-latency-probes" title="Permanent link">&para;</a></h3>
 <p>When enabled, teleproxy periodically probes all 5 Telegram DCs with a TCP handshake and exposes the results as a Prometheus histogram:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Enable with 30-second probe interval</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>--dc-probe-interval<span class="w"> </span><span class="m">30</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Enable with 30-second probe interval</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>--dc-probe-interval<span class="w"> </span><span class="m">30</span>
 </code></pre></div>
 <p>Metrics exposed:</p>
 <table>
@@ -1768,7 +1798,7 @@
 <p>The dashboard covers connections, per-secret usage, rejection rates, DC connectivity, and resource utilization.</p>
 <h2 id="health-checks">Health Checks<a class="headerlink" href="#health-checks" title="Permanent link">&para;</a></h2>
 <p>Docker containers include built-in health monitoring via the stats endpoint. Check with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># STATUS column shows health</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># STATUS column shows health</span>
 </code></pre></div>
 
 

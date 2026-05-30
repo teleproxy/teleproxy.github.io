@@ -1466,6 +1466,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#4150" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.15.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4141" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1736,6 +1747,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#4150" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.15.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4141" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1965,6 +1987,10 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="4150">4.15.0<a class="headerlink" href="#4150" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>ClientHello JA4 fingerprint distribution on <code>/stats</code> and <code>/metrics</code></strong> (<a href="https://github.com/teleproxy/teleproxy/issues/102">#102</a>, follow-up to <a href="https://github.com/teleproxy/teleproxy/issues/39">#39</a> / <a href="https://github.com/teleproxy/teleproxy/issues/101">#101</a>). When TSPU updates a detection signature, the only operationally interesting traffic is the probe that <em>fails</em> secret validation — so the proxy now hashes every well-formed ClientHello (per the <a href="https://github.com/FoxIO-LLC/ja4">foxio JA4 spec</a>) <em>before</em> the HMAC check and rolls it into a top-32 counter. Surfaces as <code>ja4_seen&lt;TAB&gt;&lt;hash&gt;&lt;TAB&gt;&lt;N&gt;</code> tab-separated lines in <code>/stats</code> and <code>teleproxy_ja4_seen{hash="..."}</code> samples in <code>/metrics</code>. Always on, no configuration. Optional <code>[stats] ja4_log = true</code> TOML key (also <code>--ja4-log</code> CLI / <code>JA4_LOG=true</code> env) prints <code>ja4=&lt;hash&gt; sni=&lt;name&gt;</code> per connection at verbose level 2 for one-off investigations. See the new <a href="/features/monitoring/#clienthello-ja4-fingerprint-distribution">ClientHello JA4 Fingerprint Distribution</a> section. Downstream goal: the <a href="https://github.com/teleproxy/observatory">observatory</a> project can now chart fingerprint distribution over time and correlate with block rate instead of relying on user reports.</li>
+</ul>
 <h2 id="4141">4.14.1<a class="headerlink" href="#4141" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Fix macOS backend-forward path</strong>. Backend forwarding (the camouflage fallback for invalid handshakes — wrong secret, stale timestamp, unknown SNI, duplicate client_random, plain HTTPS probes from a browser) silently dropped every request on macOS native builds: <code>writev()</code> to a freshly opened outbound socket whose <code>connect()</code> was still in <code>EINPROGRESS</code> returns <code>ENOTCONN</code> on BSD/Darwin where Linux returns <code>EAGAIN</code>, and the proxy treated anything other than <code>EAGAIN</code>/<code>EINTR</code> as fatal — tearing down the connection before the SYN-ACK arrived. <code>ENOTCONN</code> is now a retry condition too. Five fake-TLS E2E tests that were previously silently passing in Linux Docker but failing on the macOS dev build (<code>test_wrong_secret_rejected</code>, <code>test_stale_timestamp_rejected</code>, <code>test_unknown_sni_falls_back</code>, <code>test_duplicate_client_random_rejected</code>, <code>test_browser_tls_sees_real_backend</code>) now pass on both targets. The bug never manifested in production because production runs Linux.</li>
