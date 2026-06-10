@@ -1126,6 +1126,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#surviving-the-june-2026-wave-operator-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Surviving the June 2026 wave (operator playbook)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Surviving the June 2026 wave (operator playbook)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-rotate-sni-across-several-real-cover-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Rotate SNI across several real cover domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-spread-across-ips-and-ports-and-keep-ips-clean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Spread across IPs and ports, and keep IPs clean
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cascade-the-outbound-leg-through-vless-reality-strongest-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cascade the outbound leg through VLESS + Reality (strongest option)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-users-can-do-client-side" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1888,6 +1938,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#surviving-the-june-2026-wave-operator-playbook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Surviving the June 2026 wave (operator playbook)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Surviving the June 2026 wave (operator playbook)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-rotate-sni-across-several-real-cover-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Rotate SNI across several real cover domains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-spread-across-ips-and-ports-and-keep-ips-clean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Spread across IPs and ports, and keep IPs clean
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cascade-the-outbound-leg-through-vless-reality-strongest-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cascade the outbound leg through VLESS + Reality (strongest option)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-users-can-do-client-side" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1932,13 +2032,21 @@
 <h1 id="dpi-resistance">DPI Resistance<a class="headerlink" href="#dpi-resistance" title="Permanent link">&para;</a></h1>
 <p>Teleproxy includes several layers of defense against Deep Packet Inspection (DPI) systems that attempt to identify and block MTProxy traffic.</p>
 <h2 id="current-threat-landscape">Current Threat Landscape<a class="headerlink" href="#current-threat-landscape" title="Permanent link">&para;</a></h2>
-<p>As of April 2026, Russian DPI systems (TSPU/ASBI) classify MTProxy fake-TLS as a distinct protocol ("TELEGRAM_TLS"). Detection relies primarily on <strong>client-side TLS fingerprinting</strong> — the Telegram app's ClientHello has recognizable JA3/JA4 characteristics that DPI matches against known signatures.</p>
+<p>Russian DPI systems (TSPU/ASBI) classify MTProxy fake-TLS as a distinct protocol ("TELEGRAM_TLS"). Detection is <strong>client-side TLS fingerprinting</strong>: the Telegram app's ClientHello carries one fixed JA4 fingerprint that DPI matches against a signature. The proxy cannot change this — the bytes are produced by the Telegram client, not the server.</p>
+<p>There have been two distinct blocking waves in 2026:</p>
+<p><strong>April 2026 (static fingerprint).</strong> TSPU matched the static JA4/JA3 of Telegram's fake-TLS ClientHello, keying on tells no real browser sends (a malformed <code>0xfe02</code> extension codepoint and a 20-byte random field). Telegram fixed those artifacts client-side (<a href="https://github.com/telegramdesktop/tdesktop/pull/30513">tdesktop PR #30513</a>, <a href="https://github.com/DrKLO/Telegram/pull/1949">DrKLO Android PR #1949</a>), which restored connectivity through late May.</p>
+<p><strong>Late May – June 2026 (reassembly + flow correlation).</strong> The April fix only swapped one static fingerprint for another — the client still emits a single fixed JA4. This wave is harder:</p>
+<ul>
+<li><strong>TSPU now reassembles TCP streams</strong> before fingerprinting, so splitting the ClientHello across segments no longer hides it. Field tests that clamped the server MSS aggressively (256 then 88 bytes), verified on the wire, <strong>still got blocked</strong> on reassembling nodes.</li>
+<li><strong>Active flow correlation.</strong> Several ClientHellos carrying the same SNI + Telegram's JA4 to the same <code>ip:port</code> get the connection temporarily dropped. The proxy IP is also cross-checked against the cover domain's A-record — a random SNI that doesn't resolve to the proxy IP does <strong>not</strong> pass. Rotating SNI across real cover domains, or spreading across IPs/ports, defeats this correlation.</li>
+<li><strong>Silent drops, not RST.</strong> The TLS handshake completes; the moment MTProto Application Data starts, packets are dropped without a reset and the client floods retransmissions (the "connects, then drops after ~30s" symptom).</li>
+</ul>
 <p>Key observations:</p>
 <ul>
-<li><strong>Mobile operators</strong> (MTS, Megafon, Beeline, T2, Yota) are affected more than home ISPs — TSPU deployment varies by provider</li>
-<li><strong>VPN connections bypass</strong> both DPI heuristics and IP-level blocking</li>
-<li><strong>Client-side packet fragmentation tools</strong> (zapret, GoodbyeDPI) restore connectivity, confirming that DPI matches patterns on intact TCP segments</li>
-<li>Telegram Desktop <a href="https://github.com/telegramdesktop/tdesktop/pull/30513">updated its TLS fingerprint</a> to fix detectable artifacts; mobile clients may lag behind</li>
+<li><strong>Mobile vs. home is uneven, not policy.</strong> The same proxy often works on an operator's mobile network but fails on its wired/home network (and vice versa, and iOS vs. Android can differ). This is <strong>uneven per-node TSPU reassembly rollout</strong> — the proxy is identical; the DPI box in the path differs — not a per-provider decision. Beeline, MTS, Megafon, Rostelecom have all been reported both ways.</li>
+<li><strong>VPN / Reality tunnels bypass</strong> the MTProto fingerprint entirely (see the operator playbook below).</li>
+<li><strong>Client-side fragmentation tools</strong> (zapret, GoodbyeDPI) still help on <strong>non-reassembling</strong> paths, but are path-dependent now that some nodes reassemble.</li>
+<li>Telegram client randomization (the durable fix) is <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">still under discussion upstream</a> and not yet shipped.</li>
 </ul>
 <h2 id="what-teleproxy-does-server-side">What Teleproxy Does (Server-Side)<a class="headerlink" href="#what-teleproxy-does-server-side" title="Permanent link">&para;</a></h2>
 <h3 id="fake-tls-camouflage">Fake-TLS camouflage<a class="headerlink" href="#fake-tls-camouflage" title="Permanent link">&para;</a></h3>
@@ -1951,7 +2059,8 @@
 <h3 id="serverhello-response-variation">ServerHello response variation<a class="headerlink" href="#serverhello-response-variation" title="Permanent link">&para;</a></h3>
 <p>The ServerHello encrypted payload size varies by up to ±32 bytes across connections, mimicking the natural variation in certificate chain and session ticket sizes seen from real TLS servers. The ServerHello and ChangeCipherSpec are sent as separate TCP segments to prevent DPI from matching the full handshake response in a single packet.</p>
 <h3 id="forced-clienthello-fragmentation-automatic">Forced ClientHello fragmentation (automatic)<a class="headerlink" href="#forced-clienthello-fragmentation-automatic" title="Permanent link">&para;</a></h3>
-<p>Teleproxy announces a small TCP Maximum Segment Size (256 bytes) in the SYN-ACK on its public listening port. The client kernel obeys the limit and chops the outgoing ClientHello (~500-700 bytes) into 2-3 TCP segments. Critically, ALPN and <code>signature_algorithms</code> — both required inputs to the JA4 hash — typically land in segment 2 or 3 of a real Telegram ClientHello, so a DPI that fingerprints from the first segment alone computes the wrong hash.</p>
+<p>Teleproxy announces a small TCP Maximum Segment Size (256 bytes) in the SYN-ACK on its public listening port. The client kernel obeys the limit and chops the outgoing ClientHello (~500-700 bytes) into 2-3 TCP segments, so the required inputs to the JA4 hash (ALPN, <code>signature_algorithms</code>) land in later segments.</p>
+<p><strong>Honest scope (updated June 2026).</strong> This only defeats DPI that fingerprints from a single packet. The current TSPU wave <strong>reassembles the TCP stream</strong> before hashing, so on those nodes the fragmentation does nothing — field tests clamping the MSS as low as 88 bytes, verified on the wire, were still blocked. It remains useful against non-reassembling nodes (some mobile paths) and pairs with the existing ServerHello segmentation, so the default stays on. But it is <strong>not</strong> a fix for the June wave on its own — see the <a href="#surviving-the-june-2026-wave-operator-playbook">operator playbook</a> for what actually helps now.</p>
 <p>This is automatic, requires no configuration, and works against unmodified Telegram clients on every platform. The HTTP <code>/stats</code> and <code>/metrics</code> listener uses the full system MSS and is unaffected.</p>
 <p>Trade-off: Linux applies the listening-socket MSS to both directions of each accepted connection, so server→client segments are also capped at 256 bytes. Packet count rises ~5× compared to MSS=1460 and per-byte TCP/IP header overhead grows from ~3% to ~15%. On modern hardware with TSO/GSO offload, CPU cost stays manageable, and a 20MB MTProto download still completes well inside any sensible timeout. Bandwidth-saturated proxies will see a measurable throughput cap.</p>
 <p><strong>Turning it off.</strong> Operators who would rather take the JA4 detection risk than the throughput overhead can disable the clamp:</p>
@@ -1975,7 +2084,27 @@
 <h3 id="wildcard-certificates">Wildcard certificates<a class="headerlink" href="#wildcard-certificates" title="Permanent link">&para;</a></h3>
 <p>If your TLS certificate is a wildcard (e.g. <code>*.example.com</code> served from <code>proxy.example.com</code>), configure the <code>-D</code> flag with the wildcard pattern: <code>-D '*.example.com:proxy.example.com:443'</code>. Teleproxy matches any single-label subdomain of <code>example.com</code> against the pattern (RFC 6125): <code>proxy.example.com</code> and <code>node-7.example.com</code> match; <code>example.com</code> (apex) and <code>a.b.example.com</code> (multi-label) do not. Fingerprinting at startup probes the backend host, not the literal <code>*.example.com</code>. An explicit backend is required for wildcard entries.</p>
 <h3 id="use-random-padding-dd-mode">Use random padding (DD mode)<a class="headerlink" href="#use-random-padding-dd-mode" title="Permanent link">&para;</a></h3>
-<p>For ISPs that fingerprint MTProto by packet sizes, enable random padding by prefixing <code>dd</code> to the client secret.</p>
+<p>For ISPs that fingerprint MTProto by packet sizes, enable random padding by prefixing <code>dd</code> to the client secret. Honest note: this helps against size-based heuristics on some ISPs, but does nothing against the JA4 detection driving the June 2026 wave — don't rely on it alone.</p>
+<h2 id="surviving-the-june-2026-wave-operator-playbook">Surviving the June 2026 wave (operator playbook)<a class="headerlink" href="#surviving-the-june-2026-wave-operator-playbook" title="Permanent link">&para;</a></h2>
+<p>The current wave keys on the client's JA4 plus <code>(SNI + ip:port)</code> correlation, and reassembles TCP. Server-side fingerprint tricks can't change the client's JA4, so the measures that are actually holding up in the field are about <strong>diluting correlation</strong> and <strong>moving the outbound leg off MTProto</strong>. In rough priority order:</p>
+<h3 id="1-rotate-sni-across-several-real-cover-domains">1. Rotate SNI across several real cover domains<a class="headerlink" href="#1-rotate-sni-across-several-real-cover-domains" title="Permanent link">&para;</a></h3>
+<p>The correlation triggers when many connections with the same SNI + Telegram's JA4 hit the same <code>ip:port</code>. Register several cover domains and hand different users links with different SNIs:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./teleproxy<span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>-D<span class="w"> </span>www.cloudflare.com:127.0.0.1:8443<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>-D<span class="w"> </span>www.microsoft.com:127.0.0.1:8443<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>-D<span class="w"> </span>www.apple.com:127.0.0.1:8443
+</code></pre></div>
+<p>Each domain's <a href="../fake-tls/">SNI is split from the backend</a> (<code>EE_DOMAIN</code>/<code>EE_BACKEND</code>, or the <code>-D sni:backend:port</code> form), so they can all share one local TLS backend. <a href="#wildcard-certificates">Wildcard certs</a> work too.</p>
+<p><strong>The cover domain's A-record must resolve to the proxy IP.</strong> A random SNI that points elsewhere fails the June A-record cross-check. Use domains you control (or a wildcard cert host) that genuinely point at the proxy.</p>
+<h3 id="2-spread-across-ips-and-ports-and-keep-ips-clean">2. Spread across IPs and ports, and keep IPs clean<a class="headerlink" href="#2-spread-across-ips-and-ports-and-keep-ips-clean" title="Permanent link">&para;</a></h3>
+<p>Multiple listening IPs/ports further dilute the per-<code>ip:port</code> correlation. Note that post-detection IP bans have been observed to hit <strong>neighboring IPs in the same range</strong> — keep proxy IPs spread across ranges rather than clustered, and rotate an IP that gets burned.</p>
+<h3 id="3-cascade-the-outbound-leg-through-vless-reality-strongest-option">3. Cascade the outbound leg through VLESS + Reality (strongest option)<a class="headerlink" href="#3-cascade-the-outbound-leg-through-vless-reality-strongest-option" title="Permanent link">&para;</a></h3>
+<p>The most reliable field-confirmed survivor is to stop sending MTProto-shaped traffic out of the censored network at all: run teleproxy in <a href="../direct-mode/">direct mode</a> and route its <strong>outbound</strong> DC connections through a local <a href="https://github.com/XTLS/Xray-core">Xray VLESS + Reality</a> client over <a href="../socks5/">SOCKS5</a>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># teleproxy on the in-country box, DC traffic egresses via local Xray Reality</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">DIRECT_MODE</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nv">SOCKS5_PROXY</span><span class="o">=</span>socks5://127.0.0.1:1080<span class="w">   </span><span class="c1"># local Xray Reality outbound</span>
+</code></pre></div>
+<p>The Telegram client still reaches teleproxy over fake-TLS locally, but what crosses the TSPU border is Reality, which the current wave does not block. Mind the <a href="../direct-mode/">direct-mode trade-offs</a> (media on non-Premium accounts, sponsored channels). This is more setup, but it is what keeps working when straight fake-TLS does not.</p>
 <h2 id="what-users-can-do-client-side">What Users Can Do (Client-Side)<a class="headerlink" href="#what-users-can-do-client-side" title="Permanent link">&para;</a></h2>
 <p>The primary detection vector is the Telegram client's TLS fingerprint, which <strong>cannot be fixed server-side</strong>. Users in affected networks should use client-side DPI bypass tools that fragment TCP segments:</p>
 <table>
@@ -2014,16 +2143,16 @@
 </tr>
 </tbody>
 </table>
-<p>These tools work because Russian DPI matches patterns on <strong>intact TCP segments</strong>. Fragmenting the ClientHello across multiple segments defeats the pattern matcher.</p>
+<p>These tools fragment the ClientHello across multiple TCP segments. That still helps on <strong>non-reassembling</strong> paths, but the June wave reassembles the stream on some nodes, so results are path-dependent — try them, but they are not a guaranteed fix anymore.</p>
 <div class="admonition tip">
-<p class="admonition-title">Keep Telegram updated</p>
-<p>Telegram Desktop <a href="https://github.com/telegramdesktop/tdesktop/pull/30513">fixed several TLS fingerprint artifacts</a> that DPI exploited. Mobile clients (Android/iOS) typically receive these fixes in subsequent updates. Always use the latest version.</p>
+<p class="admonition-title">Keep Telegram updated, and watch the randomization work</p>
+<p>The durable fix is the <strong>client</strong> randomizing its TLS fingerprint instead of emitting one fixed JA4. That work is in progress upstream but <strong>not yet shipped</strong>: <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">tdesktop #30733</a> tracks the request to rotate/randomize the JA4, with open PRs (<a href="https://github.com/telegramdesktop/tdesktop/pull/30528">#30528</a>, <a href="https://github.com/telegramdesktop/tdesktop/pull/30738">#30738</a>) and the more thorough <a href="https://github.com/telemt/tdlib-obf">telemt/tdlib-obf</a> effort (capture-driven ClientHello masking against real browser profiles). The April fingerprint fix (<a href="https://github.com/telegramdesktop/tdesktop/pull/30513">tdesktop #30513</a>) is already in current releases — always run the latest client, but understand it still emits a single fixed JA4 until randomization lands.</p>
 </div>
 <h2 id="what-cannot-be-fully-fixed-server-side">What Cannot Be Fully Fixed Server-Side<a class="headerlink" href="#what-cannot-be-fully-fixed-server-side" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Client TLS fingerprint content</strong>: The Telegram app controls the byte-for-byte content of the ClientHello. Server-side proxy code cannot alter what the client puts on the wire. We can, however, force the <em>kernel</em> of the connecting client to spread those bytes across multiple TCP segments — see <a href="#forced-clienthello-fragmentation-automatic">Forced ClientHello fragmentation</a> above. This raises the cost of single-packet JA4 matching for DPI but does not invalidate the fingerprint if the DPI fully reassembles TCP streams.</li>
-<li><strong>IP/L3 blocking</strong>: When DPI blocks Telegram's IP ranges at the network layer, only a VPN or intermediate relay can help.</li>
-<li><strong>TSPU deployment</strong>: Whether an ISP's DPI detects the traffic depends on their TSPU hardware/software version — this varies by operator and region.</li>
+<li><strong>Client TLS fingerprint content</strong>: The Telegram app controls the byte-for-byte content of the ClientHello, and TSPU sits between the client and the proxy. Server-side code cannot alter what the client puts on the wire. The MSS clamp can spread those bytes across TCP segments, but DPI nodes that reassemble the stream — as the June 2026 wave does — recompute the correct JA4 regardless. The only real fix for the fingerprint is client-side (see above).</li>
+<li><strong>IP/L3 blocking and IP bans</strong>: When DPI blocks an IP at the network layer — including post-detection bans that spill onto neighboring IPs in the same range — only a VPN, a Reality cascade, or moving to a clean IP helps.</li>
+<li><strong>TSPU deployment variance</strong>: Whether a given path detects the traffic depends on that node's TSPU hardware/software version and whether it reassembles TCP. This varies by operator, region, and even mobile-vs-wired on the same operator.</li>
 </ul>
 
 

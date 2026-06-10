@@ -1115,6 +1115,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#vuot-qua-ot-thang-6-nam-2026-playbook-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vượt qua đợt tháng 6 năm 2026 (playbook operator)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vượt qua đợt tháng 6 năm 2026 (playbook operator)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-xoay-vong-sni-qua-nhieu-domain-nguy-trang-that" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Xoay vòng SNI qua nhiều domain ngụy trang thật
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trai-ra-tren-nhieu-ip-va-cong-va-giu-ip-sach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Trải ra trên nhiều IP và cổng, và giữ IP sạch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cascade-chang-ra-ngoai-qua-vless-reality-lua-chon-manh-nhat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cascade chặng ra ngoài qua VLESS + Reality (lựa chọn mạnh nhất)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nguoi-dung-co-the-lam-gi-phia-client" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1866,6 +1916,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#vuot-qua-ot-thang-6-nam-2026-playbook-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vượt qua đợt tháng 6 năm 2026 (playbook operator)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vượt qua đợt tháng 6 năm 2026 (playbook operator)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-xoay-vong-sni-qua-nhieu-domain-nguy-trang-that" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Xoay vòng SNI qua nhiều domain ngụy trang thật
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-trai-ra-tren-nhieu-ip-va-cong-va-giu-ip-sach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Trải ra trên nhiều IP và cổng, và giữ IP sạch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cascade-chang-ra-ngoai-qua-vless-reality-lua-chon-manh-nhat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Cascade chặng ra ngoài qua VLESS + Reality (lựa chọn mạnh nhất)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nguoi-dung-co-the-lam-gi-phia-client" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1910,13 +2010,21 @@
 <h1 id="khang-dpi">Kháng DPI<a class="headerlink" href="#khang-dpi" title="Permanent link">&para;</a></h1>
 <p>Teleproxy bao gồm nhiều lớp phòng thủ chống lại hệ thống Kiểm tra Gói tin Sâu (DPI) nhằm phát hiện và chặn lưu lượng MTProxy.</p>
 <h2 id="boi-canh-moi-e-doa-hien-tai">Bối cảnh mối đe dọa hiện tại<a class="headerlink" href="#boi-canh-moi-e-doa-hien-tai" title="Permanent link">&para;</a></h2>
-<p>Tính đến tháng 4 năm 2026, các hệ thống DPI của Nga (TSPU/ASBI) phân loại MTProxy fake-TLS là một giao thức riêng biệt ("TELEGRAM_TLS"). Việc phát hiện chủ yếu dựa vào <strong>dấu vân tay TLS phía client</strong> — ClientHello của ứng dụng Telegram có các đặc điểm JA3/JA4 dễ nhận biết mà DPI so khớp với các chữ ký đã biết.</p>
+<p>Các hệ thống DPI của Nga (TSPU/ASBI) phân loại MTProxy fake-TLS là một giao thức riêng biệt ("TELEGRAM_TLS"). Việc phát hiện dựa vào <strong>dấu vân tay TLS phía client</strong>: ClientHello của ứng dụng Telegram mang một dấu vân tay JA4 cố định mà DPI so khớp với một chữ ký. Proxy không thể thay đổi điều này — các byte do client Telegram tạo ra, không phải server.</p>
+<p>Có hai đợt chặn riêng biệt trong năm 2026:</p>
+<p><strong>Tháng 4 năm 2026 (dấu vân tay tĩnh).</strong> TSPU so khớp JA4/JA3 tĩnh của ClientHello fake-TLS, dựa vào những dấu hiệu mà không trình duyệt thật nào gửi (một mã phần mở rộng lỗi <code>0xfe02</code> và một trường ngẫu nhiên 20 byte). Telegram đã sửa các artifact này phía client (<a href="https://github.com/telegramdesktop/tdesktop/pull/30513">tdesktop PR #30513</a>, <a href="https://github.com/DrKLO/Telegram/pull/1949">DrKLO Android PR #1949</a>), khôi phục kết nối đến cuối tháng 5.</p>
+<p><strong>Cuối tháng 5 – tháng 6 năm 2026 (tái tổ hợp + tương quan luồng).</strong> Bản sửa tháng 4 chỉ đổi một dấu vân tay tĩnh này lấy một dấu vân tay tĩnh khác — client vẫn phát ra một JA4 cố định duy nhất. Đợt này khó hơn:</p>
+<ul>
+<li><strong>TSPU giờ tái tổ hợp luồng TCP</strong> trước khi lấy dấu vân tay, nên việc chia ClientHello qua nhiều đoạn không còn che giấu được nó. Các thử nghiệm thực địa hạ MSS server xuống rất thấp (256 rồi 88 byte), đã xác nhận trên đường truyền, <strong>vẫn bị chặn</strong> trên các node tái tổ hợp.</li>
+<li><strong>Tương quan luồng chủ động.</strong> Nhiều ClientHello mang cùng SNI + JA4 của Telegram đến cùng một <code>ip:port</code> khiến kết nối bị ngắt tạm thời. IP proxy còn được đối chiếu với bản ghi A của domain ngụy trang — một SNI ngẫu nhiên không phân giải về IP proxy sẽ <strong>không</strong> vượt qua. Xoay vòng SNI qua các domain ngụy trang thật, hoặc trải ra trên nhiều IP/cổng, sẽ đánh bại tương quan này.</li>
+<li><strong>Rơi gói im lặng, không RST.</strong> Bắt tay TLS hoàn tất; ngay khi dữ liệu ứng dụng MTProto bắt đầu, các gói bị bỏ mà không reset và client tràn ngập gói gửi lại (triệu chứng "kết nối được, rồi rớt sau ~30 giây").</li>
+</ul>
 <p>Các quan sát chính:</p>
 <ul>
-<li><strong>Nhà mạng di động</strong> (MTS, Megafon, Beeline, T2, Yota) bị ảnh hưởng nhiều hơn ISP gia đình — mức độ triển khai TSPU khác nhau theo nhà cung cấp</li>
-<li><strong>Kết nối VPN vượt qua</strong> cả heuristic DPI và chặn ở cấp IP</li>
-<li><strong>Công cụ phân mảnh gói tin phía client</strong> (zapret, GoodbyeDPI) khôi phục kết nối, xác nhận rằng DPI so khớp mẫu trên các đoạn TCP nguyên vẹn</li>
-<li>Telegram Desktop <a href="https://github.com/telegramdesktop/tdesktop/pull/30513">đã cập nhật dấu vân tay TLS</a> để sửa các artifact có thể phát hiện được; client di động có thể chậm hơn</li>
+<li><strong>Di động so với gia đình là không đồng đều, không phải chính sách.</strong> Cùng một proxy thường chạy trên mạng di động của một nhà mạng nhưng hỏng trên mạng cố định/gia đình của chính nhà mạng đó (và ngược lại, và iOS so với Android có thể khác nhau). Đây là <strong>triển khai tái tổ hợp không đồng đều trên các node TSPU</strong> — proxy giống hệt nhau; hộp DPI trên đường truyền khác nhau — không phải quyết định của nhà mạng. Beeline, MTS, Megafon, Rostelecom đều được báo cáo theo cả hai chiều.</li>
+<li><strong>VPN / đường hầm Reality vượt qua</strong> hoàn toàn dấu vân tay MTProto (xem playbook operator bên dưới).</li>
+<li><strong>Công cụ phân mảnh phía client</strong> (zapret, GoodbyeDPI) vẫn giúp được trên các đường <strong>không tái tổ hợp</strong>, nhưng giờ phụ thuộc vào đường truyền vì một số node đã tái tổ hợp.</li>
+<li>Việc ngẫu nhiên hóa dấu vân tay client của Telegram (bản sửa bền vững) <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">vẫn đang được thảo luận ở thượng nguồn</a> và chưa được phát hành.</li>
 </ul>
 <h2 id="teleproxy-lam-gi-phia-server">Teleproxy làm gì (phía server)<a class="headerlink" href="#teleproxy-lam-gi-phia-server" title="Permanent link">&para;</a></h2>
 <h3 id="nguy-trang-fake-tls">Ngụy trang Fake-TLS<a class="headerlink" href="#nguy-trang-fake-tls" title="Permanent link">&para;</a></h3>
@@ -1929,7 +2037,8 @@
 <h3 id="bien-oi-phan-hoi-serverhello">Biến đổi phản hồi ServerHello<a class="headerlink" href="#bien-oi-phan-hoi-serverhello" title="Permanent link">&para;</a></h3>
 <p>Kích thước payload mã hóa của ServerHello thay đổi đến ±32 byte giữa các kết nối, mô phỏng sự biến đổi tự nhiên về kích thước chuỗi chứng chỉ và session ticket từ TLS server thực. ServerHello và ChangeCipherSpec được gửi dưới dạng các đoạn TCP riêng biệt để ngăn DPI so khớp toàn bộ phản hồi bắt tay trong một gói tin.</p>
 <h3 id="buoc-phan-manh-clienthello-tu-ong">Buộc phân mảnh ClientHello (tự động)<a class="headerlink" href="#buoc-phan-manh-clienthello-tu-ong" title="Permanent link">&para;</a></h3>
-<p>Teleproxy thông báo TCP MSS nhỏ (256 byte) trong SYN-ACK trên cổng nghe công khai của proxy. Kernel của client tuân theo giới hạn và chia ClientHello gửi đi (~500-700 byte) thành 2-3 đoạn TCP. Danh sách cipher, phần mở rộng, thuật toán chữ ký và ALPN đều nằm trên ranh giới đoạn — DPI tính JA4 từ một gói tin chỉ thấy một mảnh của dữ liệu cần thiết.</p>
+<p>Teleproxy thông báo TCP MSS nhỏ (256 byte) trong SYN-ACK trên cổng nghe công khai của proxy. Kernel của client tuân theo giới hạn và chia ClientHello gửi đi (~500-700 byte) thành 2-3 đoạn TCP, nên các dữ liệu cần cho JA4 (ALPN, <code>signature_algorithms</code>) rơi vào các đoạn sau.</p>
+<p><strong>Đánh giá trung thực (cập nhật tháng 6 năm 2026).</strong> Cách này chỉ đánh bại DPI lấy dấu vân tay từ một gói tin. Đợt TSPU hiện tại <strong>tái tổ hợp luồng TCP</strong> trước khi băm, nên trên các node đó việc phân mảnh không có tác dụng gì — các thử nghiệm thực địa hạ MSS xuống tận 88 byte, đã xác nhận trên đường truyền, vẫn bị chặn. Nó vẫn hữu ích với các node không tái tổ hợp (một số đường di động) và kết hợp với việc phân đoạn ServerHello sẵn có, nên mặc định vẫn bật. Nhưng tự nó <strong>không</strong> phải bản sửa cho đợt tháng 6 — xem playbook operator bên dưới để biết điều gì thực sự giúp ích lúc này.</p>
 <p>Hoạt động tự động, không cần cấu hình, áp dụng với client Telegram không sửa đổi trên mọi nền tảng. Listener HTTP <code>/stats</code> / <code>/metrics</code> dùng MSS hệ thống mặc định và không bị ảnh hưởng.</p>
 <p>Đánh đổi: Linux áp dụng MSS của socket nghe cho cả hai hướng của mỗi kết nối được chấp nhận, nên các đoạn server→client cũng bị giới hạn ở 256 byte. Số gói tin tăng khoảng 5 lần và phần overhead TCP/IP header tăng từ ~3% lên ~15%. Trên phần cứng hiện đại có TSO/GSO, chi phí CPU vẫn quản lý được, nhưng các proxy bão hòa băng thông sẽ thấy giới hạn thông lượng đáng kể.</p>
 <p><strong>Cách tắt.</strong> Các operator muốn chấp nhận rủi ro bị JA4 phát hiện thay vì chịu overhead thông lượng có thể tắt MSS clamp:</p>
@@ -1951,7 +2060,27 @@
 <h3 id="chay-tls-backend-tuy-chinh">Chạy TLS backend tùy chỉnh<a class="headerlink" href="#chay-tls-backend-tuy-chinh" title="Permanent link">&para;</a></h3>
 <p>Nếu bạn quản lý domain của server, hãy thiết lập nginx với chứng chỉ TLS hợp lệ phía sau Teleproxy. Điều này làm cho server không thể phân biệt với website HTTPS bình thường khi bị thăm dò chủ động. Xem <a href="../fake-tls/#custom-tls-backend-tcp-splitting">Fake-TLS: TLS Backend Tùy chỉnh</a>.</p>
 <h3 id="su-dung-padding-ngau-nhien-che-o-dd">Sử dụng padding ngẫu nhiên (chế độ DD)<a class="headerlink" href="#su-dung-padding-ngau-nhien-che-o-dd" title="Permanent link">&para;</a></h3>
-<p>Đối với ISP nhận dạng MTProto qua kích thước gói tin, bật padding ngẫu nhiên bằng cách thêm tiền tố <code>dd</code> vào secret client.</p>
+<p>Đối với ISP nhận dạng MTProto qua kích thước gói tin, bật padding ngẫu nhiên bằng cách thêm tiền tố <code>dd</code> vào secret client. Lưu ý trung thực: cách này giúp chống lại heuristic dựa trên kích thước gói ở một số ISP, nhưng không có tác dụng gì với việc phát hiện JA4 đang dẫn dắt đợt tháng 6 năm 2026 — đừng chỉ dựa vào nó.</p>
+<h2 id="vuot-qua-ot-thang-6-nam-2026-playbook-operator">Vượt qua đợt tháng 6 năm 2026 (playbook operator)<a class="headerlink" href="#vuot-qua-ot-thang-6-nam-2026-playbook-operator" title="Permanent link">&para;</a></h2>
+<p>Đợt hiện tại dựa vào JA4 của client cộng với tương quan <code>(SNI + ip:port)</code>, và tái tổ hợp TCP. Các thủ thuật dấu vân tay phía server không thể đổi JA4 của client, nên những biện pháp thực sự trụ được trong thực địa là về việc <strong>làm loãng tương quan</strong> và <strong>đưa chặng ra ngoài khỏi MTProto</strong>. Theo thứ tự ưu tiên đại khái:</p>
+<h3 id="1-xoay-vong-sni-qua-nhieu-domain-nguy-trang-that">1. Xoay vòng SNI qua nhiều domain ngụy trang thật<a class="headerlink" href="#1-xoay-vong-sni-qua-nhieu-domain-nguy-trang-that" title="Permanent link">&para;</a></h3>
+<p>Tương quan kích hoạt khi nhiều kết nối cùng SNI + JA4 của Telegram đến cùng một <code>ip:port</code>. Đăng ký nhiều domain ngụy trang và phát cho người dùng khác nhau các link với SNI khác nhau:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./teleproxy<span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>-D<span class="w"> </span>www.cloudflare.com:127.0.0.1:8443<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>-D<span class="w"> </span>www.microsoft.com:127.0.0.1:8443<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>-D<span class="w"> </span>www.apple.com:127.0.0.1:8443
+</code></pre></div>
+<p>Mỗi domain có <a href="../fake-tls/">SNI tách khỏi backend</a> (<code>EE_DOMAIN</code>/<code>EE_BACKEND</code>, hoặc dạng <code>-D sni:backend:port</code>), nên tất cả có thể dùng chung một TLS backend cục bộ. Chứng chỉ wildcard (<code>-D '*.example.com:backend:443'</code>) cũng hoạt động.</p>
+<p><strong>Bản ghi A của domain ngụy trang phải phân giải về IP proxy.</strong> Một SNI ngẫu nhiên trỏ nơi khác sẽ trượt phép đối chiếu bản ghi A của tháng 6. Hãy dùng các domain bạn sở hữu (hoặc host chứng chỉ wildcard) thực sự trỏ về proxy.</p>
+<h3 id="2-trai-ra-tren-nhieu-ip-va-cong-va-giu-ip-sach">2. Trải ra trên nhiều IP và cổng, và giữ IP sạch<a class="headerlink" href="#2-trai-ra-tren-nhieu-ip-va-cong-va-giu-ip-sach" title="Permanent link">&para;</a></h3>
+<p>Nhiều IP/cổng nghe sẽ làm loãng thêm tương quan theo <code>ip:port</code>. Lưu ý rằng việc ban IP sau khi phát hiện đã được quan sát thấy lan sang <strong>các IP lân cận trong cùng dải</strong> — hãy trải IP proxy ra nhiều dải thay vì gom cụm, và xoay vòng IP đã bị cháy.</p>
+<h3 id="3-cascade-chang-ra-ngoai-qua-vless-reality-lua-chon-manh-nhat">3. Cascade chặng ra ngoài qua VLESS + Reality (lựa chọn mạnh nhất)<a class="headerlink" href="#3-cascade-chang-ra-ngoai-qua-vless-reality-lua-chon-manh-nhat" title="Permanent link">&para;</a></h3>
+<p>Cách trụ vững nhất được xác nhận trong thực địa là ngừng gửi lưu lượng dạng-MTProto ra khỏi mạng bị kiểm duyệt: chạy teleproxy ở <a href="../direct-mode/">chế độ trực tiếp</a> và định tuyến các kết nối <strong>ra ngoài</strong> tới DC qua một client <a href="https://github.com/XTLS/Xray-core">Xray VLESS + Reality</a> cục bộ trên <a href="../socks5/">SOCKS5</a>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># teleproxy trên máy trong nước, lưu lượng tới DC đi ra qua Xray Reality cục bộ</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nv">DIRECT_MODE</span><span class="o">=</span><span class="nb">true</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nv">SOCKS5_PROXY</span><span class="o">=</span>socks5://127.0.0.1:1080<span class="w">   </span><span class="c1"># đầu ra Xray Reality cục bộ</span>
+</code></pre></div>
+<p>Client Telegram vẫn tới teleproxy qua fake-TLS ở cục bộ, nhưng thứ vượt biên giới TSPU là Reality, thứ mà đợt hiện tại không chặn. Lưu ý <a href="../direct-mode/">các đánh đổi của chế độ trực tiếp</a> (media trên tài khoản không phải Premium, kênh được tài trợ). Cách này cần thiết lập nhiều hơn, nhưng đó là thứ tiếp tục hoạt động khi fake-TLS thông thường không còn.</p>
 <h2 id="nguoi-dung-co-the-lam-gi-phia-client">Người dùng có thể làm gì (phía client)<a class="headerlink" href="#nguoi-dung-co-the-lam-gi-phia-client" title="Permanent link">&para;</a></h2>
 <p>Phương thức phát hiện chính là dấu vân tay TLS của client Telegram, điều này <strong>không thể sửa được từ phía server</strong>. Người dùng trong các mạng bị ảnh hưởng nên sử dụng công cụ vượt DPI phía client để phân mảnh đoạn TCP:</p>
 <table>
@@ -1990,16 +2119,16 @@
 </tr>
 </tbody>
 </table>
-<p>Các công cụ này hoạt động vì DPI Nga so khớp mẫu trên <strong>đoạn TCP nguyên vẹn</strong>. Phân mảnh ClientHello qua nhiều đoạn sẽ đánh bại bộ so khớp mẫu.</p>
+<p>Các công cụ này phân mảnh ClientHello qua nhiều đoạn TCP. Trên các đường <strong>không tái tổ hợp</strong> điều này vẫn giúp ích, nhưng đợt tháng 6 tái tổ hợp luồng trên một số node, nên kết quả phụ thuộc vào đường truyền — cứ thử, nhưng đây không còn là bản sửa đảm bảo nữa.</p>
 <div class="admonition tip">
-<p class="admonition-title">Cập nhật Telegram</p>
-<p>Telegram Desktop <a href="https://github.com/telegramdesktop/tdesktop/pull/30513">đã sửa một số artifact dấu vân tay TLS</a> mà DPI khai thác. Client di động (Android/iOS) thường nhận các bản sửa này trong các bản cập nhật tiếp theo. Luôn sử dụng phiên bản mới nhất.</p>
+<p class="admonition-title">Cập nhật Telegram, và theo dõi công việc ngẫu nhiên hóa</p>
+<p>Bản sửa bền vững là <strong>client tự ngẫu nhiên hóa dấu vân tay TLS</strong> thay vì phát ra một JA4 cố định. Công việc này đang diễn ra ở thượng nguồn nhưng <strong>chưa được phát hành</strong>: <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">tdesktop #30733</a> theo dõi yêu cầu xoay vòng/ngẫu nhiên hóa JA4, với các PR đang mở (<a href="https://github.com/telegramdesktop/tdesktop/pull/30528">#30528</a>, <a href="https://github.com/telegramdesktop/tdesktop/pull/30738">#30738</a>) và nỗ lực kỹ lưỡng hơn <a href="https://github.com/telemt/tdlib-obf">telemt/tdlib-obf</a> (ngụy trang ClientHello theo các profile trình duyệt thật dựa trên pcap). Bản sửa dấu vân tay tháng 4 (<a href="https://github.com/telegramdesktop/tdesktop/pull/30513">tdesktop #30513</a>) đã có trong các bản phát hành hiện tại — luôn chạy client mới nhất, nhưng hiểu rằng nó vẫn phát một JA4 cố định cho đến khi ngẫu nhiên hóa được đưa vào.</p>
 </div>
 <h2 id="nhung-gi-khong-the-sua-tu-phia-server">Những gì không thể sửa từ phía server<a class="headerlink" href="#nhung-gi-khong-the-sua-tu-phia-server" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Dấu vân tay TLS client</strong>: ứng dụng Telegram kiểm soát nội dung ClientHello. Mã proxy phía server không thể thay đổi những gì client gửi.</li>
-<li><strong>Chặn IP/L3</strong>: khi DPI chặn dải IP của Telegram ở tầng mạng, chỉ VPN hoặc relay trung gian mới có thể giúp.</li>
-<li><strong>Triển khai TSPU</strong>: DPI của ISP có phát hiện lưu lượng hay không phụ thuộc vào phiên bản phần cứng/phần mềm TSPU — điều này khác nhau theo nhà mạng và khu vực.</li>
+<li><strong>Dấu vân tay TLS client</strong>: ứng dụng Telegram kiểm soát nội dung từng byte của ClientHello, và TSPU nằm giữa client và proxy. Mã phía server không thể thay đổi những gì client gửi. MSS clamp có thể trải các byte đó qua nhiều đoạn TCP, nhưng các node DPI tái tổ hợp luồng — như đợt tháng 6 năm 2026 — vẫn tính ra đúng JA4. Bản sửa thực sự duy nhất cho dấu vân tay là ở phía client (xem ở trên).</li>
+<li><strong>Chặn IP/L3 và ban IP</strong>: khi DPI chặn một IP ở tầng mạng — gồm cả các lệnh ban sau phát hiện lan sang IP lân cận trong cùng dải — chỉ VPN, một cascade Reality, hoặc chuyển sang IP sạch mới giúp được.</li>
+<li><strong>Khác biệt triển khai TSPU</strong>: một đường truyền cụ thể có phát hiện lưu lượng hay không phụ thuộc vào phiên bản phần cứng/phần mềm của node TSPU đó và việc nó có tái tổ hợp TCP hay không. Điều này khác nhau theo nhà mạng, khu vực, và thậm chí giữa mạng di động và cố định của cùng một nhà mạng.</li>
 </ul>
 
 
