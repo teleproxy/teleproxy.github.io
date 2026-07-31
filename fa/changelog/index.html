@@ -29,7 +29,7 @@
       
       
       <link rel="icon" href="../../assets/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -37,7 +37,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -87,7 +87,7 @@
     "operatingSystem": "Linux",
     "license": "https://opensource.org/licenses/GPL-2.0",
     "downloadUrl": "https://github.com/teleproxy/teleproxy/releases/latest",
-    "softwareVersion": "4.13.0",
+    "softwareVersion": "4.16.0",
     "author": {
       "@type": "Person",
       "name": "R. Kline"
@@ -1260,6 +1260,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../deployment/toml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    پیکربندی TOML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../deployment/ipv6/" class="md-nav__link">
         
   
@@ -1464,6 +1492,17 @@
       فهرست موضوعات
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#4160" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.16.0
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#4150" class="md-nav__link">
@@ -1747,6 +1786,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#4160" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.16.0
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#4150" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1987,6 +2037,15 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="4160">4.16.0<a class="headerlink" href="#4160" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Fix high idle CPU usage with worker processes</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/129">#129</a>). The master now enters the normal epoll sleep path when there are no active special connections instead of waking every 1-2 ms merely because workers are configured.</li>
+<li><strong>Portable ARM64 atomics</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/131">#131</a>). Legacy <code>__sync</code> compare-and-swap operations are now <code>__atomic_compare_exchange_n</code> calls, with <code>libatomic</code> linked on Linux and included in the runtime image for non-lock-free 16-byte operations.</li>
+<li><strong>Broader TLS 1.3 camouflage backend compatibility</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/105">#105</a>). Startup probing and <code>teleproxy check</code> now accept valid TLS 1.3 servers that omit the optional compatibility ChangeCipherSpec record.</li>
+<li><strong>Complete TOML configuration reference</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/108">#108</a>). The new guide covers every native option, defaults, fake-TLS backends, per-secret limits, ACLs, direct DC overrides, and reload behavior.</li>
+<li><strong>Clarify stats endpoint access</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/127">#127</a>). <code>/stats</code> and <code>/link</code> deliberately return 404 outside their allowlist; Docker now publishes the stats port on loopback by default, and the docs show secure SSH-tunnel access.</li>
+<li><strong>Correct SOCKS5 requirements</strong> (<a href="https://github.com/teleproxy/teleproxy/issues/123">#123</a>). Upstream SOCKS5 routing is available only in direct-to-DC mode, and all examples now set <code>direct = true</code>.</li>
+</ul>
 <h2 id="4150">4.15.0<a class="headerlink" href="#4150" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>ClientHello JA4 fingerprint distribution on <code>/stats</code> and <code>/metrics</code></strong> (<a href="https://github.com/teleproxy/teleproxy/issues/102">#102</a>, follow-up to <a href="https://github.com/teleproxy/teleproxy/issues/39">#39</a> / <a href="https://github.com/teleproxy/teleproxy/issues/101">#101</a>). When TSPU updates a detection signature, the only operationally interesting traffic is the probe that <em>fails</em> secret validation — so the proxy now hashes every well-formed ClientHello (per the <a href="https://github.com/FoxIO-LLC/ja4">foxio JA4 spec</a>) <em>before</em> the HMAC check and rolls it into a top-32 counter. Surfaces as <code>ja4_seen&lt;TAB&gt;&lt;hash&gt;&lt;TAB&gt;&lt;N&gt;</code> tab-separated lines in <code>/stats</code> and <code>teleproxy_ja4_seen{hash="..."}</code> samples in <code>/metrics</code>. Always on, no configuration. Optional <code>[stats] ja4_log = true</code> TOML key (also <code>--ja4-log</code> CLI / <code>JA4_LOG=true</code> env) prints <code>ja4=&lt;hash&gt; sni=&lt;name&gt;</code> per connection at verbose level 2 for one-off investigations. See the new <a href="/features/monitoring/#clienthello-ja4-fingerprint-distribution">ClientHello JA4 Fingerprint Distribution</a> section. Downstream goal: the <a href="https://github.com/teleproxy/observatory">observatory</a> project can now chart fingerprint distribution over time and correlate with block rate instead of relying on user reports.</li>
@@ -2194,10 +2253,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": "4.13.0"}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u06a9\u067e\u06cc \u0634\u062f", "clipboard.copy": "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646", "search.result.more.one": "1 \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.more.other": "# \u0645\u0648\u0631\u062f \u062f\u06cc\u06af\u0631 \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647", "search.result.none": "\u0633\u0646\u062f\u06cc \u06cc\u0627\u0641\u062a \u0646\u0634\u062f", "search.result.one": "1 \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.other": "# \u0633\u0646\u062f \u06cc\u0627\u0641\u062a \u0634\u062f", "search.result.placeholder": "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u062c\u0633\u062a\u062c\u0648 \u062a\u0627\u06cc\u067e \u06a9\u0646\u06cc\u062f", "search.result.term.missing": "\u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a", "select.version": "\u0627\u0646\u062a\u062e\u0627\u0628 \u0648\u06cc\u0631\u0627\u06cc\u0634"}, "version": "4.16.0"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../assets/comparison.js"></script>
       
