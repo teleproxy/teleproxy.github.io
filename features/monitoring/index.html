@@ -1787,12 +1787,17 @@ network with <code>--stats-allow-net</code>.</p>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a># TYPE teleproxy_ja4_seen counter
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>teleproxy_ja4_seen{hash=&quot;t13d1615h2_46e7e9700bed_45f260be83e2&quot;} 8
 </code></pre></div>
-<p>The <code>/stats</code> endpoint emits the same data as tab-separated <code>ja4_seen\t&lt;hash&gt;\t&lt;count&gt;</code> lines. Diff the distribution against your user count or upstream session log to spot the probe — a fingerprint that shows up only when block rate spikes is the new signature.</p>
+<p>ClientHellos whose HMAC matches a configured secret also feed a bounded top-four distribution for that secret:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># HELP teleproxy_secret_ja4_seen ClientHello JA4 fingerprints observed per secret (top 4 by count, aggregated across workers).
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a># TYPE teleproxy_secret_ja4_seen counter
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>teleproxy_secret_ja4_seen{secret=&quot;family&quot;,hash=&quot;t13d1615h2_46e7e9700bed_45f260be83e2&quot;} 6
+</code></pre></div>
+<p>The <code>/stats</code> endpoint emits the same data as tab-separated <code>ja4_seen\t&lt;hash&gt;\t&lt;count&gt;</code> and <code>secret_&lt;label&gt;_ja4_seen\t&lt;hash&gt;\t&lt;count&gt;</code> lines. Unmatched ClientHellos appear only in the global counter. Diff the global distribution against the per-secret view or upstream session log to separate unrecognized probes from fingerprints using a distributed secret.</p>
 <p>Optional: <code>--ja4-log</code> (or <code>[stats] ja4_log = true</code> in TOML, <code>JA4_LOG=true</code> in Docker) prints one <code>ja4=... sni=...</code> line per connection at verbose level 2. Useful for one-off investigations, noisy for steady-state logging.</p>
 <h3 id="dc-latency-probes">DC Latency Probes<a class="headerlink" href="#dc-latency-probes" title="Permanent link">&para;</a></h3>
 <p>When enabled, teleproxy periodically probes all 5 Telegram DCs with a TCP handshake and exposes the results as a Prometheus histogram:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Enable with 30-second probe interval</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>--dc-probe-interval<span class="w"> </span><span class="m">30</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Enable with 30-second probe interval</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>./teleproxy<span class="w"> </span>...<span class="w"> </span>--dc-probe-interval<span class="w"> </span><span class="m">30</span>
 </code></pre></div>
 <p>Metrics exposed:</p>
 <table>
@@ -1833,7 +1838,7 @@ network with <code>--stats-allow-net</code>.</p>
 <p>The dashboard covers connections, per-secret usage, rejection rates, DC connectivity, and resource utilization.</p>
 <h2 id="health-checks">Health Checks<a class="headerlink" href="#health-checks" title="Permanent link">&para;</a></h2>
 <p>Docker containers include built-in health monitoring via the stats endpoint. Check with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># STATUS column shows health</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>ps<span class="w">  </span><span class="c1"># STATUS column shows health</span>
 </code></pre></div>
 
 
