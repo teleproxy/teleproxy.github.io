@@ -1145,15 +1145,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#surviving-the-june-2026-wave-operator-playbook" class="md-nav__link">
+  <a href="#operator-playbook-current" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Surviving the June 2026 wave (operator playbook)
+        Operator playbook (current)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Surviving the June 2026 wave (operator playbook)">
+    <nav class="md-nav" aria-label="Operator playbook (current)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2012,15 +2012,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#surviving-the-june-2026-wave-operator-playbook" class="md-nav__link">
+  <a href="#operator-playbook-current" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Surviving the June 2026 wave (operator playbook)
+        Operator playbook (current)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Surviving the June 2026 wave (operator playbook)">
+    <nav class="md-nav" aria-label="Operator playbook (current)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2107,7 +2107,7 @@
 <p>Teleproxy includes several layers of defense against Deep Packet Inspection (DPI) systems that attempt to identify and block MTProxy traffic.</p>
 <h2 id="current-threat-landscape">Current Threat Landscape<a class="headerlink" href="#current-threat-landscape" title="Permanent link">&para;</a></h2>
 <p>Russian DPI systems (TSPU/ASBI) classify MTProxy fake-TLS as a distinct protocol ("TELEGRAM_TLS"). Detection is <strong>client-side TLS fingerprinting</strong>: the Telegram app's ClientHello carries one fixed JA4 fingerprint that DPI matches against a signature. The proxy cannot change this — the bytes are produced by the Telegram client, not the server.</p>
-<p>There have been two distinct blocking waves in 2026:</p>
+<p>There have been two distinct blocking waves in 2026, and one client-side response since:</p>
 <p><strong>April 2026 (static fingerprint).</strong> TSPU matched the static JA4/JA3 of Telegram's fake-TLS ClientHello, keying on tells no real browser sends (a malformed <code>0xfe02</code> extension codepoint and a 20-byte random field). Telegram fixed those artifacts client-side (<a href="https://github.com/telegramdesktop/tdesktop/pull/30513">tdesktop PR #30513</a>, <a href="https://github.com/DrKLO/Telegram/pull/1949">DrKLO Android PR #1949</a>), which restored connectivity through late May.</p>
 <p><strong>Late May – June 2026 (reassembly + flow correlation).</strong> The April fix only swapped one static fingerprint for another — the client still emits a single fixed JA4. This wave is harder:</p>
 <ul>
@@ -2115,12 +2115,18 @@
 <li><strong>Active flow correlation.</strong> Several ClientHellos carrying the same SNI + Telegram's JA4 to the same <code>ip:port</code> get the connection temporarily dropped. The proxy IP is also cross-checked against the cover domain's A-record — a random SNI that doesn't resolve to the proxy IP does <strong>not</strong> pass. Rotating SNI across real cover domains, or spreading across IPs/ports, defeats this correlation.</li>
 <li><strong>Silent drops, not RST.</strong> The TLS handshake completes; the moment MTProto Application Data starts, packets are dropped without a reset and the client floods retransmissions (the "connects, then drops after ~30s" symptom).</li>
 </ul>
+<p><strong>August 2026 (client fingerprint refresh).</strong> On 22 August 2026 Telegram shipped a new fake-TLS ClientHello in Desktop 7.1 and Android 12.10.0. Two things changed:</p>
+<ul>
+<li>Three ML-DSA signature-scheme codepoints (<code>0x0904</code>/<code>0x0905</code>/<code>0x0906</code>, i.e. <code>mldsa44</code>/<code>mldsa65</code>/<code>mldsa87</code>) were prepended to <code>signature_algorithms</code>, matching a current Chrome profile.</li>
+<li>The <code>key_share</code> now carries a <strong>real X25519 public key</strong> instead of 32 random bytes. That was a genuine tell: a real X25519 u-coordinate is always below 2^255-19, so its top bit is clear, while random bytes set it half the time.</li>
+</ul>
+<p>This changes the fingerprint and removes a real artifact, so it may well restore connectivity for a period. But it is <strong>a new fixed fingerprint, not randomization</strong> — the same shape as the April fix, which held for roughly six weeks before the next wave keyed on the replacement. Treat it as time bought. We have no field data on whether it passes current TSPU nodes; the operator playbook below remains the standing recommendation.</p>
 <p>Key observations:</p>
 <ul>
 <li><strong>Mobile vs. home is uneven, not policy.</strong> The same proxy often works on an operator's mobile network but fails on its wired/home network (and vice versa, and iOS vs. Android can differ). This is <strong>uneven per-node TSPU reassembly rollout</strong> — the proxy is identical; the DPI box in the path differs — not a per-provider decision. Beeline, MTS, Megafon, Rostelecom have all been reported both ways.</li>
 <li><strong>VPN / Reality tunnels bypass</strong> the MTProto fingerprint entirely (see the operator playbook below).</li>
 <li><strong>Client-side fragmentation tools</strong> (zapret, GoodbyeDPI) still help on <strong>non-reassembling</strong> paths, but are path-dependent now that some nodes reassemble.</li>
-<li>Telegram client randomization (the durable fix) is <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">still under discussion upstream</a> and not yet shipped.</li>
+<li>Telegram refreshed the fake-TLS fingerprint on 22 August 2026 (see above), but <strong>randomization still has not shipped</strong>. <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">tdesktop #30733</a> was closed the same day without it; <a href="https://github.com/telegramdesktop/tdesktop/pull/30528">#30528</a> is open and unmerged, <a href="https://github.com/telegramdesktop/tdesktop/pull/30738">#30738</a> was closed unmerged, and <a href="https://github.com/telemt/tdlib-obf">telemt/tdlib-obf</a> has no release yet.</li>
 </ul>
 <h2 id="what-teleproxy-does-server-side">What Teleproxy Does (Server-Side)<a class="headerlink" href="#what-teleproxy-does-server-side" title="Permanent link">&para;</a></h2>
 <h3 id="fake-tls-camouflage">Fake-TLS camouflage<a class="headerlink" href="#fake-tls-camouflage" title="Permanent link">&para;</a></h3>
@@ -2134,7 +2140,7 @@
 <p>The ServerHello encrypted payload size varies by up to ±32 bytes across connections, mimicking the natural variation in certificate chain and session ticket sizes seen from real TLS servers. The ServerHello and ChangeCipherSpec are sent as separate TCP segments to prevent DPI from matching the full handshake response in a single packet.</p>
 <h3 id="forced-clienthello-fragmentation-automatic">Forced ClientHello fragmentation (automatic)<a class="headerlink" href="#forced-clienthello-fragmentation-automatic" title="Permanent link">&para;</a></h3>
 <p>Teleproxy announces a small TCP Maximum Segment Size (256 bytes) in the SYN-ACK on its public listening port. The client kernel obeys the limit and chops the outgoing ClientHello (~500-700 bytes) into 2-3 TCP segments, so the required inputs to the JA4 hash (ALPN, <code>signature_algorithms</code>) land in later segments.</p>
-<p><strong>Honest scope (updated June 2026).</strong> This only defeats DPI that fingerprints from a single packet. The current TSPU wave <strong>reassembles the TCP stream</strong> before hashing, so on those nodes the fragmentation does nothing — field tests clamping the MSS as low as 88 bytes, verified on the wire, were still blocked. It remains useful against non-reassembling nodes (some mobile paths) and pairs with the existing ServerHello segmentation, so the default stays on. But it is <strong>not</strong> a fix for the June wave on its own — see the <a href="#surviving-the-june-2026-wave-operator-playbook">operator playbook</a> for what actually helps now.</p>
+<p><strong>Honest scope (updated June 2026).</strong> This only defeats DPI that fingerprints from a single packet. The current TSPU wave <strong>reassembles the TCP stream</strong> before hashing, so on those nodes the fragmentation does nothing — field tests clamping the MSS as low as 88 bytes, verified on the wire, were still blocked. It remains useful against non-reassembling nodes (some mobile paths) and pairs with the existing ServerHello segmentation, so the default stays on. But it is <strong>not</strong> a fix for the June wave on its own — see the <a href="#operator-playbook-current">operator playbook</a> for what actually helps now.</p>
 <p>This is automatic, requires no configuration, and works against unmodified Telegram clients on every platform. The HTTP <code>/stats</code> and <code>/metrics</code> listener uses the full system MSS and is unaffected.</p>
 <p>Trade-off: Linux applies the listening-socket MSS to both directions of each accepted connection, so server→client segments are also capped at 256 bytes. Packet count rises ~5× compared to MSS=1460 and per-byte TCP/IP header overhead grows from ~3% to ~15%. On modern hardware with TSO/GSO offload, CPU cost stays manageable, and a 20MB MTProto download still completes well inside any sensible timeout. Bandwidth-saturated proxies will see a measurable throughput cap.</p>
 <p><strong>Turning it off.</strong> Operators who would rather take the JA4 detection risk than the throughput overhead can disable the clamp:</p>
@@ -2159,7 +2165,7 @@
 <p>If your TLS certificate is a wildcard (e.g. <code>*.example.com</code> served from <code>proxy.example.com</code>), configure the <code>-D</code> flag with the wildcard pattern: <code>-D '*.example.com:proxy.example.com:443'</code>. Teleproxy matches any single-label subdomain of <code>example.com</code> against the pattern (RFC 6125): <code>proxy.example.com</code> and <code>node-7.example.com</code> match; <code>example.com</code> (apex) and <code>a.b.example.com</code> (multi-label) do not. Fingerprinting at startup probes the backend host, not the literal <code>*.example.com</code>. An explicit backend is required for wildcard entries.</p>
 <h3 id="use-random-padding-dd-mode">Use random padding (DD mode)<a class="headerlink" href="#use-random-padding-dd-mode" title="Permanent link">&para;</a></h3>
 <p>For ISPs that fingerprint MTProto by packet sizes, enable random padding by prefixing <code>dd</code> to the client secret. Honest note: this helps against size-based heuristics on some ISPs, but does nothing against the JA4 detection driving the June 2026 wave — don't rely on it alone.</p>
-<h2 id="surviving-the-june-2026-wave-operator-playbook">Surviving the June 2026 wave (operator playbook)<a class="headerlink" href="#surviving-the-june-2026-wave-operator-playbook" title="Permanent link">&para;</a></h2>
+<h2 id="operator-playbook-current">Operator playbook (current)<a class="headerlink" href="#operator-playbook-current" title="Permanent link">&para;</a></h2>
 <p>The current wave keys on the client's JA4 plus <code>(SNI + ip:port)</code> correlation, and reassembles TCP. Server-side fingerprint tricks can't change the client's JA4, so the measures that are actually holding up in the field are about <strong>diluting correlation</strong> and <strong>moving the outbound leg off MTProto</strong>. In rough priority order:</p>
 <h3 id="1-rotate-sni-across-several-real-cover-domains">1. Rotate SNI across several real cover domains<a class="headerlink" href="#1-rotate-sni-across-several-real-cover-domains" title="Permanent link">&para;</a></h3>
 <p>The correlation triggers when many connections with the same SNI + Telegram's JA4 hit the same <code>ip:port</code>. Register several cover domains and hand different users links with different SNIs:</p>
@@ -2219,12 +2225,12 @@
 </table>
 <p>These tools fragment the ClientHello across multiple TCP segments. That still helps on <strong>non-reassembling</strong> paths, but the June wave reassembles the stream on some nodes, so results are path-dependent — try them, but they are not a guaranteed fix anymore.</p>
 <div class="admonition tip">
-<p class="admonition-title">Keep Telegram updated, and watch the randomization work</p>
-<p>The durable fix is the <strong>client</strong> randomizing its TLS fingerprint instead of emitting one fixed JA4. That work is in progress upstream but <strong>not yet shipped</strong>: <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">tdesktop #30733</a> tracks the request to rotate/randomize the JA4, with open PRs (<a href="https://github.com/telegramdesktop/tdesktop/pull/30528">#30528</a>, <a href="https://github.com/telegramdesktop/tdesktop/pull/30738">#30738</a>) and the more thorough <a href="https://github.com/telemt/tdlib-obf">telemt/tdlib-obf</a> effort (capture-driven ClientHello masking against real browser profiles). The April fingerprint fix (<a href="https://github.com/telegramdesktop/tdesktop/pull/30513">tdesktop #30513</a>) is already in current releases — always run the latest client, but understand it still emits a single fixed JA4 until randomization lands.</p>
+<p class="admonition-title">Run the latest client — Desktop 7.1 or Android 12.10.0 and newer</p>
+<p>Both carry the <a href="#current-threat-landscape">August 2026 fingerprint refresh</a>, which is a real change worth having. Understand what it is not, though: the durable fix is the client varying its TLS fingerprint <strong>content</strong> between connections, and that has not shipped. Note that permuting extension <em>order</em> does not help — Telegram already does it, Chrome-style, but JA4 sorts extensions before hashing, so the observable fingerprint stays fixed per client build. <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">tdesktop #30733</a> was closed on 22 August 2026 without randomization landing; of the two PRs that proposed it, <a href="https://github.com/telegramdesktop/tdesktop/pull/30528">#30528</a> is still open and <a href="https://github.com/telegramdesktop/tdesktop/pull/30738">#30738</a> was closed unmerged. The most thorough effort, <a href="https://github.com/telemt/tdlib-obf">telemt/tdlib-obf</a> (capture-driven ClientHello masking against real browser profiles), has no release yet.</p>
 </div>
 <h2 id="what-cannot-be-fully-fixed-server-side">What Cannot Be Fully Fixed Server-Side<a class="headerlink" href="#what-cannot-be-fully-fixed-server-side" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Client TLS fingerprint content</strong>: The Telegram app controls the byte-for-byte content of the ClientHello, and TSPU sits between the client and the proxy. Server-side code cannot alter what the client puts on the wire. The MSS clamp can spread those bytes across TCP segments, but DPI nodes that reassemble the stream — as the June 2026 wave does — recompute the correct JA4 regardless. The only real fix for the fingerprint is client-side (see above).</li>
+<li><strong>Client TLS fingerprint content</strong>: The Telegram app controls the byte-for-byte content of the ClientHello, and TSPU sits between the client and the proxy. Server-side code cannot alter what the client puts on the wire. The MSS clamp can spread those bytes across TCP segments, but DPI nodes that reassemble the stream — as the June 2026 wave does — recompute the correct JA4 regardless. The only real fix for the fingerprint is client-side, and so far the client side has delivered fingerprint swaps rather than randomization (see above).</li>
 <li><strong>IP/L3 blocking and IP bans</strong>: When DPI blocks an IP at the network layer — including post-detection bans that spill onto neighboring IPs in the same range — only a VPN, a Reality cascade, or moving to a clean IP helps.</li>
 <li><strong>TSPU deployment variance</strong>: Whether a given path detects the traffic depends on that node's TSPU hardware/software version and whether it reassembles TCP. This varies by operator, region, and even mobile-vs-wired on the same operator.</li>
 </ul>

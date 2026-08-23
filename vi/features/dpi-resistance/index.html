@@ -1134,15 +1134,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vuot-qua-ot-thang-6-nam-2026-playbook-operator" class="md-nav__link">
+  <a href="#playbook-operator-hien-tai" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vượt qua đợt tháng 6 năm 2026 (playbook operator)
+        Playbook operator (hiện tại)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Vượt qua đợt tháng 6 năm 2026 (playbook operator)">
+    <nav class="md-nav" aria-label="Playbook operator (hiện tại)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1990,15 +1990,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vuot-qua-ot-thang-6-nam-2026-playbook-operator" class="md-nav__link">
+  <a href="#playbook-operator-hien-tai" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Vượt qua đợt tháng 6 năm 2026 (playbook operator)
+        Playbook operator (hiện tại)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Vượt qua đợt tháng 6 năm 2026 (playbook operator)">
+    <nav class="md-nav" aria-label="Playbook operator (hiện tại)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2085,7 +2085,7 @@
 <p>Teleproxy bao gồm nhiều lớp phòng thủ chống lại hệ thống Kiểm tra Gói tin Sâu (DPI) nhằm phát hiện và chặn lưu lượng MTProxy.</p>
 <h2 id="boi-canh-moi-e-doa-hien-tai">Bối cảnh mối đe dọa hiện tại<a class="headerlink" href="#boi-canh-moi-e-doa-hien-tai" title="Permanent link">&para;</a></h2>
 <p>Các hệ thống DPI của Nga (TSPU/ASBI) phân loại MTProxy fake-TLS là một giao thức riêng biệt ("TELEGRAM_TLS"). Việc phát hiện dựa vào <strong>dấu vân tay TLS phía client</strong>: ClientHello của ứng dụng Telegram mang một dấu vân tay JA4 cố định mà DPI so khớp với một chữ ký. Proxy không thể thay đổi điều này — các byte do client Telegram tạo ra, không phải server.</p>
-<p>Có hai đợt chặn riêng biệt trong năm 2026:</p>
+<p>Có hai đợt chặn riêng biệt trong năm 2026, và một phản hồi từ phía client sau đó:</p>
 <p><strong>Tháng 4 năm 2026 (dấu vân tay tĩnh).</strong> TSPU so khớp JA4/JA3 tĩnh của ClientHello fake-TLS, dựa vào những dấu hiệu mà không trình duyệt thật nào gửi (một mã phần mở rộng lỗi <code>0xfe02</code> và một trường ngẫu nhiên 20 byte). Telegram đã sửa các artifact này phía client (<a href="https://github.com/telegramdesktop/tdesktop/pull/30513">tdesktop PR #30513</a>, <a href="https://github.com/DrKLO/Telegram/pull/1949">DrKLO Android PR #1949</a>), khôi phục kết nối đến cuối tháng 5.</p>
 <p><strong>Cuối tháng 5 – tháng 6 năm 2026 (tái tổ hợp + tương quan luồng).</strong> Bản sửa tháng 4 chỉ đổi một dấu vân tay tĩnh này lấy một dấu vân tay tĩnh khác — client vẫn phát ra một JA4 cố định duy nhất. Đợt này khó hơn:</p>
 <ul>
@@ -2093,12 +2093,18 @@
 <li><strong>Tương quan luồng chủ động.</strong> Nhiều ClientHello mang cùng SNI + JA4 của Telegram đến cùng một <code>ip:port</code> khiến kết nối bị ngắt tạm thời. IP proxy còn được đối chiếu với bản ghi A của domain ngụy trang — một SNI ngẫu nhiên không phân giải về IP proxy sẽ <strong>không</strong> vượt qua. Xoay vòng SNI qua các domain ngụy trang thật, hoặc trải ra trên nhiều IP/cổng, sẽ đánh bại tương quan này.</li>
 <li><strong>Rơi gói im lặng, không RST.</strong> Bắt tay TLS hoàn tất; ngay khi dữ liệu ứng dụng MTProto bắt đầu, các gói bị bỏ mà không reset và client tràn ngập gói gửi lại (triệu chứng "kết nối được, rồi rớt sau ~30 giây").</li>
 </ul>
+<p><strong>Tháng 8 năm 2026 (làm mới dấu vân tay client).</strong> Ngày 22 tháng 8 năm 2026 Telegram phát hành ClientHello fake-TLS mới trong Desktop 7.1 và Android 12.10.0. Có hai thay đổi:</p>
+<ul>
+<li>Ba codepoint lược đồ chữ ký ML-DSA (<code>0x0904</code>/<code>0x0905</code>/<code>0x0906</code>, tức <code>mldsa44</code>/<code>mldsa65</code>/<code>mldsa87</code>) được thêm vào đầu <code>signature_algorithms</code>, khớp với profile Chrome hiện tại.</li>
+<li><code>key_share</code> giờ mang một <strong>khóa công khai X25519 thật</strong> thay vì 32 byte ngẫu nhiên. Đó từng là một dấu hiệu thực sự: tọa độ u của khóa X25519 thật luôn nhỏ hơn 2^255-19 nên bit cao nhất bằng 0, trong khi byte ngẫu nhiên đặt bit đó trong một nửa số trường hợp.</li>
+</ul>
+<p>Thay đổi này làm đổi dấu vân tay và loại bỏ một artifact có thật, nên có thể khôi phục kết nối trong một khoảng thời gian. Nhưng đây là <strong>một dấu vân tay cố định mới, không phải ngẫu nhiên hóa</strong> — cùng dạng với bản sửa tháng 4, vốn trụ được khoảng sáu tuần trước khi đợt kế tiếp bắt đúng bản thay thế. Hãy xem đây là thời gian mua được. Chúng tôi không có dữ liệu thực địa về việc nó có vượt qua các node TSPU hiện tại hay không; playbook operator bên dưới vẫn là khuyến nghị chính.</p>
 <p>Các quan sát chính:</p>
 <ul>
 <li><strong>Di động so với gia đình là không đồng đều, không phải chính sách.</strong> Cùng một proxy thường chạy trên mạng di động của một nhà mạng nhưng hỏng trên mạng cố định/gia đình của chính nhà mạng đó (và ngược lại, và iOS so với Android có thể khác nhau). Đây là <strong>triển khai tái tổ hợp không đồng đều trên các node TSPU</strong> — proxy giống hệt nhau; hộp DPI trên đường truyền khác nhau — không phải quyết định của nhà mạng. Beeline, MTS, Megafon, Rostelecom đều được báo cáo theo cả hai chiều.</li>
 <li><strong>VPN / đường hầm Reality vượt qua</strong> hoàn toàn dấu vân tay MTProto (xem playbook operator bên dưới).</li>
 <li><strong>Công cụ phân mảnh phía client</strong> (zapret, GoodbyeDPI) vẫn giúp được trên các đường <strong>không tái tổ hợp</strong>, nhưng giờ phụ thuộc vào đường truyền vì một số node đã tái tổ hợp.</li>
-<li>Việc ngẫu nhiên hóa dấu vân tay client của Telegram (bản sửa bền vững) <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">vẫn đang được thảo luận ở thượng nguồn</a> và chưa được phát hành.</li>
+<li>Telegram đã làm mới dấu vân tay fake-TLS vào ngày 22 tháng 8 năm 2026 (xem ở trên), nhưng <strong>việc ngẫu nhiên hóa vẫn chưa được phát hành</strong>. <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">tdesktop #30733</a> đã bị đóng ngay hôm đó mà không có nó; <a href="https://github.com/telegramdesktop/tdesktop/pull/30528">#30528</a> vẫn mở và chưa merge, <a href="https://github.com/telegramdesktop/tdesktop/pull/30738">#30738</a> bị đóng không merge, còn <a href="https://github.com/telemt/tdlib-obf">telemt/tdlib-obf</a> vẫn chưa có bản phát hành nào.</li>
 </ul>
 <h2 id="teleproxy-lam-gi-phia-server">Teleproxy làm gì (phía server)<a class="headerlink" href="#teleproxy-lam-gi-phia-server" title="Permanent link">&para;</a></h2>
 <h3 id="nguy-trang-fake-tls">Ngụy trang Fake-TLS<a class="headerlink" href="#nguy-trang-fake-tls" title="Permanent link">&para;</a></h3>
@@ -2135,7 +2141,7 @@
 <p>Nếu bạn quản lý domain của server, hãy thiết lập nginx với chứng chỉ TLS hợp lệ phía sau Teleproxy. Điều này làm cho server không thể phân biệt với website HTTPS bình thường khi bị thăm dò chủ động. Xem <a href="../fake-tls/#custom-tls-backend-tcp-splitting">Fake-TLS: TLS Backend Tùy chỉnh</a>.</p>
 <h3 id="su-dung-padding-ngau-nhien-che-o-dd">Sử dụng padding ngẫu nhiên (chế độ DD)<a class="headerlink" href="#su-dung-padding-ngau-nhien-che-o-dd" title="Permanent link">&para;</a></h3>
 <p>Đối với ISP nhận dạng MTProto qua kích thước gói tin, bật padding ngẫu nhiên bằng cách thêm tiền tố <code>dd</code> vào secret client. Lưu ý trung thực: cách này giúp chống lại heuristic dựa trên kích thước gói ở một số ISP, nhưng không có tác dụng gì với việc phát hiện JA4 đang dẫn dắt đợt tháng 6 năm 2026 — đừng chỉ dựa vào nó.</p>
-<h2 id="vuot-qua-ot-thang-6-nam-2026-playbook-operator">Vượt qua đợt tháng 6 năm 2026 (playbook operator)<a class="headerlink" href="#vuot-qua-ot-thang-6-nam-2026-playbook-operator" title="Permanent link">&para;</a></h2>
+<h2 id="playbook-operator-hien-tai">Playbook operator (hiện tại)<a class="headerlink" href="#playbook-operator-hien-tai" title="Permanent link">&para;</a></h2>
 <p>Đợt hiện tại dựa vào JA4 của client cộng với tương quan <code>(SNI + ip:port)</code>, và tái tổ hợp TCP. Các thủ thuật dấu vân tay phía server không thể đổi JA4 của client, nên những biện pháp thực sự trụ được trong thực địa là về việc <strong>làm loãng tương quan</strong> và <strong>đưa chặng ra ngoài khỏi MTProto</strong>. Theo thứ tự ưu tiên đại khái:</p>
 <h3 id="1-xoay-vong-sni-qua-nhieu-domain-nguy-trang-that">1. Xoay vòng SNI qua nhiều domain ngụy trang thật<a class="headerlink" href="#1-xoay-vong-sni-qua-nhieu-domain-nguy-trang-that" title="Permanent link">&para;</a></h3>
 <p>Tương quan kích hoạt khi nhiều kết nối cùng SNI + JA4 của Telegram đến cùng một <code>ip:port</code>. Đăng ký nhiều domain ngụy trang và phát cho người dùng khác nhau các link với SNI khác nhau:</p>
@@ -2195,12 +2201,12 @@
 </table>
 <p>Các công cụ này phân mảnh ClientHello qua nhiều đoạn TCP. Trên các đường <strong>không tái tổ hợp</strong> điều này vẫn giúp ích, nhưng đợt tháng 6 tái tổ hợp luồng trên một số node, nên kết quả phụ thuộc vào đường truyền — cứ thử, nhưng đây không còn là bản sửa đảm bảo nữa.</p>
 <div class="admonition tip">
-<p class="admonition-title">Cập nhật Telegram, và theo dõi công việc ngẫu nhiên hóa</p>
-<p>Bản sửa bền vững là <strong>client tự ngẫu nhiên hóa dấu vân tay TLS</strong> thay vì phát ra một JA4 cố định. Công việc này đang diễn ra ở thượng nguồn nhưng <strong>chưa được phát hành</strong>: <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">tdesktop #30733</a> theo dõi yêu cầu xoay vòng/ngẫu nhiên hóa JA4, với các PR đang mở (<a href="https://github.com/telegramdesktop/tdesktop/pull/30528">#30528</a>, <a href="https://github.com/telegramdesktop/tdesktop/pull/30738">#30738</a>) và nỗ lực kỹ lưỡng hơn <a href="https://github.com/telemt/tdlib-obf">telemt/tdlib-obf</a> (ngụy trang ClientHello theo các profile trình duyệt thật dựa trên pcap). Bản sửa dấu vân tay tháng 4 (<a href="https://github.com/telegramdesktop/tdesktop/pull/30513">tdesktop #30513</a>) đã có trong các bản phát hành hiện tại — luôn chạy client mới nhất, nhưng hiểu rằng nó vẫn phát một JA4 cố định cho đến khi ngẫu nhiên hóa được đưa vào.</p>
+<p class="admonition-title">Chạy client mới nhất — Desktop 7.1 hoặc Android 12.10.0 trở lên</p>
+<p>Cả hai đều mang bản làm mới dấu vân tay tháng 8 năm 2026 mô tả ở trên, đây là thay đổi thật và đáng có. Nhưng hãy hiểu nó không phải là gì: bản sửa bền vững là client thay đổi <strong>nội dung</strong> dấu vân tay TLS giữa các kết nối, và điều đó chưa được phát hành. Lưu ý rằng hoán vị <em>thứ tự</em> extension không giúp ích — Telegram vốn đã làm vậy theo kiểu Chrome, nhưng JA4 sắp xếp extension trước khi băm, nên dấu vân tay quan sát được vẫn cố định với mỗi bản build client. <a href="https://github.com/telegramdesktop/tdesktop/issues/30733">tdesktop #30733</a> đã bị đóng ngày 22 tháng 8 năm 2026 mà không có ngẫu nhiên hóa; trong hai PR từng đề xuất nó, <a href="https://github.com/telegramdesktop/tdesktop/pull/30528">#30528</a> vẫn mở còn <a href="https://github.com/telegramdesktop/tdesktop/pull/30738">#30738</a> bị đóng không merge. Nỗ lực kỹ lưỡng nhất, <a href="https://github.com/telemt/tdlib-obf">telemt/tdlib-obf</a> (ngụy trang ClientHello theo các profile trình duyệt thật dựa trên pcap), vẫn chưa có bản phát hành.</p>
 </div>
 <h2 id="nhung-gi-khong-the-sua-tu-phia-server">Những gì không thể sửa từ phía server<a class="headerlink" href="#nhung-gi-khong-the-sua-tu-phia-server" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Dấu vân tay TLS client</strong>: ứng dụng Telegram kiểm soát nội dung từng byte của ClientHello, và TSPU nằm giữa client và proxy. Mã phía server không thể thay đổi những gì client gửi. MSS clamp có thể trải các byte đó qua nhiều đoạn TCP, nhưng các node DPI tái tổ hợp luồng — như đợt tháng 6 năm 2026 — vẫn tính ra đúng JA4. Bản sửa thực sự duy nhất cho dấu vân tay là ở phía client (xem ở trên).</li>
+<li><strong>Dấu vân tay TLS client</strong>: ứng dụng Telegram kiểm soát nội dung từng byte của ClientHello, và TSPU nằm giữa client và proxy. Mã phía server không thể thay đổi những gì client gửi. MSS clamp có thể trải các byte đó qua nhiều đoạn TCP, nhưng các node DPI tái tổ hợp luồng — như đợt tháng 6 năm 2026 — vẫn tính ra đúng JA4. Bản sửa thực sự duy nhất cho dấu vân tay là ở phía client, và cho đến nay phía client mới chỉ thay dấu vân tay chứ chưa ngẫu nhiên hóa (xem ở trên).</li>
 <li><strong>Chặn IP/L3 và ban IP</strong>: khi DPI chặn một IP ở tầng mạng — gồm cả các lệnh ban sau phát hiện lan sang IP lân cận trong cùng dải — chỉ VPN, một cascade Reality, hoặc chuyển sang IP sạch mới giúp được.</li>
 <li><strong>Khác biệt triển khai TSPU</strong>: một đường truyền cụ thể có phát hiện lưu lượng hay không phụ thuộc vào phiên bản phần cứng/phần mềm của node TSPU đó và việc nó có tái tổ hợp TCP hay không. Điều này khác nhau theo nhà mạng, khu vực, và thậm chí giữa mạng di động và cố định của cùng một nhà mạng.</li>
 </ul>
