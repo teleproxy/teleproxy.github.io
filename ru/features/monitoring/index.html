@@ -467,6 +467,25 @@
   
   
     <li class="md-tabs__item">
+      <a href="../../donate/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Поддержать
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="https://teleproxy.github.io/observatory/" class="md-tabs__link">
         
   
@@ -1604,6 +1623,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../donate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поддержать
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="https://teleproxy.github.io/observatory/" class="md-nav__link">
         
   
@@ -1778,12 +1824,12 @@
 <p>Каждый корректный TLS ClientHello, доходящий до прокси, фингерпринтится по <a href="https://github.com/FoxIO-LLC/ja4">JA4</a> и попадает в топ-32 счётчик — включая ClientHello, которые потом не проходят HMAC-проверку. Это и есть смысл: когда ТСПУ выкатывает новую сигнатуру блокировки, операционно интересен именно тот зонд, который HMAC <em>не</em> проходит. Включено всегда, без настройки.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># HELP teleproxy_ja4_seen ClientHello JA4 fingerprints observed (top 32 by count, aggregated across workers).
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a># TYPE teleproxy_ja4_seen counter
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>teleproxy_ja4_seen{hash=&quot;t13d1615h2_46e7e9700bed_45f260be83e2&quot;} 8
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>teleproxy_ja4_seen{hash="t13d1615h2_46e7e9700bed_45f260be83e2"} 8
 </code></pre></div>
 <p>ClientHello, HMAC которых совпал с настроенным секретом, также попадают в ограниченный топ-4 счётчик этого секрета:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a># HELP teleproxy_secret_ja4_seen ClientHello JA4 fingerprints observed per secret (top 4 by count, aggregated across workers).
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a># TYPE teleproxy_secret_ja4_seen counter
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>teleproxy_secret_ja4_seen{secret=&quot;family&quot;,hash=&quot;t13d1615h2_46e7e9700bed_45f260be83e2&quot;} 6
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>teleproxy_secret_ja4_seen{secret="family",hash="t13d1615h2_46e7e9700bed_45f260be83e2"} 6
 </code></pre></div>
 <p>В <code>/stats</code> те же данные приходят как tab-разделённые строки <code>ja4_seen\t&lt;hash&gt;\t&lt;count&gt;</code> и <code>secret_&lt;label&gt;_ja4_seen\t&lt;hash&gt;\t&lt;count&gt;</code>. ClientHello без совпавшего секрета остаются только в глобальном счётчике. Сравнение глобального распределения с посекретным отделяет неизвестные зонды от фингерпринтов, использующих выданный секрет.</p>
 <p>Опционально: <code>--ja4-log</code> (или <code>[stats] ja4_log = true</code> в TOML, <code>JA4_LOG=true</code> в Docker) печатает строку <code>ja4=... sni=...</code> на каждое подключение при verbose 2. Полезно для разовых разборов, шумно в обычном режиме.</p>
@@ -1866,10 +1912,64 @@
         
       </main>
       
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="../../donate/">Support</a></div>
       </div>
     </div>
   </footer>

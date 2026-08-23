@@ -467,6 +467,25 @@
   
   
     <li class="md-tabs__item">
+      <a href="../../donate/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Поддержать
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="https://teleproxy.github.io/observatory/" class="md-tabs__link">
         
   
@@ -1620,6 +1639,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../donate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Поддержать
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="https://teleproxy.github.io/observatory/" class="md-nav__link">
         
   
@@ -1811,7 +1857,7 @@
 </code></pre></div>
 <h3 id="toml-">TOML-конфиг<a class="headerlink" href="#toml-" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">direct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">socks5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;socks5://proxy.example.com:1080&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">socks5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"socks5://proxy.example.com:1080"</span>
 </code></pre></div>
 <h3 id="cli">Флаг CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./teleproxy<span class="w"> </span>--direct<span class="w"> </span>--socks5<span class="w"> </span>socks5://user:pass@proxy.example.com:1080<span class="w"> </span>-H<span class="w"> </span><span class="m">443</span><span class="w"> </span>-S<span class="w"> </span>&lt;secret&gt;<span class="w"> </span>...
@@ -1854,7 +1900,7 @@ bridge-сети, какой бы ни был <code>host.docker.internal</code>. 
 Адрес прослушивания можно проверить через <code>ss -ltnp | grep 1080</code>.</p>
 <p><strong>Проверьте до запуска teleproxy:</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--add-host<span class="o">=</span>host.docker.internal:host-gateway<span class="w"> </span>alpine<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;apk add -q curl &amp;&amp; curl -sS --socks5 host.docker.internal:1080 https://api.telegram.org&#39;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">'apk add -q curl &amp;&amp; curl -sS --socks5 host.docker.internal:1080 https://api.telegram.org'</span>
 </code></pre></div>
 <p>Если выводится баннер Telegram API, teleproxy тоже заработает:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
@@ -1949,10 +1995,64 @@ bridge-сети, какой бы ни был <code>host.docker.internal</code>. 
         
       </main>
       
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="../../donate/">Support</a></div>
       </div>
     </div>
   </footer>

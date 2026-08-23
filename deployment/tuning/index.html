@@ -467,6 +467,25 @@
   
   
     <li class="md-tabs__item">
+      <a href="../../donate/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Donate
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="https://teleproxy.github.io/observatory/" class="md-tabs__link">
         
   
@@ -1587,6 +1606,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../donate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Donate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="https://teleproxy.github.io/observatory/" class="md-nav__link">
         
   
@@ -1789,16 +1835,16 @@
 <h2 id="kernel-tuning">Kernel tuning<a class="headerlink" href="#kernel-tuning" title="Permanent link">&para;</a></h2>
 <p>On Linux, reducing TCP buffer sizes frees kernel memory for more connections:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Lower default TCP buffer sizes (bytes: min, default, max)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.tcp_rmem<span class="o">=</span><span class="s2">&quot;4096 16384 131072&quot;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.tcp_wmem<span class="o">=</span><span class="s2">&quot;4096 16384 131072&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.tcp_rmem<span class="o">=</span><span class="s2">"4096 16384 131072"</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sysctl<span class="w"> </span>-w<span class="w"> </span>net.ipv4.tcp_wmem<span class="o">=</span><span class="s2">"4096 16384 131072"</span>
 </code></pre></div>
 <p>This drops per-socket kernel memory from ~46 KB to ~32 KB at the cost of slightly lower throughput for large file transfers. Telegram messages are small, so the impact is minimal.</p>
 <p>For Docker, pass sysctl settings in compose:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">services</span><span class="p">:</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">teleproxy</span><span class="p">:</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">sysctls</span><span class="p">:</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">net.ipv4.tcp_rmem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4096</span><span class="nv"> </span><span class="s">16384</span><span class="nv"> </span><span class="s">131072&quot;</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">net.ipv4.tcp_wmem</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;4096</span><span class="nv"> </span><span class="s">16384</span><span class="nv"> </span><span class="s">131072&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">net.ipv4.tcp_rmem</span><span class="p">:</span><span class="w"> </span><span class="s">"4096</span><span class="nv"> </span><span class="s">16384</span><span class="nv"> </span><span class="s">131072"</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">net.ipv4.tcp_wmem</span><span class="p">:</span><span class="w"> </span><span class="s">"4096</span><span class="nv"> </span><span class="s">16384</span><span class="nv"> </span><span class="s">131072"</span>
 </code></pre></div>
 <h2 id="monitoring-for-capacity">Monitoring for capacity<a class="headerlink" href="#monitoring-for-capacity" title="Permanent link">&para;</a></h2>
 <p>Key metrics to watch (available at the <code>/stats</code> and <code>/metrics</code> endpoints):</p>
@@ -1866,10 +1912,64 @@
         
       </main>
       
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="../../donate/">Support</a></div>
       </div>
     </div>
   </footer>

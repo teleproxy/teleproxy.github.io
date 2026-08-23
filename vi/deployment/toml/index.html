@@ -467,6 +467,25 @@
   
   
     <li class="md-tabs__item">
+      <a href="../../donate/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Ủng hộ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="https://teleproxy.github.io/observatory/" class="md-tabs__link">
         
   
@@ -1614,6 +1633,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../../donate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ủng hộ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="https://teleproxy.github.io/observatory/" class="md-nav__link">
         
   
@@ -1790,43 +1836,43 @@ documented separately under <a href="../../docker/configuration/">Docker Configu
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">443</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">stats_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8888</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">external_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">443</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">bind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">bind</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0.0.0.0"</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">ipv6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">workers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">max_connections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">maxconn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">65536</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;teleproxy&quot;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">user</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"teleproxy"</span>
 <a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
 <a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># Upstream mode</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">direct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1"># Fake-TLS. A string is enough when the SNI name is also the backend.</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cover.example.com&quot;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="n">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"cover.example.com"</span>
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
 <a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1"># Monitoring</span>
 <a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">http_stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="n">stats_allow_net</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;100.64.0.0/10&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;fd00::/8&quot;</span><span class="p">]</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="n">stats_allow_net</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"100.64.0.0/10"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fd00::/8"</span><span class="p">]</span>
 <a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="n">top_ips_per_secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
 <a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="n">ja4_log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 <a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="n">dc_probe_interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span>
 <a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
 <a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="c1"># Access and transport</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="n">ip_blocklist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/etc/teleproxy/blocklist.txt&quot;</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="n">ip_allowlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/etc/teleproxy/allowlist.txt&quot;</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="n">ip_blocklist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/etc/teleproxy/blocklist.txt"</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="n">ip_allowlist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"/etc/teleproxy/allowlist.txt"</span>
 <a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="n">random_padding_only</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 <a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="n">proxy_protocol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 <a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="n">mss_clamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="n">socks5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;socks5://127.0.0.1:1080&quot;</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="n">socks5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"socks5://127.0.0.1:1080"</span>
 <a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>
 <a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="c1"># Removed secrets keep existing sessions for this many seconds.</span>
 <a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="n">drain_timeout_secs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span>
 <a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>
 <a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="k">[[secret]]</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0123456789abcdef0123456789abcdef&quot;</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0123456789abcdef0123456789abcdef"</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"default"</span>
 <a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="n">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="n">quota</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;100G&quot;</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="n">rate_limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10M&quot;</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="n">quota</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"100G"</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="n">rate_limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"10M"</span>
 <a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="n">max_ips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
 <a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="n">expires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ld">2026-12-31T23:59:59Z</span>
 </code></pre></div>
@@ -1940,26 +1986,26 @@ settings:</p>
 <p>Direct mode needs neither file.</p>
 <h2 id="fake-tls-domains">Fake-TLS domains<a class="headerlink" href="#fake-tls-domains" title="Permanent link">&para;</a></h2>
 <p>For one domain whose hostname is also the HTTPS backend:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cover.example.com&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"cover.example.com"</span>
 </code></pre></div>
 <p>Specify a separate backend, several domains, a fixed address, or a Unix socket
 with an array:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;one.example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:8443&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;two.example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;backend.example.net:443&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;*.example.org&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;origin.example.org:443&quot;</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;local.example.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;unix:/run/nginx.sock&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"one.example.com"</span><span class="p">,</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"127.0.0.1:8443"</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"two.example.com"</span><span class="p">,</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"backend.example.net:443"</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"*.example.org"</span><span class="p">,</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"origin.example.org:443"</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"local.example.com"</span><span class="p">,</span><span class="w"> </span><span class="n">backend</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">"unix:/run/nginx.sock"</span><span class="w"> </span><span class="p">},</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">]</span>
 </code></pre></div>
 <p>Up to 16 entries are accepted. Domain changes require a restart.</p>
 <h2 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h2>
 <p>Repeat <code>[[secret]]</code> up to 16 times:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[[secret]]</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0123456789abcdef0123456789abcdef&quot;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;family&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"0123456789abcdef0123456789abcdef"</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"family"</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">quota</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;25G&quot;</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">rate_limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;5M&quot;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">quota</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"25G"</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">rate_limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"5M"</span>
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">max_ips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">expires</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1798761599</span>
 </code></pre></div>
@@ -2118,12 +2164,12 @@ networks and <code>stats_allow_net</code>. See <a href="../../features/monitorin
 <p>Replace built-in addresses for a DC by repeating <code>[[dc_override]]</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[[dc_override]]</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">dc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;149.154.167.51&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"149.154.167.51"</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">443</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">[[dc_override]]</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">dc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2001:67c:4e8:f002::a&quot;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"2001:67c:4e8:f002::a"</span>
 <a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">443</span>
 </code></pre></div>
 <p><code>dc</code> must be 1 through 5. At most five override rows are accepted.</p>
@@ -2131,7 +2177,7 @@ networks and <code>stats_allow_net</code>. See <a href="../../features/monitorin
 <p>Reload without dropping established sessions:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>systemctl<span class="w"> </span>reload<span class="w"> </span>teleproxy
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># or</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">kill</span><span class="w"> </span>-HUP<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>pidof<span class="w"> </span>teleproxy<span class="k">)</span><span class="s2">&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">kill</span><span class="w"> </span>-HUP<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>pidof<span class="w"> </span>teleproxy<span class="k">)</span><span class="s2">"</span>
 </code></pre></div>
 <p>Secrets, ACL file contents, <code>ja4_log</code>, and <code>drain_timeout_secs</code> reload.
 Listener, mode, domain, worker, SOCKS5, stats allow networks, ACL paths, and DC
@@ -2170,10 +2216,64 @@ changes.</p>
         
       </main>
       
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+      
+    
+  
   <footer class="md-footer">
     <div class="md-footer-meta md-typeset">
       <div class="md-footer-meta__inner md-grid">
-        <div class="md-copyright">R. Kline &copy; &middot; <a href="https://t.me/tribute/app?startapp=dIa9" target="_blank" rel="noopener">Donate</a> &middot; <a href="https://app.tonkeeper.com/transfer/UQCRB931D__Q2YQmAbUfcuHQ7fHsG3_3At7e6pUtNa6b9bTh" target="_blank" rel="noopener">TON</a></div>
+        <div class="md-copyright">R. Kline &copy; &middot; <a href="../../donate/">Support</a></div>
       </div>
     </div>
   </footer>
